@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">ProyectoFinalDispositivosMoviles</string>
+    <string name="crear_pdf">Crear PDF</string>
 </resources>
