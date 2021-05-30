@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">ProyectoFinalDispositivosMoviles</string>
     <string name="crear_pdf">Crear PDF</string>
+    <string name="Nombre">Introduce tu nombre</string>
+    <string name="Apt_Paterno">Introduce tu Apellido Paterno</string>
+    <string name="Apt_materno">Introduce tu Apellido Materno</string>
 </resources>
