@@ -4,4 +4,6 @@
     <string name="Nombre">Introduce tu nombre</string>
     <string name="Apt_Paterno">Introduce tu Apellido Paterno</string>
     <string name="Apt_materno">Introduce tu Apellido Materno</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
