@@ -6,46 +6,39 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <Button
-        android:id="@+id/b1"
-        android:layout_width="135dp"
-        android:layout_height="54dp"
-        android:text="@string/crear_pdf"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.834" />
-
     <FrameLayout
         android:id="@+id/idFragments"
-        android:layout_width="345dp"
-        android:layout_height="227dp"
-        app:layout_constraintBottom_toTopOf="@+id/b1"
+        android:layout_width="384dp"
+        android:layout_height="434dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.407"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.83">
+        app:layout_constraintVertical_bias="0.822">
 
     </FrameLayout>
 
     <Button
-        android:id="@+id/blue"
+        android:id="@+id/guardar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:onClick="OnClik"
-        android:text="Button"
+        android:text="Guardar PDF"
         app:layout_constraintBottom_toTopOf="@+id/idFragments"
-        app:layout_constraintEnd_toStartOf="@+id/red"
+        app:layout_constraintEnd_toStartOf="@+id/buscar"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/red"
+        android:id="@+id/buscar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:onClick="OnClik"
-        android:text="Button"
+        android:text="Buscar PDF"
         app:layout_constraintBottom_toTopOf="@+id/idFragments"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.776"

@@ -12,10 +12,10 @@ import mx.edu.unpa.proyectofinaldispositivosmoviles.R;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link RedFragment#newInstance} factory method to
+ * Use the {@link GuardarPDF#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class RedFragment extends Fragment {
+public class GuardarPDF extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -26,7 +26,7 @@ public class RedFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public RedFragment() {
+    public GuardarPDF() {
         // Required empty public constructor
     }
 
@@ -36,11 +36,11 @@ public class RedFragment extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment RedFragment.
+     * @return A new instance of fragment GuardarPDF.
      */
     // TODO: Rename and change types and number of parameters
-    public static RedFragment newInstance(String param1, String param2) {
-        RedFragment fragment = new RedFragment();
+    public static GuardarPDF newInstance(String param1, String param2) {
+        GuardarPDF fragment = new GuardarPDF();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -61,6 +61,6 @@ public class RedFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_red, container, false);
+        return inflater.inflate(R.layout.fragment_guardar_p_d, container, false);
     }
 }
