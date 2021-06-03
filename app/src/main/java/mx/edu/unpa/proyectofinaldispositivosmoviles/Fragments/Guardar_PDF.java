@@ -12,10 +12,10 @@ import mx.edu.unpa.proyectofinaldispositivosmoviles.R;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link cargarPDF#newInstance} factory method to
+ * Use the {@link Guardar_PDF#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class cargarPDF extends Fragment {
+public class Guardar_PDF extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -26,7 +26,7 @@ public class cargarPDF extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public cargarPDF() {
+    public Guardar_PDF() {
         // Required empty public constructor
     }
 
@@ -36,11 +36,11 @@ public class cargarPDF extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment cargarPDF.
+     * @return A new instance of fragment Guardar_PDF.
      */
     // TODO: Rename and change types and number of parameters
-    public static cargarPDF newInstance(String param1, String param2) {
-        cargarPDF fragment = new cargarPDF();
+    public static Guardar_PDF newInstance(String param1, String param2) {
+        Guardar_PDF fragment = new Guardar_PDF();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -61,6 +61,6 @@ public class cargarPDF extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_cargar_p_d, container, false);
+        return inflater.inflate(R.layout.guardar__p_d, container, false);
     }
 }
