@@ -5,11 +5,11 @@
     <item
         android:id="@+id/refresh"
         android:icon="@android:drawable/ic_popup_sync"
-        android:title="@string/refrescar"
-        app:showAsAction="always" />
+        app:showAsAction="always"
+        android:title="TODO" />
     <item
         android:id="@+id/add"
         android:icon="@android:drawable/ic_menu_add"
-        android:title="@string/item"
-        app:showAsAction="ifRoom" />
+        app:showAsAction="ifRoom"
+        android:title="TODO" />
 </menu>
