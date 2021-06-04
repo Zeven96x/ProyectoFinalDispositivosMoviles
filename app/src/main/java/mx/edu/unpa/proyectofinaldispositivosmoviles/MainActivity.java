@@ -24,15 +24,16 @@ public class MainActivity extends AppCompatActivity {
         transaction = getSupportFragmentManager().beginTransaction();
         switch(view.getId()){
             case R.id.guardar:
-                transaction.replace(R.id.idFragments,guardarPDF).commit();
+                transaction.replace(R.id.idFragments,guardarPDF);
                 transaction.addToBackStack(null);
                 break;
             case R.id.buscar:
-                transaction.replace(R.id.idFragments,cargarPDF).commit();
+                transaction.replace(R.id.idFragments,cargarPDF);
                 transaction.addToBackStack(null);
                 break;
             default:
         }
+        transaction.commit();
     }
 
 }

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -9,8 +10,78 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="guardar"
         android:textAlignment="center"
         android:textSize="24sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/txtTitulo"
+            android:layout_width="396dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:fontFamily="sans-serif"
+            android:text="  introduce el nombre del pdf"
+            android:textAlignment="center"
+            android:textColor="#040404"
+            android:textSize="24sp"
+            app:layout_constraintBottom_toTopOf="@+id/txtNombre"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.42"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <EditText
+            android:id="@+id/txtNombre2"
+            android:layout_width="match_parent"
+            android:layout_height="75dp"
+            android:layout_marginTop="21dp"
+            android:layout_marginBottom="28dp"
+            android:ems="10"
+            android:hint="Introduce el nombre"
+            android:inputType="textPersonName"
+            android:textAlignment="center"
+            app:layout_constraintBottom_toTopOf="@+id/txtContenido"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.494"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtTitulo" />
+
+        <EditText
+            android:id="@+id/txtContenido2"
+            android:layout_width="match_parent"
+            android:layout_height="195dp"
+            android:layout_marginBottom="18dp"
+            android:ems="10"
+            android:gravity="start|top"
+            android:hint="introduce la informacion "
+            android:inputType="textMultiLine"
+            android:textAlignment="center"
+            app:layout_constraintBottom_toTopOf="@+id/btnguardar"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtNombre" />
+
+        <Button
+            android:id="@+id/btnguardar2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Guardar"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white"
+            android:textSize="24sp"
+            app:iconTint="@color/black"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.186"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.81" />
+
+    </LinearLayout>
 
 </FrameLayout>
