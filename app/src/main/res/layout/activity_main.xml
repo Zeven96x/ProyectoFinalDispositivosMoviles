@@ -4,24 +4,21 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/darker_gray"
     tools:context=".MainActivity">
 
     <FrameLayout
         android:id="@+id/idFragments"
-        android:layout_width="380dp"
-        android:layout_height="496dp"
+        android:layout_width="384dp"
+        android:layout_height="434dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
-        android:background="@color/white"
-        android:textAlignment="center"
+        android:layout_marginBottom="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.407"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/guideline3"
-        app:layout_constraintVertical_bias="0.157">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.822">
 
     </FrameLayout>
 
@@ -29,24 +26,26 @@
         android:id="@+id/guardar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="48dp"
         android:onClick="OnClik"
         android:text="Guardar PDF"
         app:layout_constraintBottom_toTopOf="@+id/guideline3"
         app:layout_constraintEnd_toStartOf="@+id/buscar"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
 
     <Button
         android:id="@+id/buscar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
         android:onClick="OnClik"
         android:text="Buscar PDF"
         app:layout_constraintBottom_toBottomOf="@+id/guardar"
-        app:layout_constraintEnd_toStartOf="@+id/Lista"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/guardar"
         app:layout_constraintTop_toTopOf="@+id/guardar" />
@@ -56,17 +55,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.14" />
-
-    <Button
-        android:id="@+id/Lista"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Lista PDF"
-        app:layout_constraintBottom_toBottomOf="@+id/buscar"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/buscar"
-        app:layout_constraintTop_toTopOf="@+id/buscar" />
+        app:layout_constraintGuide_percent="0.19402985" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

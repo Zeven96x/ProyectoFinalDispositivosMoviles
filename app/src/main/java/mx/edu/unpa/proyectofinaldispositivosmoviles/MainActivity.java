@@ -1,9 +1,11 @@
 package mx.edu.unpa.proyectofinaldispositivosmoviles;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.FragmentTransaction;
 import android.os.Bundle;
 import android.view.View;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentTransaction;
+
 import mx.edu.unpa.proyectofinaldispositivosmoviles.Fragments.Guardar_PDF;
 import mx.edu.unpa.proyectofinaldispositivosmoviles.Fragments.cargar_PDF;
 
@@ -21,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
     public void OnClik(View view){
+
         transaction = getSupportFragmentManager().beginTransaction();
         switch(view.getId()){
             case R.id.guardar:

@@ -17,7 +17,14 @@ import android.widget.Toast;
 import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.Fragment;
 
+import com.lowagie.text.Document;
+import com.lowagie.text.DocumentException;
+import com.lowagie.text.Paragraph;
+import com.lowagie.text.pdf.PdfWriter;
+
 import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
 
 import mx.edu.unpa.proyectofinaldispositivosmoviles.R;
 
@@ -81,7 +88,9 @@ public class Guardar_PDF extends Fragment {
         View v = inflater.inflate(R.layout.guardar__p_d, container, false);
         txtNombre3= (EditText) v.findViewById(R.id.txtNombre2);
         txtContenido =  (EditText) v.findViewById(R.id.txtContenido2);
+
        return v;
+
     }
 
 
@@ -126,7 +135,8 @@ public class Guardar_PDF extends Fragment {
         }
     }
     //region Generate PDF file
-   /* public void createPDF(String nombre, String contenido) {
+
+    public void createPDF(String nombre, String contenido) {
         Document document = new Document();
         try {
             DOCUMENT_NAME = nombre + ".pdf";
@@ -148,7 +158,9 @@ public class Guardar_PDF extends Fragment {
         }finally {
             document.close();
         }
-    }*/
+    }
+
+
 
     public File createFile(String fileName) {
         File path = getPath();
