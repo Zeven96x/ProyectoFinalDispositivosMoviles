@@ -28,7 +28,6 @@
         android:layout_width="309dp"
         android:layout_height="73dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:ems="10"
         android:hint="Introduce el nombre del archivo"
@@ -41,8 +40,8 @@
 
     <EditText
         android:id="@+id/txtContenido2"
-        android:layout_width="307dp"
-        android:layout_height="290dp"
+        android:layout_width="310dp"
+        android:layout_height="229dp"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
         android:ems="10"
@@ -50,15 +49,17 @@
         android:hint="Introduce el contenido "
         android:inputType="textMultiLine"
         android:textAlignment="center"
-        app:layout_constraintBottom_toTopOf="@+id/button2"
+        app:layout_constraintBottom_toTopOf="@+id/guardar2"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtNombre2" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/guardar2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:onClick="Guardar"
         android:text="Guardar PDF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/txtContenido2"

@@ -1,42 +1,83 @@
 package mx.edu.unpa.proyectofinaldispositivosmoviles;
 
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
+import android.widget.TableLayout;
+import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.viewpager2.widget.ViewPager2;
+
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.tabs.TabLayout;
 
 import mx.edu.unpa.proyectofinaldispositivosmoviles.Fragments.Guardar_PDF;
+import mx.edu.unpa.proyectofinaldispositivosmoviles.Fragments.Listas;
 import mx.edu.unpa.proyectofinaldispositivosmoviles.Fragments.cargar_PDF;
 
 public class MainActivity extends AppCompatActivity {
-    FragmentTransaction transaction;
-    cargar_PDF cargarPDF;
-    Guardar_PDF guardarPDF;
+    Guardar_PDF firstFragment = new Guardar_PDF();
+    cargar_PDF secondFragment = new cargar_PDF();
+    Listas thirdFragment = new Listas();
+
+    /*FragmentTransaction transaction;
+    cargar_PDF cargar;
+    Guardar_PDF guardarPDF;*/
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        //
-        guardarPDF = new Guardar_PDF();
-        cargarPDF  = new cargar_PDF();
 
+        BottomNavigationView navigation = findViewById(R.id.bottom_navigation);
+        navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+
+        loadFragment(firstFragment);
     }
-    public void OnClik(View view){
 
+    private final BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener= new BottomNavigationView.OnNavigationItemSelectedListener() {
+        @Override
+        public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+            switch (item.getItemId()){
+                case R.id.firstFragment:
+                    loadFragment(firstFragment);
+                    return true;
+                case R.id.secondFragment:
+                    loadFragment(secondFragment);
+                    return true;
+                case R.id.thirdFragment:
+                    loadFragment(thirdFragment);
+                    return true;
+            }
+            return false;
+        }
+    };
+
+    public  void  loadFragment(Fragment fragment){
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        transaction.replace(R.id.frame_container,fragment);
+        transaction.commit();
+    }
+
+
+   /* public void OnClik(View view){
         transaction = getSupportFragmentManager().beginTransaction();
         switch(view.getId()){
             case R.id.guardar:
                 transaction.replace(R.id.idFragments,guardarPDF);
                 transaction.addToBackStack(null);
                 break;
-            case R.id.buscar:
-                transaction.replace(R.id.idFragments,cargarPDF);
+            case R.id.buscar1:
+                transaction.replace(R.id.idFragments,cargar);
                 transaction.addToBackStack(null);
                 break;
             default:
         }
         transaction.commit();
-    }
+    }*/
 
 }
