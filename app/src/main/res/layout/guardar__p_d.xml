@@ -12,15 +12,9 @@
 
 
     <ScrollView
-        android:layout_width="392dp"
-        android:layout_height="380dp"
-        android:layout_marginTop="8dp"
-        android:orientation="horizontal"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.761"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -30,20 +24,10 @@
             <EditText
                 android:id="@+id/txtNombre_Archivo"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="16dp"
-                android:layout_marginBottom="8dp"
-                android:ems="10"
+                android:layout_height="wrap_content"
                 android:hint="Introduce el nombre del archivo"
                 android:inputType="textPersonName"
-                android:textAlignment="center"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.526"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.64" />
+                android:textAlignment="center" />
 
 
             <LinearLayout
@@ -56,189 +40,112 @@
                 <LinearLayout
                     android:id="@+id/Puesto"
                     android:layout_width="200dp"
-                    android:layout_height="120dp"
+                    android:layout_height="130dp"
                     android:orientation="vertical">
-
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:fontFamily="sans-serif"
                         android:hint="Puesto que Solicitar:"
                         android:textAlignment="center"
                         android:textColor="@color/black"
-                        android:textSize="14sp"
-                        app:layout_constraintBottom_toTopOf="@+id/txtNombre"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.493"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
+                        android:textSize="14sp" />
 
 
                     <EditText
                         android:id="@+id/txtPuesto_solicitado"
-                        android:layout_width="wrap_content"
-                        android:layout_height="106dp"
-                        android:ems="10"
+                        android:layout_width="match_parent"
+                        android:layout_height="115dp"
                         android:gravity="start|top"
-                        android:inputType="textMultiLine"
-                        tools:layout_editor_absoluteX="6dp"
-                        tools:layout_editor_absoluteY="520dp" />
+                        android:inputType="textMultiLine" />
 
                 </LinearLayout>
-
 
                 <LinearLayout
                     android:id="@+id/fecha_1"
                     android:layout_width="200dp"
-                    android:layout_height="120dp"
+                    android:layout_height="wrap_content"
                     android:orientation="vertical">
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:fontFamily="sans-serif"
                         android:hint="Fecha:"
                         android:textAlignment="center"
                         android:textColor="@color/black"
-                        android:textSize="14sp"
-                        app:layout_constraintBottom_toTopOf="@+id/txtNombre"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.493"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
+                        android:textSize="14sp" />
 
                     <LinearLayout
                         android:id="@+id/guarda_fecha_1"
-                        android:layout_width="200dp"
-                        android:layout_height="41dp"
-                        android:layout_marginEnd="128dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
                         android:orientation="horizontal"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        tools:layout_editor_absoluteY="97dp">
+                        android:gravity="center">
 
                         <EditText
                             android:id="@+id/txtDia"
-                            android:layout_width="260dp"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:ems="10"
                             android:hint="dia"
                             android:inputType="textPersonName"
-                            android:textAlignment="center"
-                            app:layout_constraintBottom_toTopOf="@+id/guideline2"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintHorizontal_bias="0.258"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent"
-                            app:layout_constraintVertical_bias="1.0" />
+                            android:textAlignment="center" />
 
                         <EditText
                             android:id="@+id/txtMes"
-                            android:layout_width="260dp"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:ems="10"
                             android:hint="mes"
                             android:inputType="textPersonName"
-                            android:textAlignment="center"
-                            app:layout_constraintBottom_toTopOf="@+id/guideline2"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintHorizontal_bias="0.258"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent"
-                            app:layout_constraintVertical_bias="1.0" />
+                            android:textAlignment="center" />
 
                         <EditText
                             android:id="@+id/txtaño"
-                            android:layout_width="260dp"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:ems="10"
                             android:hint="año"
                             android:inputType="textPersonName"
-                            android:textAlignment="center"
-                            app:layout_constraintBottom_toTopOf="@+id/guideline2"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintHorizontal_bias="0.258"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent"
-                            app:layout_constraintVertical_bias="1.0" />
+                            android:textAlignment="center"/>
                     </LinearLayout>
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:fontFamily="sans-serif"
                         android:hint="Fecha de Contratacion:"
                         android:textAlignment="center"
-                        android:textColor="@color/black"
-                        android:textSize="14sp"
-                        app:layout_constraintBottom_toTopOf="@+id/txtNombre"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.493"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
+                        android:textSize="14sp" />
 
                     <LinearLayout
                         android:id="@+id/fecha_aprobada"
-                        android:layout_width="200dp"
-                        android:layout_height="46dp"
-                        android:layout_marginEnd="128dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
                         android:orientation="horizontal"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        tools:layout_editor_absoluteY="97dp">
+                        android:gravity="center" >
 
                         <EditText
                             android:id="@+id/txtDiac"
-                            android:layout_width="260dp"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:ems="10"
                             android:hint="dia"
-                            android:inputType="textPersonName"
-                            android:textAlignment="center"
-                            app:layout_constraintBottom_toTopOf="@+id/guideline2"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintHorizontal_bias="0.258"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent"
-                            app:layout_constraintVertical_bias="1.0" />
+                            android:textAlignment="center" />
 
                         <EditText
                             android:id="@+id/txtMesc"
-                            android:layout_width="260dp"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:ems="10"
                             android:hint="mes"
-                            android:inputType="textPersonName"
-                            android:textAlignment="center"
-                            app:layout_constraintBottom_toTopOf="@+id/guideline2"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintHorizontal_bias="0.258"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent"
-                            app:layout_constraintVertical_bias="1.0" />
+                            android:inputType="textPersonName" />
 
                         <EditText
                             android:id="@+id/txtañoc"
-                            android:layout_width="260dp"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:ems="10"
                             android:hint="año"
                             android:inputType="textPersonName"
-                            android:textAlignment="center"
-                            app:layout_constraintBottom_toTopOf="@+id/guideline2"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintHorizontal_bias="0.258"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent"
-                            app:layout_constraintVertical_bias="1.0" />
+                            android:textAlignment="center" />
                     </LinearLayout>
                 </LinearLayout>
             </LinearLayout>
+
 
             <LinearLayout
                 android:id="@+id/fila_3"
@@ -250,122 +157,428 @@
                 <LinearLayout
                     android:id="@+id/sueldos"
                     android:layout_width="200dp"
-                    android:layout_height="130dp"
+                    android:layout_height="60dp"
                     android:orientation="vertical">
 
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:fontFamily="sans-serif"
                         android:hint="Sueldo mensual deseado:"
                         android:textAlignment="center"
-                        android:textColor="@color/black"
-                        android:textSize="14sp"
-                        app:layout_constraintBottom_toTopOf="@+id/txtNombre"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.493"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
+                        android:textSize="14sp"/>
 
                     <EditText
                         android:id="@+id/txtSueldoDeseado"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:ems="10"
                         android:hint="$"
                         android:inputType="textPersonName"
-                        android:textAlignment="center"
-                        app:layout_constraintBottom_toTopOf="@+id/guideline2"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.258"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintVertical_bias="1.0" />
+                        android:textAlignment="center" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/sueldo_Apro"
+                    android:layout_width="200dp"
+                    android:layout_height="60dp"
+                    android:orientation="vertical">
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:fontFamily="sans-serif"
                         android:hint="Sueldo mensual Aprobado:"
                         android:textAlignment="center"
                         android:textColor="@color/black"
-                        android:textSize="14sp"
-                        app:layout_constraintBottom_toTopOf="@+id/txtNombre"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.493"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
+                        android:textSize="14sp" />
 
                     <EditText
                         android:id="@+id/txtSueldoAprobado"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:ems="10"
                         android:hint="$"
                         android:inputType="textPersonName"
-                        android:textAlignment="center"
-                        app:layout_constraintBottom_toTopOf="@+id/guideline2"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.258"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintVertical_bias="1.0" />
+                        android:textAlignment="center" />
                 </LinearLayout>
-
-
-                <LinearLayout
-                    android:id="@+id/fecha_Aprobacion"
-                    android:layout_width="200dp"
-                    android:layout_height="130dp"
-                    android:orientation="vertical">
-
-
-                    <LinearLayout
-                        android:id="@+id/sexo"
-                        android:layout_width="200dp"
-                        android:layout_height="64dp"
-                        android:orientation="vertical">
-
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="sans-serif"
-                            android:hint="Telefono:"
-                            android:textAlignment="center"
-                            android:textColor="@color/black"
-                            android:textSize="14sp"
-                            app:layout_constraintBottom_toTopOf="@+id/txtNombre"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintHorizontal_bias="0.493"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent" />
-
-                        <EditText
-                            android:id="@+id/txtNumeroTELEFENO"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:ems="10"
-                            android:hint="Introduce tu Numero"
-                            android:inputType="textPersonName"
-                            android:textAlignment="center"
-                            app:layout_constraintBottom_toTopOf="@+id/guideline2"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintHorizontal_bias="0.258"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent"
-                            app:layout_constraintVertical_bias="1.0" />
-
-                    </LinearLayout>
-
-
-                </LinearLayout>
-
             </LinearLayout>
 
 
-        </LinearLayout>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:hint="Datos personales"
+                android:textAlignment="center"
+                android:textSize="24sp"/>
+
+
+
+             <!--"datos de la persona"-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:orientation="horizontal">
+
+                        <LinearLayout
+                            android:id="@+id/telefono"
+                            android:layout_width="200dp"
+                            android:layout_height="60dp"
+                            android:orientation="vertical">
+
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:hint="Telefono:"
+                                android:textAlignment="center"
+                                android:textColor="@color/black"
+                                android:textSize="14sp" />
+
+                            <EditText
+                                android:id="@+id/txtNumeroTELEFENO"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:hint="Introduce tu Numero"
+                                android:textAlignment="center" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/sexo"
+                            android:layout_width="200dp"
+                            android:layout_height="60dp"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:hint="sexo:"
+                                android:textAlignment="center"
+                                android:textColor="@color/black"
+                                android:textSize="14sp" />
+
+                            <LinearLayout
+                                android:id="@+id/sex"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                android:gravity="center">
+
+                                <CheckBox
+                                    android:id="@+id/Hombre"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Hombre"></CheckBox>
+
+                                <CheckBox
+                                    android:id="@+id/Mujer"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="Mujer"></CheckBox>
+                            </LinearLayout>
+                        </LinearLayout>
+                </LinearLayout>
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="255dp"
+                        android:orientation="vertical">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="45dp"
+                                android:orientation="horizontal">
+
+                                <EditText
+                                    android:id="@+id/txtNombrePersona"
+                                    android:layout_width="134dp"
+                                    android:layout_height="50dp"
+                                    android:hint="nombre(s)"
+                                    android:textAlignment="center"/>
+
+                                <EditText
+                                    android:id="@+id/txtapellidoP"
+                                    android:layout_width="134dp"
+                                    android:layout_height="50dp"
+                                    android:hint="Apellido P"
+                                    android:textAlignment="center"/>
+
+                                <EditText
+                                    android:id="@+id/txtApellidoM"
+                                    android:layout_width="134dp"
+                                    android:layout_height="50dp"
+                                    android:hint="Apellido M"
+                                    android:inputType="textPersonName"
+                                    android:textAlignment="center" />
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="45dp"
+                                android:orientation="horizontal">
+
+                                <EditText
+                                    android:id="@+id/txtDomicilio"
+                                    android:layout_width="134dp"
+                                    android:layout_height="50dp"
+                                    android:hint="Domicilio"
+                                    android:textAlignment="center"/>
+
+                                <EditText
+                                    android:id="@+id/txtColonia"
+                                    android:layout_width="134dp"
+                                    android:layout_height="50dp"
+                                    android:hint="colonia"
+                                    android:textAlignment="center" />
+
+                                <EditText
+                                    android:id="@+id/txtCodigoPostal"
+                                    android:layout_width="134dp"
+                                    android:layout_height="50dp"
+                                    android:hint="Codigo postal"
+                                    android:textAlignment="center"/>
+
+                            </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="45dp"
+                            android:orientation="horizontal">
+
+                            <EditText
+                                android:id="@+id/txtCiudad"
+                                android:layout_width="134dp"
+                                android:layout_height="50dp"
+                                android:hint="Ciudad"
+                                android:textAlignment="center" />
+
+                            <EditText
+                                android:id="@+id/txtEstado"
+                                android:layout_width="134dp"
+                                android:layout_height="50dp"
+                                android:hint="Estado"
+                                android:textAlignment="center" />
+
+                            <EditText
+                                android:id="@+id/txtLugar_de_nacimineto"
+                                android:layout_width="134dp"
+                                android:layout_height="50dp"
+                                android:hint="Lugar De N"
+                                android:textAlignment="center" />
+
+                        </LinearLayout>
+                        <LinearLayout
+                            android:id="@+id/VivEcON"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="18dp"
+                                android:hint="Vive con:"
+                                android:textSize="14sp" />
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+
+                                <CheckBox
+                                    android:layout_width="120dp"
+                                    android:layout_height="wrap_content"
+                                    android:text="Sus Padres"></CheckBox>
+
+                                <CheckBox
+                                    android:layout_width="100dp"
+                                    android:layout_height="wrap_content"
+                                    android:text="Su Familia"></CheckBox>
+
+                                <CheckBox
+                                    android:layout_width="100dp"
+                                    android:layout_height="wrap_content"
+                                    android:text="Parientes"></CheckBox>
+
+                                <CheckBox
+                                    android:layout_width="80dp"
+                                    android:layout_height="wrap_content"
+                                    android:text="Solo"></CheckBox>
+
+                            </LinearLayout>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/Personas_dependen"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="18dp"
+                                android:hint="Personas que dependen de Usted:"
+                                android:textSize="14sp" />
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+
+                                <CheckBox
+                                    android:layout_width="100dp"
+                                    android:layout_height="wrap_content"
+                                    android:text="Hijos"></CheckBox>
+
+                                <CheckBox
+                                    android:layout_width="100dp"
+                                    android:layout_height="wrap_content"
+                                    android:text="Conyuge"></CheckBox>
+
+                                <CheckBox
+                                    android:layout_width="100dp"
+                                    android:layout_height="wrap_content"
+                                    android:text="Padres"></CheckBox>
+
+                                <CheckBox
+                                    android:layout_width="80dp"
+                                    android:layout_height="wrap_content"
+                                    android:text="Otros"></CheckBox>
+
+                            </LinearLayout>
+                        </LinearLayout>
+                </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="230dp"
+                android:orientation="vertical">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="200dp"
+                        android:layout_height="60dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="200dp"
+                            android:layout_height="18dp"
+                            android:hint="Fecha de nacimiendo:"
+                            android:textSize="14sp" />
+
+                        <EditText
+                            android:id="@+id/txtFecha_de_N"
+                            android:layout_width="200dp"
+                            android:layout_height="45dp"
+                            android:textAlignment="center"/>
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="200dp"
+                        android:layout_height="60dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="200dp"
+                            android:layout_height="18dp"
+                            android:hint="Nacionalidad:"
+                            android:textSize="14sp" />
+
+                        <EditText
+                            android:id="@+id/txtNacionalidad"
+                            android:layout_width="200dp"
+                            android:layout_height="45dp"
+                            android:textAlignment="center"/>
+
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="200dp"
+                        android:layout_height="60dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="200dp"
+                            android:layout_height="18dp"
+                            android:hint="Peso:"
+                            android:textSize="14sp" />
+
+                        <EditText
+                            android:id="@+id/txtPeso"
+                            android:layout_width="200dp"
+                            android:layout_height="45dp"
+                            android:textAlignment="center"/>
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="200dp"
+                        android:layout_height="60dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="200dp"
+                            android:layout_height="18dp"
+                            android:hint="Estatura:"
+                            android:textSize="14sp" />
+
+                        <EditText
+                            android:id="@+id/txtEstatura"
+                            android:layout_width="200dp"
+                            android:layout_height="45dp"
+                            android:textAlignment="center"/>
+
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="60dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="18dp"
+                            android:hint="Estado Civil:"
+                            android:textSize="14sp" />
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center">
+
+                        <CheckBox
+                            android:layout_width="100dp"
+                            android:layout_height="wrap_content"
+                            android:text="Solitero"></CheckBox>
+
+                        <CheckBox
+                            android:layout_width="100dp"
+                            android:layout_height="wrap_content"
+                            android:text="Casado"></CheckBox>
+
+                        <CheckBox
+                            android:layout_width="100dp"
+                            android:layout_height="wrap_content"
+                            android:text="Otro"></CheckBox>
+
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+
+
+
+
+
+            </LinearLayout>
     </ScrollView>
 
 
