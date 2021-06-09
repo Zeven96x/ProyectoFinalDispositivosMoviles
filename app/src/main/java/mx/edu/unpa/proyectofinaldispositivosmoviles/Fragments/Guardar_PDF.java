@@ -88,9 +88,9 @@ public class Guardar_PDF extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.guardar__p_d, container, false);
-        txtNombre3= (EditText) v.findViewById(R.id.txtNombre2);
-        txtContenido =  (EditText) v.findViewById(R.id.txtContenido2);
-        guarda= v.findViewById(R.id.guardar2);
+       /* txtNombre3= (EditText) v.findViewById(R.id.txtNombre2);
+        //txtContenido =  (EditText) v.findViewById(R.id.txtContenido2);
+        //guarda= v.findViewById(R.id.guardar2);
         guarda.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -133,7 +133,7 @@ public class Guardar_PDF extends Fragment {
                     Toast.makeText(getActivity(), "Inserta el nombre para el pdf", Toast.LENGTH_LONG).show();
                 }
             }
-        });
+        });*/
         return v;
     }
 
