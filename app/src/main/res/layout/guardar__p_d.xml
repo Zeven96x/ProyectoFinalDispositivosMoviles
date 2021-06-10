@@ -28,7 +28,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="30dp"
-                android:hint="Nombre del Archivo"
+                android:hint="Nombre del PDF"
                 android:textAlignment="center"
                 android:textColorHint="@color/black"
                 android:textSize="24sp" />
@@ -37,7 +37,7 @@
                 android:id="@+id/txtNombre_Archivo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Introduce el nombre del archivo"
+                android:hint="Introduce el nombre del PDF"
                 android:inputType="textPersonName"
                 android:textAlignment="center" />
 
@@ -47,7 +47,7 @@
                 android:hint="Requisitos"
                 android:textAlignment="center"
                 android:textColorHint="@color/black"
-                android:textSize="24sp" />
+                android:textSize="20sp" />
 
             <LinearLayout
                 android:id="@+id/fila2"
@@ -228,7 +228,7 @@
                 android:hint="Datos personales"
                 android:textAlignment="center"
                 android:textColorHint="@color/black"
-                android:textSize="24sp" />
+                android:textSize="20sp" />
 
             <!--"datos de la persona"-->
             <LinearLayout
@@ -247,7 +247,6 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="Telefono:"
-                        android:textAlignment="center"
                         android:textColor="@color/black"
                         android:textSize="14sp" />
 
@@ -277,7 +276,6 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="sexo:"
-                        android:textAlignment="center"
                         android:textColor="@color/black"
                         android:textSize="14sp" />
 
@@ -303,6 +301,12 @@
                 </LinearLayout>
             </LinearLayout>
 
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Introduce tu Nombre y Apellidos:"
+                android:textColor="@color/black"
+                android:textSize="14sp" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -336,6 +340,13 @@
 
             </LinearLayout>
 
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Introduce los datos de donde vives:"
+                android:textColor="@color/black"
+                android:textSize="14sp" />
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="45dp"
@@ -366,6 +377,13 @@
                     android:textAlignment="center" />
 
             </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Introduce datos de tu localidad:"
+                android:textColor="@color/black"
+                android:textSize="14sp" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -403,6 +421,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Vive con :"
+                    android:textColor="@color/black"
+                    android:textSize="14sp" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -494,7 +519,7 @@
                     <EditText
                         android:id="@+id/txtFecha_de_N"
                         android:layout_width="200dp"
-                        android:layout_height="40dp"
+                        android:layout_height="50dp"
                         android:textAlignment="center" />
 
                 </LinearLayout>
@@ -513,7 +538,7 @@
                     <EditText
                         android:id="@+id/txtNacionalidad"
                         android:layout_width="200dp"
-                        android:layout_height="40dp"
+                        android:layout_height="50dp"
                         android:textAlignment="center" />
 
                 </LinearLayout>
@@ -570,7 +595,7 @@
 
                 <TextView
                     android:layout_width="match_parent"
-                    android:layout_height="18dp"
+                    android:layout_height="22dp"
                     android:hint="Estado Civil:"
                     android:textSize="14sp" />
 
@@ -602,10 +627,10 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="30dp"
-                android:hint="Datos personales"
+                android:hint="Documentacion"
                 android:textAlignment="center"
                 android:textColorHint="@color/black"
-                android:textSize="24sp" />
+                android:textSize="20sp" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -779,12 +804,12 @@
                 android:hint="Estado de salud"
                 android:textAlignment="center"
                 android:textColorHint="@color/black"
-                android:textSize="24sp" />
+                android:textSize="20sp" />
 
             <LinearLayout
                 android:id="@+id/salud"
                 android:layout_width="match_parent"
-                android:layout_height="130dp"
+                android:layout_height="200dp"
                 android:orientation="vertical">
 
                 <TextView
@@ -844,9 +869,24 @@
                         android:id="@+id/txtTipo_enfermedad"
                         android:layout_width="134dp"
                         android:layout_height="45dp"
+                        android:hint="Expica"
+                        android:textSize="14sp"
                         android:textAlignment="center" />
 
                 </LinearLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="18dp"
+                    android:hint="cual es tu meta en la vida?"
+                    android:textSize="14sp" />
+
+                <EditText
+                    android:id="@+id/txtmeta"
+                    android:layout_width="match_parent"
+                    android:layout_height="63dp"
+                    android:hint=""
+                    android:textAlignment="center" />
             </LinearLayout>
 
             <TextView
@@ -855,13 +895,19 @@
                 android:hint="Escolaridad"
                 android:textAlignment="center"
                 android:textColorHint="@color/black"
-                android:textSize="24sp" />
+                android:textSize="20sp" />
 
             <LinearLayout
                 android:id="@+id/Escolaridad"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Estudios  Alcanzado:"
+                    android:textSize="14sp" />
 
                 <LinearLayout
                     android:id="@+id/Selecion_Escuela"
@@ -904,7 +950,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Estudios que efectuas en la Actualidad:"
-                    android:textAlignment="center"
                     android:textSize="14sp" />
 
                 <EditText
@@ -915,6 +960,664 @@
                     android:textAlignment="center" />
 
             </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:hint="Conocimientos Generales"
+                android:textAlignment="center"
+                android:textColorHint="@color/black"
+                android:textSize="20sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="90dp"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="200dp"
+                    android:layout_height="80dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="200dp"
+                        android:layout_height="35dp"
+                        android:hint="Que Idiomas hablas (Nivel 50%,75%,100%)"
+                        android:textSize="14sp" />
+
+                    <EditText
+                        android:id="@+id/txtIdiomas"
+                        android:layout_width="200dp"
+                        android:layout_height="50dp"
+                        android:textAlignment="center" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="200dp"
+                    android:layout_height="80dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="200dp"
+                        android:layout_height="35dp"
+                        android:hint="Funciones de Oficina que domina:"
+                        android:textSize="14sp" />
+
+                    <EditText
+                        android:id="@+id/txtFunciones_oficinas"
+                        android:layout_width="200dp"
+                        android:layout_height="50dp"
+                        android:textAlignment="center" />
+
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="90dp"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="200dp"
+                    android:layout_height="80dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="200dp"
+                        android:layout_height="35dp"
+                        android:hint="Maquinas de Oficina o de taller que sepa manejar:"
+                        android:textSize="14sp" />
+
+                    <EditText
+                        android:id="@+id/txtMaquinas_manejadas"
+                        android:layout_width="200dp"
+                        android:layout_height="50dp"
+                        android:textAlignment="center" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="200dp"
+                    android:layout_height="80dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="200dp"
+                        android:layout_height="35dp"
+                        android:hint="Software que conoce:"
+                        android:textSize="14sp" />
+
+                    <EditText
+                        android:id="@+id/txtSoftware_conocido"
+                        android:layout_width="200dp"
+                        android:layout_height="50dp"
+                        android:textAlignment="center" />
+
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:orientation="vertical">
+
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Otros trabajos o funciones que domina:"
+                    android:textSize="14sp" />
+
+                <EditText
+                    android:id="@+id/txtOtros_Trabajos"
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:inputType="textPersonName"
+                    android:textAlignment="center" />
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:hint="Referencias Personales(favor de no incluir jefes Anteriores)"
+                android:textAlignment="center"
+                android:textColorHint="@color/black"
+                android:textSize="20sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Referencia 1:"
+                android:textColor="@color/black"
+                android:textSize="14sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/txtNombreReferencia1"
+                    android:layout_width="134dp"
+                    android:layout_height="50dp"
+                    android:hint="nombre"
+                    android:textSize="14sp"
+                    android:textAlignment="center" />
+
+                <EditText
+                    android:id="@+id/txtDomicilioR1"
+                    android:layout_width="134dp"
+                    android:layout_height="50dp"
+                    android:hint="Domicilio"
+                    android:textSize="14sp"
+                    android:textAlignment="center" />
+
+                <EditText
+                    android:id="@+id/txtTelefono1"
+                    android:layout_width="134dp"
+                    android:layout_height="50dp"
+                    android:hint="Telefono"
+                    android:textSize="14sp"
+                    android:inputType="textPersonName"
+                    android:textAlignment="center" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/txtOcupacionR1"
+                    android:layout_width="200dp"
+                    android:layout_height="50dp"
+                    android:hint="Ocupacion"
+                    android:textSize="14sp"
+                    android:textAlignment="center" />
+
+                <EditText
+                    android:id="@+id/txtTiempoConocerR1"
+                    android:layout_width="200dp"
+                    android:layout_height="50dp"
+                    android:hint="Tiempo de conocerlo"
+                    android:textSize="14sp"
+                    android:textAlignment="center" />
+
+            </LinearLayout>
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Referencia 2:"
+                android:textColor="@color/black"
+                android:textSize="14sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/txtNombreReferencia2"
+                    android:layout_width="134dp"
+                    android:layout_height="50dp"
+                    android:hint="nombre"
+                    android:textSize="14sp"
+                    android:textAlignment="center" />
+
+                <EditText
+                    android:id="@+id/txtDomicilioR2"
+                    android:layout_width="134dp"
+                    android:layout_height="50dp"
+                    android:hint="Domicilio"
+                    android:textSize="14sp"
+                    android:textAlignment="center" />
+
+                <EditText
+                    android:id="@+id/txtTelefono2"
+                    android:layout_width="134dp"
+                    android:layout_height="50dp"
+                    android:hint="Telefono"
+                    android:textSize="14sp"
+                    android:inputType="textPersonName"
+                    android:textAlignment="center" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/txtOcupacionR2"
+                    android:layout_width="200dp"
+                    android:layout_height="50dp"
+                    android:hint="Ocupacion"
+                    android:textSize="14sp"
+                    android:textAlignment="center" />
+
+                <EditText
+                    android:id="@+id/txtTiempoConocerR2"
+                    android:layout_width="200dp"
+                    android:layout_height="50dp"
+                    android:hint="Tiempo de conocerlo"
+                    android:textSize="14sp"
+                    android:textAlignment="center" />
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Referencia 3:"
+                android:textColor="@color/black"
+                android:textSize="14sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/txtNombreReferencia3"
+                    android:layout_width="134dp"
+                    android:layout_height="50dp"
+                    android:hint="nombre"
+                    android:textSize="14sp"
+                    android:textAlignment="center" />
+
+                <EditText
+                    android:id="@+id/txtDomicilioR3"
+                    android:layout_width="134dp"
+                    android:layout_height="50dp"
+                    android:hint="Domicilio"
+                    android:textSize="14sp"
+                    android:textAlignment="center" />
+
+                <EditText
+                    android:id="@+id/txtTelefono3"
+                    android:layout_width="134dp"
+                    android:layout_height="50dp"
+                    android:hint="Telefono"
+                    android:textSize="14sp"
+                    android:inputType="textPersonName"
+                    android:textAlignment="center" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/txtOcupacionR3"
+                    android:layout_width="200dp"
+                    android:layout_height="50dp"
+                    android:hint="Ocupacion"
+                    android:textSize="14sp"
+                    android:textAlignment="center" />
+
+                <EditText
+                    android:id="@+id/txtTiempoConocerR3"
+                    android:layout_width="200dp"
+                    android:layout_height="50dp"
+                    android:hint="Tiempo de conocerlo"
+                    android:textSize="14sp"
+                    android:textAlignment="center" />
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:hint="Datos Generales"
+                android:textAlignment="center"
+                android:textColorHint="@color/black"
+                android:textSize="20sp" />
+
+            <LinearLayout
+                android:id="@+id/Datos_generales"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="18dp"
+                    android:hint="¿Como supo de este empleo?"
+                    android:textSize="14sp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="43dp"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <CheckBox
+                        android:layout_width="85dp"
+                        android:layout_height="wrap_content"
+                        android:text="Anuncio"></CheckBox>
+
+                    <CheckBox
+                        android:layout_width="140dp"
+                        android:layout_height="wrap_content"
+                        android:text="Otro medio(Anotelo)"></CheckBox>
+
+                    <EditText
+                        android:id="@+id/txtOtro_medio"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Escria el medio"
+                        android:textSize="14sp"
+                        android:textAlignment="center" />
+
+                </LinearLayout>
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="¿Tienes parientes trabajando en esta empresa?"
+                    android:textColor="@color/black"
+                    android:textSize="14sp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <CheckBox
+                        android:id="@+id/parientes_no"
+                        android:layout_width="60dp"
+                        android:layout_height="wrap_content"
+                        android:text="no"></CheckBox>
+
+                    <CheckBox
+                        android:id="@+id/Parientes_si"
+                        android:layout_width="140dp"
+                        android:layout_height="wrap_content"
+                        android:text="si(Nombrelos)"></CheckBox>
+
+                    <EditText
+                        android:id="@+id/txtNombre_Pariente"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Nombre del pariente"
+                        android:textSize="14sp"
+                        android:textAlignment="center" />
+
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="¿Haz estado afianzado?"
+                    android:textColor="@color/black"
+                    android:textSize="14sp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <CheckBox
+                        android:id="@+id/afianza_no"
+                        android:layout_width="60dp"
+                        android:layout_height="wrap_content"
+                        android:text="no"></CheckBox>
+
+                    <CheckBox
+                        android:id="@+id/afianza_si"
+                        android:layout_width="150dp"
+                        android:layout_height="wrap_content"
+                        android:text="si(Nombre de Cia)"></CheckBox>
+
+                    <EditText
+                        android:id="@+id/txtNombre_Afianza"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Nombre Afianza"
+                        android:textSize="14sp"
+                        android:textAlignment="center" />
+
+                </LinearLayout>
+            </LinearLayout>
+
+
+
+
+
+
+
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="18dp"
+                    android:hint="¿Haz estado afiliado a algun sindicato?"
+                    android:textSize="14sp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="43dp"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <CheckBox
+                        android:layout_width="85dp"
+                        android:layout_height="wrap_content"
+                        android:text="no"></CheckBox>
+
+                    <CheckBox
+                        android:layout_width="140dp"
+                        android:layout_height="wrap_content"
+                        android:text="si¿A cual?"></CheckBox>
+
+                    <EditText
+                        android:id="@+id/txtNombre_Sindicato"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Nombre Sindicato"
+                        android:textSize="14sp"
+                        android:textAlignment="center" />
+
+                </LinearLayout>
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="¿Tienes Seguro de vida?"
+                    android:textColor="@color/black"
+                    android:textSize="14sp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <CheckBox
+                        android:id="@+id/seguroV_no"
+                        android:layout_width="60dp"
+                        android:layout_height="wrap_content"
+                        android:text="no"></CheckBox>
+
+                    <CheckBox
+                        android:id="@+id/seguroV_si"
+                        android:layout_width="150dp"
+                        android:layout_height="wrap_content"
+                        android:text="si(Nomb)"></CheckBox>
+
+                    <EditText
+                        android:id="@+id/txtNombre_Seguro"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Nombre del pariente"
+                        android:textSize="14sp"
+                        android:textAlignment="center" />
+
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="¿Puede Viajar?"
+                    android:textColor="@color/black"
+                    android:textSize="14sp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <CheckBox
+                        android:id="@+id/viajar_no"
+                        android:layout_width="60dp"
+                        android:layout_height="wrap_content"
+                        android:text="no"></CheckBox>
+
+                    <CheckBox
+                        android:id="@+id/viajar_si"
+                        android:layout_width="150dp"
+                        android:layout_height="wrap_content"
+                        android:text="si(Razones)"></CheckBox>
+
+                    <EditText
+                        android:id="@+id/txtRazones"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Razones"
+                        android:textSize="14sp"
+                        android:textAlignment="center" />
+
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="¿Estas dipuesto a cambiar de Lugar de residensia?"
+                    android:textColor="@color/black"
+                    android:textSize="14sp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <CheckBox
+                        android:id="@+id/cambiarResi_si"
+                        android:layout_width="60dp"
+                        android:layout_height="wrap_content"
+                        android:text="si"></CheckBox>
+
+                    <CheckBox
+                        android:id="@+id/cambiarResi_no"
+                        android:layout_width="150dp"
+                        android:layout_height="wrap_content"
+                        android:text="no(Razones)"></CheckBox>
+
+                    <EditText
+                        android:id="@+id/txtRazones_nocambiar"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="14sp"
+                        android:textAlignment="center" />
+
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:orientation="vertical">
+
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Fecha en que se podria presentar a trabajar:"
+                    android:textColor="@color/black"
+                    android:textSize="14sp" />
+
+                <EditText
+                    android:id="@+id/txtFecha_presentar_trabajo"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:textSize="14sp"
+                    android:textAlignment="center" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:orientation="vertical">
+
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Comentarios del entrevistador:"
+                    android:textColor="@color/black"
+                    android:textSize="14sp" />
+
+                <EditText
+                    android:id="@+id/txtcomentarios_entrevistador"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:gravity="start|top"
+                    android:inputType="textMultiLine" />
+
+            </LinearLayout>
+
+
 
 
             <Button
