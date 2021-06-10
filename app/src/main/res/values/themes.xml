@@ -18,5 +18,9 @@
         <item name="itemIconTint">@color/colorOnPrimary</item>
         <item name="itemTextColor">@color/colorOnPrimary</item>
     </style>
+    <style name="Bottom">
+        <item name="android:background">@drawable/custom_button</item>
+        <item name="itemTextColor">@color/colorOnPrimary</item>
+    </style>
 
 </resources>

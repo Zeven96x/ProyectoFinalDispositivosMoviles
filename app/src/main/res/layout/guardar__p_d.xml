@@ -5,6 +5,7 @@
     android:id="@+id/frameLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:backgroundTint="@color/colorPrimary"
     tools:context=".Fragments.Guardar_PDF">
 
     <!-- TODO: Update blank fragment layout -->
@@ -14,12 +15,23 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent">
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:hint="Nombre del Archivo"
+                android:textAlignment="center"
+                android:textColorHint="@color/black"
+                android:textSize="24sp" />
 
             <EditText
                 android:id="@+id/txtNombre_Archivo"
@@ -29,6 +41,13 @@
                 android:inputType="textPersonName"
                 android:textAlignment="center" />
 
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:hint="Requisitos"
+                android:textAlignment="center"
+                android:textColorHint="@color/black"
+                android:textSize="24sp" />
 
             <LinearLayout
                 android:id="@+id/fila2"
@@ -79,8 +98,8 @@
                         android:id="@+id/guarda_fecha_1"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:gravity="center">
+                        android:gravity="center"
+                        android:orientation="horizontal">
 
                         <EditText
                             android:id="@+id/txtDia"
@@ -104,7 +123,7 @@
                             android:layout_height="wrap_content"
                             android:hint="año"
                             android:inputType="textPersonName"
-                            android:textAlignment="center"/>
+                            android:textAlignment="center" />
                     </LinearLayout>
 
                     <TextView
@@ -118,8 +137,8 @@
                         android:id="@+id/fecha_aprobada"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:gravity="center" >
+                        android:gravity="center"
+                        android:orientation="horizontal">
 
                         <EditText
                             android:id="@+id/txtDiac"
@@ -166,12 +185,12 @@
                         android:layout_height="wrap_content"
                         android:hint="Sueldo mensual deseado:"
                         android:textAlignment="center"
-                        android:textSize="14sp"/>
+                        android:textSize="14sp" />
 
                     <EditText
                         android:id="@+id/txtSueldoDeseado"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="45dp"
                         android:hint="$"
                         android:inputType="textPersonName"
                         android:textAlignment="center" />
@@ -195,7 +214,7 @@
                     <EditText
                         android:id="@+id/txtSueldoAprobado"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="45dp"
                         android:hint="$"
                         android:inputType="textPersonName"
                         android:textAlignment="center" />
@@ -208,377 +227,713 @@
                 android:layout_height="30dp"
                 android:hint="Datos personales"
                 android:textAlignment="center"
-                android:textSize="24sp"/>
+                android:textColorHint="@color/black"
+                android:textSize="24sp" />
 
-
-
-             <!--"datos de la persona"-->
+            <!--"datos de la persona"-->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:orientation="horizontal">
 
-                        <LinearLayout
-                            android:id="@+id/telefono"
-                            android:layout_width="200dp"
-                            android:layout_height="60dp"
-                            android:orientation="vertical">
+                <LinearLayout
+                    android:id="@+id/telefono"
+                    android:layout_width="200dp"
+                    android:layout_height="60dp"
+                    android:orientation="vertical">
 
 
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:hint="Telefono:"
-                                android:textAlignment="center"
-                                android:textColor="@color/black"
-                                android:textSize="14sp" />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Telefono:"
+                        android:textAlignment="center"
+                        android:textColor="@color/black"
+                        android:textSize="14sp" />
 
-                            <EditText
-                                android:id="@+id/txtNumeroTELEFENO"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:hint="Introduce tu Numero"
-                                android:textAlignment="center" />
+                    <EditText
+                        android:id="@+id/txtNumeroTELEFENO"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:textSize="14sp"
+                        android:hint="Introduce tu Numero"
+                        android:textAlignment="center" />
 
-                        </LinearLayout>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="18dp"
+                        android:hint="Vive con:"
+                        android:textSize="14sp" />
 
-                        <LinearLayout
-                            android:id="@+id/sexo"
-                            android:layout_width="200dp"
-                            android:layout_height="60dp"
-                            android:orientation="vertical">
-
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:hint="sexo:"
-                                android:textAlignment="center"
-                                android:textColor="@color/black"
-                                android:textSize="14sp" />
-
-                            <LinearLayout
-                                android:id="@+id/sex"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:orientation="horizontal"
-                                android:gravity="center">
-
-                                <CheckBox
-                                    android:id="@+id/Hombre"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:text="Hombre"></CheckBox>
-
-                                <CheckBox
-                                    android:id="@+id/Mujer"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:text="Mujer"></CheckBox>
-                            </LinearLayout>
-                        </LinearLayout>
                 </LinearLayout>
 
+                <LinearLayout
+                    android:id="@+id/sexo"
+                    android:layout_width="200dp"
+                    android:layout_height="60dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="sexo:"
+                        android:textAlignment="center"
+                        android:textColor="@color/black"
+                        android:textSize="14sp" />
 
                     <LinearLayout
+                        android:id="@+id/sex"
                         android:layout_width="match_parent"
-                        android:layout_height="255dp"
-                        android:orientation="vertical">
+                        android:layout_height="40dp"
+                        android:gravity="center"
+                        android:orientation="horizontal">
 
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="45dp"
-                                android:orientation="horizontal">
+                        <CheckBox
+                            android:id="@+id/Hombre"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Hombre"></CheckBox>
 
-                                <EditText
-                                    android:id="@+id/txtNombrePersona"
-                                    android:layout_width="134dp"
-                                    android:layout_height="50dp"
-                                    android:hint="nombre(s)"
-                                    android:textAlignment="center"/>
-
-                                <EditText
-                                    android:id="@+id/txtapellidoP"
-                                    android:layout_width="134dp"
-                                    android:layout_height="50dp"
-                                    android:hint="Apellido P"
-                                    android:textAlignment="center"/>
-
-                                <EditText
-                                    android:id="@+id/txtApellidoM"
-                                    android:layout_width="134dp"
-                                    android:layout_height="50dp"
-                                    android:hint="Apellido M"
-                                    android:inputType="textPersonName"
-                                    android:textAlignment="center" />
-
-                            </LinearLayout>
-
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="45dp"
-                                android:orientation="horizontal">
-
-                                <EditText
-                                    android:id="@+id/txtDomicilio"
-                                    android:layout_width="134dp"
-                                    android:layout_height="50dp"
-                                    android:hint="Domicilio"
-                                    android:textAlignment="center"/>
-
-                                <EditText
-                                    android:id="@+id/txtColonia"
-                                    android:layout_width="134dp"
-                                    android:layout_height="50dp"
-                                    android:hint="colonia"
-                                    android:textAlignment="center" />
-
-                                <EditText
-                                    android:id="@+id/txtCodigoPostal"
-                                    android:layout_width="134dp"
-                                    android:layout_height="50dp"
-                                    android:hint="Codigo postal"
-                                    android:textAlignment="center"/>
-
-                            </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="45dp"
-                            android:orientation="horizontal">
-
-                            <EditText
-                                android:id="@+id/txtCiudad"
-                                android:layout_width="134dp"
-                                android:layout_height="50dp"
-                                android:hint="Ciudad"
-                                android:textAlignment="center" />
-
-                            <EditText
-                                android:id="@+id/txtEstado"
-                                android:layout_width="134dp"
-                                android:layout_height="50dp"
-                                android:hint="Estado"
-                                android:textAlignment="center" />
-
-                            <EditText
-                                android:id="@+id/txtLugar_de_nacimineto"
-                                android:layout_width="134dp"
-                                android:layout_height="50dp"
-                                android:hint="Lugar De N"
-                                android:textAlignment="center" />
-
-                        </LinearLayout>
-                        <LinearLayout
-                            android:id="@+id/VivEcON"
+                        <CheckBox
+                            android:id="@+id/Mujer"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:orientation="vertical">
-
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="18dp"
-                                android:hint="Vive con:"
-                                android:textSize="14sp" />
-
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:orientation="horizontal">
-
-                                <CheckBox
-                                    android:layout_width="120dp"
-                                    android:layout_height="wrap_content"
-                                    android:text="Sus Padres"></CheckBox>
-
-                                <CheckBox
-                                    android:layout_width="100dp"
-                                    android:layout_height="wrap_content"
-                                    android:text="Su Familia"></CheckBox>
-
-                                <CheckBox
-                                    android:layout_width="100dp"
-                                    android:layout_height="wrap_content"
-                                    android:text="Parientes"></CheckBox>
-
-                                <CheckBox
-                                    android:layout_width="80dp"
-                                    android:layout_height="wrap_content"
-                                    android:text="Solo"></CheckBox>
-
-                            </LinearLayout>
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:id="@+id/Personas_dependen"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="vertical">
-
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="18dp"
-                                android:hint="Personas que dependen de Usted:"
-                                android:textSize="14sp" />
-
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:orientation="horizontal">
-
-                                <CheckBox
-                                    android:layout_width="100dp"
-                                    android:layout_height="wrap_content"
-                                    android:text="Hijos"></CheckBox>
-
-                                <CheckBox
-                                    android:layout_width="100dp"
-                                    android:layout_height="wrap_content"
-                                    android:text="Conyuge"></CheckBox>
-
-                                <CheckBox
-                                    android:layout_width="100dp"
-                                    android:layout_height="wrap_content"
-                                    android:text="Padres"></CheckBox>
-
-                                <CheckBox
-                                    android:layout_width="80dp"
-                                    android:layout_height="wrap_content"
-                                    android:text="Otros"></CheckBox>
-
-                            </LinearLayout>
-                        </LinearLayout>
+                            android:text="Mujer"></CheckBox>
+                    </LinearLayout>
                 </LinearLayout>
+            </LinearLayout>
+
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="230dp"
+                android:layout_height="45dp"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/txtNombrePersona"
+                    android:layout_width="134dp"
+                    android:layout_height="45dp"
+                    android:hint="nombre(s)"
+                    android:textSize="14sp"
+                    android:textAlignment="center" />
+
+                <EditText
+                    android:id="@+id/txtapellidoP"
+                    android:layout_width="134dp"
+                    android:layout_height="45dp"
+                    android:hint="Apellido P"
+                    android:textSize="14sp"
+                    android:textAlignment="center" />
+
+                <EditText
+                    android:id="@+id/txtApellidoM"
+                    android:layout_width="134dp"
+                    android:layout_height="45dp"
+                    android:hint="Apellido M"
+                    android:textSize="14sp"
+                    android:inputType="textPersonName"
+                    android:textAlignment="center" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/txtDomicilio"
+                    android:layout_width="134dp"
+                    android:layout_height="45dp"
+                    android:hint="Domicilio"
+                    android:textSize="14sp"
+                    android:textAlignment="center" />
+
+                <EditText
+                    android:id="@+id/txtColonia"
+                    android:layout_width="134dp"
+                    android:layout_height="45dp"
+                    android:hint="colonia"
+                    android:textSize="14sp"
+                    android:textAlignment="center" />
+
+                <EditText
+                    android:id="@+id/txtCodigoPostal"
+                    android:layout_width="134dp"
+                    android:layout_height="45dp"
+                    android:hint="Codigo postal"
+                    android:textSize="14sp"
+                    android:textAlignment="center" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/txtCiudad"
+                    android:layout_width="134dp"
+                    android:layout_height="45dp"
+                    android:hint="Ciudad"
+                    android:textSize="14sp"
+                    android:textAlignment="center" />
+
+                <EditText
+                    android:id="@+id/txtEstado"
+                    android:layout_width="134dp"
+                    android:layout_height="45dp"
+                    android:hint="Estado"
+                    android:textSize="14sp"
+                    android:textAlignment="center" />
+
+                <EditText
+                    android:id="@+id/txtLugar_de_nacimineto"
+                    android:layout_width="134dp"
+                    android:layout_height="45dp"
+                    android:hint="Lugar De N"
+                    android:textSize="14sp"
+                    android:textAlignment="center" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/VivEcON"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
                 android:orientation="vertical">
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="60dp"
-                    android:orientation="horizontal">
-
-                    <LinearLayout
-                        android:layout_width="200dp"
-                        android:layout_height="60dp"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:layout_width="200dp"
-                            android:layout_height="18dp"
-                            android:hint="Fecha de nacimiendo:"
-                            android:textSize="14sp" />
-
-                        <EditText
-                            android:id="@+id/txtFecha_de_N"
-                            android:layout_width="200dp"
-                            android:layout_height="45dp"
-                            android:textAlignment="center"/>
-
-                    </LinearLayout>
-                    <LinearLayout
-                        android:layout_width="200dp"
-                        android:layout_height="60dp"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:layout_width="200dp"
-                            android:layout_height="18dp"
-                            android:hint="Nacionalidad:"
-                            android:textSize="14sp" />
-
-                        <EditText
-                            android:id="@+id/txtNacionalidad"
-                            android:layout_width="200dp"
-                            android:layout_height="45dp"
-                            android:textAlignment="center"/>
-
-                    </LinearLayout>
-                </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="60dp"
+                    android:layout_height="43dp"
+                    android:gravity="center"
                     android:orientation="horizontal">
 
-                    <LinearLayout
+                    <CheckBox
+                        android:layout_width="120dp"
+                        android:layout_height="wrap_content"
+                        android:text="Sus Padres"></CheckBox>
+
+                    <CheckBox
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:text="Su Familia"></CheckBox>
+
+                    <CheckBox
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:text="Parientes"></CheckBox>
+
+                    <CheckBox
+                        android:layout_width="80dp"
+                        android:layout_height="wrap_content"
+                        android:text="Solo"></CheckBox>
+
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/Personas_dependen"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="18dp"
+                    android:hint="Personas que dependen de Usted:"
+                    android:textSize="14sp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="43dp"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <CheckBox
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:text="Hijos"></CheckBox>
+
+                    <CheckBox
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:text="Conyuge"></CheckBox>
+
+                    <CheckBox
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:text="Padres"></CheckBox>
+
+                    <CheckBox
+                        android:layout_width="80dp"
+                        android:layout_height="wrap_content"
+                        android:text="Otros"></CheckBox>
+
+                </LinearLayout>
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="65dp"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="200dp"
+                    android:layout_height="65dp"
+                    android:orientation="vertical">
+
+                    <TextView
                         android:layout_width="200dp"
-                        android:layout_height="60dp"
-                        android:orientation="vertical">
+                        android:layout_height="18dp"
+                        android:hint="Fecha de nacimiendo:"
+                        android:textSize="14sp" />
 
-                        <TextView
-                            android:layout_width="200dp"
-                            android:layout_height="18dp"
-                            android:hint="Peso:"
-                            android:textSize="14sp" />
-
-                        <EditText
-                            android:id="@+id/txtPeso"
-                            android:layout_width="200dp"
-                            android:layout_height="45dp"
-                            android:textAlignment="center"/>
-
-                    </LinearLayout>
-                    <LinearLayout
+                    <EditText
+                        android:id="@+id/txtFecha_de_N"
                         android:layout_width="200dp"
-                        android:layout_height="60dp"
-                        android:orientation="vertical">
+                        android:layout_height="40dp"
+                        android:textAlignment="center" />
 
-                        <TextView
-                            android:layout_width="200dp"
-                            android:layout_height="18dp"
-                            android:hint="Estatura:"
-                            android:textSize="14sp" />
-
-                        <EditText
-                            android:id="@+id/txtEstatura"
-                            android:layout_width="200dp"
-                            android:layout_height="45dp"
-                            android:textAlignment="center"/>
-
-                    </LinearLayout>
                 </LinearLayout>
 
                 <LinearLayout
+                    android:layout_width="200dp"
+                    android:layout_height="65dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="200dp"
+                        android:layout_height="18dp"
+                        android:hint="Nacionalidad:"
+                        android:textSize="14sp" />
+
+                    <EditText
+                        android:id="@+id/txtNacionalidad"
+                        android:layout_width="200dp"
+                        android:layout_height="40dp"
+                        android:textAlignment="center" />
+
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="65dp"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="200dp"
+                    android:layout_height="65dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="200dp"
+                        android:layout_height="18dp"
+                        android:hint="Peso:"
+                        android:textSize="14sp" />
+
+                    <EditText
+                        android:id="@+id/txtPeso"
+                        android:layout_width="200dp"
+                        android:layout_height="45dp"
+                        android:textAlignment="center" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="200dp"
+                    android:layout_height="65dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="200dp"
+                        android:layout_height="18dp"
+                        android:hint="Estatura:"
+                        android:textSize="14sp" />
+
+                    <EditText
+                        android:id="@+id/txtEstatura"
+                        android:layout_width="200dp"
+                        android:layout_height="45dp"
+                        android:textAlignment="center" />
+
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="18dp"
+                    android:hint="Estado Civil:"
+                    android:textSize="14sp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <CheckBox
+                        android:layout_width="100dp"
+                        android:layout_height="40dp"
+                        android:text="Solitero"></CheckBox>
+
+                    <CheckBox
+                        android:layout_width="100dp"
+                        android:layout_height="40dp"
+                        android:text="Casado"></CheckBox>
+
+                    <CheckBox
+                        android:layout_width="100dp"
+                        android:layout_height="40dp"
+                        android:text="Otro"></CheckBox>
+
+                </LinearLayout>
+            </LinearLayout>
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:hint="Datos personales"
+                android:textAlignment="center"
+                android:textColorHint="@color/black"
+                android:textSize="24sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="200dp"
+                    android:layout_height="65dp"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
                         android:layout_width="match_parent"
-                        android:layout_height="60dp"
-                        android:orientation="vertical">
+                        android:layout_height="18dp"
+                        android:hint="Numero del seguro Social:"
+                        android:textSize="14sp" />
 
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="18dp"
-                            android:hint="Estado Civil:"
-                            android:textSize="14sp" />
+                    <EditText
+                        android:id="@+id/txtNss"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint=""
+                        android:textAlignment="center" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="200dp"
+                    android:layout_height="65dp"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="18dp"
+                        android:hint="Introduce tu Curp:"
+                        android:textSize="14sp" />
+
+                    <EditText
+                        android:id="@+id/txtcurp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint=""
+                        android:textAlignment="center" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="200dp"
+                    android:layout_height="65dp"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="18dp"
+                        android:hint="Introduce tu RFC:"
+                        android:textSize="14sp" />
+
+                    <EditText
+                        android:id="@+id/txtRFC"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint=""
+                        android:textAlignment="center" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="200dp"
+                    android:layout_height="65dp"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="18dp"
+                        android:hint="AFORE:"
+                        android:textSize="14sp" />
+
+                    <EditText
+                        android:id="@+id/txtAfore"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="En caso de tener"
+                        android:textSize="14sp"
+                        android:textAlignment="center" />
+                </LinearLayout>
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:id="@+id/CartillaMilitar"
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Cartilla de Servicio Militar No."
+                        android:textAlignment="center"
+                        android:textColor="@color/black"
+                        android:textSize="14sp" />
+
+                    <EditText
+                        android:id="@+id/txtCartillaMilitar"
+                        android:layout_width="match_parent"
+                        android:layout_height="63dp"
+                        android:hint=""
+                        android:textAlignment="center" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Cuenta con licencia de manejo:"
+                        android:textAlignment="center"
+                        android:textColor="@color/black"
+                        android:textSize="14sp" />
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:gravity="center">
+                        android:gravity="center"
+                        android:orientation="horizontal">
 
                         <CheckBox
-                            android:layout_width="100dp"
+                            android:id="@+id/si_licencia"
+                            android:layout_width="60dp"
                             android:layout_height="wrap_content"
-                            android:text="Solitero"></CheckBox>
+                            android:text="si"></CheckBox>
 
                         <CheckBox
-                            android:layout_width="100dp"
+                            android:id="@+id/no_licencia"
+                            android:layout_width="60dp"
                             android:layout_height="wrap_content"
-                            android:text="Casado"></CheckBox>
+                            android:text="no"></CheckBox>
 
-                        <CheckBox
-                            android:layout_width="100dp"
+                        <EditText
+                            android:id="@+id/txtTipoLicencia"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Otro"></CheckBox>
+                            android:hint="Tipo"
+                            android:textSize="14sp"
+                            android:textAlignment="center" />
 
                     </LinearLayout>
                 </LinearLayout>
             </LinearLayout>
 
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:hint="Estado de salud"
+                android:textAlignment="center"
+                android:textColorHint="@color/black"
+                android:textSize="24sp" />
+
+            <LinearLayout
+                android:id="@+id/salud"
+                android:layout_width="match_parent"
+                android:layout_height="130dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="18dp"
+                    android:hint="¿Como considera su estado de salud Actual?"
+                    android:textSize="14sp" />
+
+                <LinearLayout
+                    android:id="@+id/estado_salud"
+                    android:layout_width="match_parent"
+                    android:layout_height="43dp"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <CheckBox
+                        android:layout_width="120dp"
+                        android:layout_height="wrap_content"
+                        android:text="Bueno"></CheckBox>
+
+                    <CheckBox
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:text="Regular"></CheckBox>
+
+                    <CheckBox
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:text="Malo"></CheckBox>
+
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="18dp"
+                    android:hint="¿Padece de alguna enfermedad Cronica?"
+                    android:textSize="14sp" />
+
+                <LinearLayout
+                    android:id="@+id/enfermedades"
+                    android:layout_width="match_parent"
+                    android:layout_height="43dp"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <CheckBox
+                        android:layout_width="120dp"
+                        android:layout_height="wrap_content"
+                        android:text="no"></CheckBox>
+
+                    <CheckBox
+                        android:layout_width="130dp"
+                        android:layout_height="wrap_content"
+                        android:text="si(Explique)"></CheckBox>
+
+                    <EditText
+                        android:id="@+id/txtTipo_enfermedad"
+                        android:layout_width="134dp"
+                        android:layout_height="45dp"
+                        android:textAlignment="center" />
+
+                </LinearLayout>
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:hint="Escolaridad"
+                android:textAlignment="center"
+                android:textColorHint="@color/black"
+                android:textSize="24sp" />
+
+            <LinearLayout
+                android:id="@+id/Escolaridad"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:id="@+id/Selecion_Escuela"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <CheckBox
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Primaria"></CheckBox>
+
+                    <CheckBox
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Secundaria"></CheckBox>
+
+                    <CheckBox
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Preparatoria"></CheckBox>
+
+                    <CheckBox
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="superior"></CheckBox>
+
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/Estudios_Actuales"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:orientation="vertical">
 
 
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Estudios que efectuas en la Actualidad:"
+                    android:textAlignment="center"
+                    android:textSize="14sp" />
 
+                <EditText
+                    android:id="@+id/txtEstudio_Actual"
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:inputType="textPersonName"
+                    android:textAlignment="center" />
 
             </LinearLayout>
+
+
+            <Button
+                android:id="@+id/guardar"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@drawable/custom_button"
+                android:backgroundTint="@color/colorPrimary"
+                android:backgroundTintMode="src_atop"
+                android:hint="Guardar"
+                android:textColorHint="@color/colorOnPrimary"
+                android:textSize="18sp"></Button>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:textSize="24sp" />
+
+        </LinearLayout>
     </ScrollView>
 
 
