@@ -279,6 +279,13 @@
                         android:textColor="@color/black"
                         android:textSize="14sp" />
 
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Introduce los datos de donde vives:"
+                        android:textColor="@color/black"
+                        android:textSize="14sp" />
+
                     <LinearLayout
                         android:id="@+id/sex"
                         android:layout_width="match_parent"
@@ -339,13 +346,6 @@
                     android:textSize="14sp" />
 
             </LinearLayout>
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Introduce los datos de donde vives:"
-                android:textColor="@color/black"
-                android:textSize="14sp" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -718,7 +718,7 @@
                     <EditText
                         android:id="@+id/txtAfore"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="45dp"
                         android:hint="En caso de tener"
                         android:textAlignment="center"
                         android:textSize="14sp" />
@@ -939,6 +939,55 @@
                 </LinearLayout>
             </LinearLayout>
 
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="200dp"
+                    android:layout_height="65dp"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="18dp"
+                        android:hint="Nombre de la Institucion:"
+                        android:textSize="14sp" />
+
+                    <EditText
+                        android:id="@+id/txtNombre_Institucion"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint=""
+                        android:textAlignment="center" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="200dp"
+                    android:layout_height="65dp"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="16dp"
+                        android:hint="Nombre del titulo Obtenido:"
+                        android:textSize="14sp" />
+
+                    <EditText
+                        android:id="@+id/txtNombre_TituloEducativo"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp"
+                        android:hint=""
+                        android:textAlignment="center"
+                        android:textSize="14sp" />
+                </LinearLayout>
+
+            </LinearLayout>
+
             <LinearLayout
                 android:id="@+id/Estudios_Actuales"
                 android:layout_width="match_parent"
@@ -1076,6 +1125,202 @@
                     android:inputType="textPersonName"
                     android:textAlignment="center" />
 
+            </LinearLayout>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:hint="Empleo Actual y Anteriores"
+                android:textAlignment="center"
+                android:textColorHint="@color/black"
+                android:textSize="20sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="90dp"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="80dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="200dp"
+                        android:layout_height="20dp"
+                        android:hint="Nombre de la Empresa:"
+                        android:textSize="14sp" />
+
+                    <EditText
+                        android:id="@+id/txtEmpresa1"
+                        android:layout_width="200dp"
+                        android:layout_height="50dp"
+                        android:textAlignment="center" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="100dp"
+                    android:layout_height="80dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="100dp"
+                        android:layout_height="20dp"
+                        android:hint="de que año:"
+                        android:textSize="14sp" />
+
+                    <EditText
+                        android:id="@+id/txtAnoEntrada1"
+                        android:layout_width="200dp"
+                        android:layout_height="50dp"
+                        android:textAlignment="center" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="100dp"
+                    android:layout_height="80dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="100dp"
+                        android:layout_height="20dp"
+                        android:hint="a que año:"
+                        android:textSize="14sp" />
+
+                    <EditText
+                        android:id="@+id/txtSAnoSalia1"
+                        android:layout_width="100dp"
+                        android:layout_height="50dp"
+                        android:textAlignment="center" />
+
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="90dp"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="80dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="200dp"
+                        android:layout_height="20dp"
+                        android:hint="Nombre de la Empresa:"
+                        android:textSize="14sp" />
+
+                    <EditText
+                        android:id="@+id/txtEmpresa2"
+                        android:layout_width="200dp"
+                        android:layout_height="50dp"
+                        android:textAlignment="center" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="100dp"
+                    android:layout_height="80dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="100dp"
+                        android:layout_height="20dp"
+                        android:hint="de que año:"
+                        android:textSize="14sp" />
+
+                    <EditText
+                        android:id="@+id/txtAnoEntrada2"
+                        android:layout_width="200dp"
+                        android:layout_height="50dp"
+                        android:textAlignment="center" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="100dp"
+                    android:layout_height="80dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="100dp"
+                        android:layout_height="20dp"
+                        android:hint="a que año:"
+                        android:textSize="14sp" />
+
+                    <EditText
+                        android:id="@+id/txtSAnoSalia2"
+                        android:layout_width="100dp"
+                        android:layout_height="50dp"
+                        android:textAlignment="center" />
+
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="90dp"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="80dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="200dp"
+                        android:layout_height="20dp"
+                        android:hint="Nombre de la Empresa:"
+                        android:textSize="14sp" />
+
+                    <EditText
+                        android:id="@+id/txtEmpresa3"
+                        android:layout_width="200dp"
+                        android:layout_height="50dp"
+                        android:textAlignment="center" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="100dp"
+                    android:layout_height="80dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="100dp"
+                        android:layout_height="20dp"
+                        android:hint="de que año:"
+                        android:textSize="14sp" />
+
+                    <EditText
+                        android:id="@+id/txtAnoEntrada3"
+                        android:layout_width="200dp"
+                        android:layout_height="50dp"
+                        android:textAlignment="center" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="100dp"
+                    android:layout_height="80dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="100dp"
+                        android:layout_height="20dp"
+                        android:hint="a que año:"
+                        android:textSize="14sp" />
+
+                    <EditText
+                        android:id="@+id/txtSAnoSalia3"
+                        android:layout_width="100dp"
+                        android:layout_height="50dp"
+                        android:textAlignment="center" />
+
+                </LinearLayout>
             </LinearLayout>
 
             <TextView
@@ -1272,6 +1517,7 @@
                     android:textSize="14sp" />
 
             </LinearLayout>
+
 
             <TextView
                 android:layout_width="match_parent"
@@ -1570,7 +1816,6 @@
                 android:layout_height="60dp"
                 android:orientation="vertical">
 
-
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -1584,7 +1829,6 @@
                     android:layout_height="40dp"
                     android:textAlignment="center"
                     android:textSize="14sp" />
-
 
             </LinearLayout>
 
@@ -1634,6 +1878,5 @@
 
         </LinearLayout>
     </ScrollView>
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>
