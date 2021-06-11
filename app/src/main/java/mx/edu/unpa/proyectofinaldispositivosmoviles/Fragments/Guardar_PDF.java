@@ -3,6 +3,8 @@ package mx.edu.unpa.proyectofinaldispositivosmoviles.Fragments;
 import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.content.res.Resources;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -13,6 +15,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import androidx.core.app.ActivityCompat;
@@ -74,6 +77,7 @@ public class Guardar_PDF extends Fragment {
     String DIRECTORY_NAME = "MySolicitud";
     private EditText txtNombre3, txtContenido;
     Button guarda;
+    LinearLayout linearLayout;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -88,7 +92,7 @@ public class Guardar_PDF extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.guardar__p_d, container, false);
-       /* txtNombre3= (EditText) v.findViewById(R.id.txtNombre2);
+        /* txtNombre3= (EditText) v.findViewById(R.id.txtNombre2);
         //txtContenido =  (EditText) v.findViewById(R.id.txtContenido2);
         //guarda= v.findViewById(R.id.guardar2);
         guarda.setOnClickListener(new View.OnClickListener() {

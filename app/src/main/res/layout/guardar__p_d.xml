@@ -254,9 +254,9 @@
                         android:id="@+id/txtNumeroTELEFENO"
                         android:layout_width="match_parent"
                         android:layout_height="40dp"
-                        android:textSize="14sp"
                         android:hint="Introduce tu Numero"
-                        android:textAlignment="center" />
+                        android:textAlignment="center"
+                        android:textSize="14sp" />
 
                     <TextView
                         android:layout_width="match_parent"
@@ -318,25 +318,25 @@
                     android:layout_width="134dp"
                     android:layout_height="45dp"
                     android:hint="nombre(s)"
-                    android:textSize="14sp"
-                    android:textAlignment="center" />
+                    android:textAlignment="center"
+                    android:textSize="14sp" />
 
                 <EditText
                     android:id="@+id/txtapellidoP"
                     android:layout_width="134dp"
                     android:layout_height="45dp"
                     android:hint="Apellido P"
-                    android:textSize="14sp"
-                    android:textAlignment="center" />
+                    android:textAlignment="center"
+                    android:textSize="14sp" />
 
                 <EditText
                     android:id="@+id/txtApellidoM"
                     android:layout_width="134dp"
                     android:layout_height="45dp"
                     android:hint="Apellido M"
-                    android:textSize="14sp"
                     android:inputType="textPersonName"
-                    android:textAlignment="center" />
+                    android:textAlignment="center"
+                    android:textSize="14sp" />
 
             </LinearLayout>
 
@@ -357,24 +357,24 @@
                     android:layout_width="134dp"
                     android:layout_height="45dp"
                     android:hint="Domicilio"
-                    android:textSize="14sp"
-                    android:textAlignment="center" />
+                    android:textAlignment="center"
+                    android:textSize="14sp" />
 
                 <EditText
                     android:id="@+id/txtColonia"
                     android:layout_width="134dp"
                     android:layout_height="45dp"
                     android:hint="colonia"
-                    android:textSize="14sp"
-                    android:textAlignment="center" />
+                    android:textAlignment="center"
+                    android:textSize="14sp" />
 
                 <EditText
                     android:id="@+id/txtCodigoPostal"
                     android:layout_width="134dp"
                     android:layout_height="45dp"
                     android:hint="Codigo postal"
-                    android:textSize="14sp"
-                    android:textAlignment="center" />
+                    android:textAlignment="center"
+                    android:textSize="14sp" />
 
             </LinearLayout>
 
@@ -395,24 +395,24 @@
                     android:layout_width="134dp"
                     android:layout_height="45dp"
                     android:hint="Ciudad"
-                    android:textSize="14sp"
-                    android:textAlignment="center" />
+                    android:textAlignment="center"
+                    android:textSize="14sp" />
 
                 <EditText
                     android:id="@+id/txtEstado"
                     android:layout_width="134dp"
                     android:layout_height="45dp"
                     android:hint="Estado"
-                    android:textSize="14sp"
-                    android:textAlignment="center" />
+                    android:textAlignment="center"
+                    android:textSize="14sp" />
 
                 <EditText
                     android:id="@+id/txtLugar_de_nacimineto"
                     android:layout_width="134dp"
                     android:layout_height="45dp"
                     android:hint="Lugar De N"
-                    android:textSize="14sp"
-                    android:textAlignment="center" />
+                    android:textAlignment="center"
+                    android:textSize="14sp" />
 
             </LinearLayout>
 
@@ -608,7 +608,7 @@
                     <CheckBox
                         android:layout_width="100dp"
                         android:layout_height="40dp"
-                        android:text="Solitero"></CheckBox>
+                        android:text="Soltero"></CheckBox>
 
                     <CheckBox
                         android:layout_width="100dp"
@@ -720,8 +720,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="En caso de tener"
-                        android:textSize="14sp"
-                        android:textAlignment="center" />
+                        android:textAlignment="center"
+                        android:textSize="14sp" />
                 </LinearLayout>
             </LinearLayout>
 
@@ -791,8 +791,8 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:hint="Tipo"
-                            android:textSize="14sp"
-                            android:textAlignment="center" />
+                            android:textAlignment="center"
+                            android:textSize="14sp" />
 
                     </LinearLayout>
                 </LinearLayout>
@@ -870,8 +870,8 @@
                         android:layout_width="134dp"
                         android:layout_height="45dp"
                         android:hint="Expica"
-                        android:textSize="14sp"
-                        android:textAlignment="center" />
+                        android:textAlignment="center"
+                        android:textSize="14sp" />
 
                 </LinearLayout>
 
@@ -1103,25 +1103,25 @@
                     android:layout_width="134dp"
                     android:layout_height="50dp"
                     android:hint="nombre"
-                    android:textSize="14sp"
-                    android:textAlignment="center" />
+                    android:textAlignment="center"
+                    android:textSize="14sp" />
 
                 <EditText
                     android:id="@+id/txtDomicilioR1"
                     android:layout_width="134dp"
                     android:layout_height="50dp"
                     android:hint="Domicilio"
-                    android:textSize="14sp"
-                    android:textAlignment="center" />
+                    android:textAlignment="center"
+                    android:textSize="14sp" />
 
                 <EditText
                     android:id="@+id/txtTelefono1"
                     android:layout_width="134dp"
                     android:layout_height="50dp"
                     android:hint="Telefono"
-                    android:textSize="14sp"
                     android:inputType="textPersonName"
-                    android:textAlignment="center" />
+                    android:textAlignment="center"
+                    android:textSize="14sp" />
 
             </LinearLayout>
 
@@ -1135,16 +1135,16 @@
                     android:layout_width="200dp"
                     android:layout_height="50dp"
                     android:hint="Ocupacion"
-                    android:textSize="14sp"
-                    android:textAlignment="center" />
+                    android:textAlignment="center"
+                    android:textSize="14sp" />
 
                 <EditText
                     android:id="@+id/txtTiempoConocerR1"
                     android:layout_width="200dp"
                     android:layout_height="50dp"
                     android:hint="Tiempo de conocerlo"
-                    android:textSize="14sp"
-                    android:textAlignment="center" />
+                    android:textAlignment="center"
+                    android:textSize="14sp" />
 
             </LinearLayout>
 
@@ -1166,25 +1166,25 @@
                     android:layout_width="134dp"
                     android:layout_height="50dp"
                     android:hint="nombre"
-                    android:textSize="14sp"
-                    android:textAlignment="center" />
+                    android:textAlignment="center"
+                    android:textSize="14sp" />
 
                 <EditText
                     android:id="@+id/txtDomicilioR2"
                     android:layout_width="134dp"
                     android:layout_height="50dp"
                     android:hint="Domicilio"
-                    android:textSize="14sp"
-                    android:textAlignment="center" />
+                    android:textAlignment="center"
+                    android:textSize="14sp" />
 
                 <EditText
                     android:id="@+id/txtTelefono2"
                     android:layout_width="134dp"
                     android:layout_height="50dp"
                     android:hint="Telefono"
-                    android:textSize="14sp"
                     android:inputType="textPersonName"
-                    android:textAlignment="center" />
+                    android:textAlignment="center"
+                    android:textSize="14sp" />
 
             </LinearLayout>
 
@@ -1198,16 +1198,16 @@
                     android:layout_width="200dp"
                     android:layout_height="50dp"
                     android:hint="Ocupacion"
-                    android:textSize="14sp"
-                    android:textAlignment="center" />
+                    android:textAlignment="center"
+                    android:textSize="14sp" />
 
                 <EditText
                     android:id="@+id/txtTiempoConocerR2"
                     android:layout_width="200dp"
                     android:layout_height="50dp"
                     android:hint="Tiempo de conocerlo"
-                    android:textSize="14sp"
-                    android:textAlignment="center" />
+                    android:textAlignment="center"
+                    android:textSize="14sp" />
 
             </LinearLayout>
 
@@ -1228,25 +1228,25 @@
                     android:layout_width="134dp"
                     android:layout_height="50dp"
                     android:hint="nombre"
-                    android:textSize="14sp"
-                    android:textAlignment="center" />
+                    android:textAlignment="center"
+                    android:textSize="14sp" />
 
                 <EditText
                     android:id="@+id/txtDomicilioR3"
                     android:layout_width="134dp"
                     android:layout_height="50dp"
                     android:hint="Domicilio"
-                    android:textSize="14sp"
-                    android:textAlignment="center" />
+                    android:textAlignment="center"
+                    android:textSize="14sp" />
 
                 <EditText
                     android:id="@+id/txtTelefono3"
                     android:layout_width="134dp"
                     android:layout_height="50dp"
                     android:hint="Telefono"
-                    android:textSize="14sp"
                     android:inputType="textPersonName"
-                    android:textAlignment="center" />
+                    android:textAlignment="center"
+                    android:textSize="14sp" />
 
             </LinearLayout>
 
@@ -1260,16 +1260,16 @@
                     android:layout_width="200dp"
                     android:layout_height="50dp"
                     android:hint="Ocupacion"
-                    android:textSize="14sp"
-                    android:textAlignment="center" />
+                    android:textAlignment="center"
+                    android:textSize="14sp" />
 
                 <EditText
                     android:id="@+id/txtTiempoConocerR3"
                     android:layout_width="200dp"
                     android:layout_height="50dp"
                     android:hint="Tiempo de conocerlo"
-                    android:textSize="14sp"
-                    android:textAlignment="center" />
+                    android:textAlignment="center"
+                    android:textSize="14sp" />
 
             </LinearLayout>
 
@@ -1313,9 +1313,9 @@
                         android:id="@+id/txtOtro_medio"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="Escria el medio"
-                        android:textSize="14sp"
-                        android:textAlignment="center" />
+                        android:hint="Escriba el medio"
+                        android:textAlignment="center"
+                        android:textSize="14sp" />
 
                 </LinearLayout>
             </LinearLayout>
@@ -1356,8 +1356,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="Nombre del pariente"
-                        android:textSize="14sp"
-                        android:textAlignment="center" />
+                        android:textAlignment="center"
+                        android:textSize="14sp" />
 
                 </LinearLayout>
             </LinearLayout>
@@ -1397,18 +1397,11 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="Nombre Afianza"
-                        android:textSize="14sp"
-                        android:textAlignment="center" />
+                        android:textAlignment="center"
+                        android:textSize="14sp" />
 
                 </LinearLayout>
             </LinearLayout>
-
-
-
-
-
-
-
 
 
             <LinearLayout
@@ -1443,8 +1436,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="Nombre Sindicato"
-                        android:textSize="14sp"
-                        android:textAlignment="center" />
+                        android:textAlignment="center"
+                        android:textSize="14sp" />
 
                 </LinearLayout>
             </LinearLayout>
@@ -1476,17 +1469,17 @@
 
                     <CheckBox
                         android:id="@+id/seguroV_si"
-                        android:layout_width="150dp"
+                        android:layout_width="170dp"
                         android:layout_height="wrap_content"
-                        android:text="si(Nomb)"></CheckBox>
+                        android:text="si(Nombre de la Cia)"></CheckBox>
 
                     <EditText
                         android:id="@+id/txtNombre_Seguro"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="Nombre del pariente"
-                        android:textSize="14sp"
-                        android:textAlignment="center" />
+                        android:hint="Nombre de Cia"
+                        android:textAlignment="center"
+                        android:textSize="14sp" />
 
                 </LinearLayout>
             </LinearLayout>
@@ -1526,8 +1519,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="Razones"
-                        android:textSize="14sp"
-                        android:textAlignment="center" />
+                        android:textAlignment="center"
+                        android:textSize="14sp" />
 
                 </LinearLayout>
             </LinearLayout>
@@ -1566,8 +1559,8 @@
                         android:id="@+id/txtRazones_nocambiar"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:textSize="14sp"
-                        android:textAlignment="center" />
+                        android:textAlignment="center"
+                        android:textSize="14sp" />
 
                 </LinearLayout>
             </LinearLayout>
@@ -1589,8 +1582,8 @@
                     android:id="@+id/txtFecha_presentar_trabajo"
                     android:layout_width="match_parent"
                     android:layout_height="40dp"
-                    android:textSize="14sp"
-                    android:textAlignment="center" />
+                    android:textAlignment="center"
+                    android:textSize="14sp" />
 
 
             </LinearLayout>
@@ -1617,19 +1610,22 @@
 
             </LinearLayout>
 
-
-
-
-            <Button
-                android:id="@+id/guardar"
+            <LinearLayout
+                android:id="@+id/bottonver"
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
+                android:layout_height="70dp"
                 android:background="@drawable/custom_button"
-                android:backgroundTint="@color/colorPrimary"
-                android:backgroundTintMode="src_atop"
-                android:hint="Guardar"
-                android:textColorHint="@color/colorOnPrimary"
-                android:textSize="18sp"></Button>
+                android:orientation="vertical">
+
+                <Button
+                    android:id="@+id/guardar"
+                    android:layout_width="match_parent"
+                    android:layout_height="70dp"
+                    android:background="?attr/actionBarItemBackground"
+                    android:hint="Guardar"
+                    android:textColorHint="@color/colorOnPrimary"
+                    android:textSize="18sp"></Button>
+            </LinearLayout>
 
             <TextView
                 android:layout_width="match_parent"

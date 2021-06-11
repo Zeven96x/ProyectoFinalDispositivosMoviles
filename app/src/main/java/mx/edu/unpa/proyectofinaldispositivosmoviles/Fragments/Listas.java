@@ -2,11 +2,24 @@ package mx.edu.unpa.proyectofinaldispositivosmoviles.Fragments;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
+import android.os.Environment;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+import android.widget.Toast;
+
+import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
 
 import mx.edu.unpa.proyectofinaldispositivosmoviles.R;
 
@@ -57,10 +70,68 @@ public class Listas extends Fragment {
         }
     }
 
+    String DIRECTORY_NAME = "MySolicitud";
+    ListView _listView;
+    List<String> studentsList;
+    ArrayAdapter<String> _arrayAdapter;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_listas, container, false);
+        View v= inflater.inflate(R.layout.fragment_listas, container, false);
+        _listView = (ListView) v.findViewById(R.id.lista);
+
+        studentsList = new ArrayList<String>();
+
+
+        studentsList.add(getPath()+"");
+
+
+        _arrayAdapter =
+                new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1, studentsList);
+
+        _listView.setAdapter(_arrayAdapter);
+
+        _listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Toast.makeText(getActivity(), "Nombre: "+ studentsList.get(position), Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        return v;
+    }
+    public File getPath() {
+        File path = null;
+        if(Environment.MEDIA_MOUNTED.equals(Environment.getExternalStorageState())) {
+            path = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS), DIRECTORY_NAME);
+            if(path != null) {
+                if(!path.mkdirs()) {
+                    if(!path.exists()) {
+                        return null;
+                    }
+                }
+            }
+        }
+        return path;
+    }
+
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+
+        switch (item.getItemId()){
+            case R.id.add:
+                Toast.makeText(getActivity(),"agregar",Toast.LENGTH_SHORT).show();
+                studentsList.add("nuevo alumno");
+                return true;
+            case R.id.refresh:
+                Toast.makeText(getActivity(),"no agregar",Toast.LENGTH_SHORT).show();
+                this._arrayAdapter.notifyDataSetChanged();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 }
