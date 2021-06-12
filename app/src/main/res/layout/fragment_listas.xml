@@ -7,12 +7,25 @@
     android:layout_height="match_parent"
     tools:context=".Fragments.Listas">
 
-    <ListView
-        android:id="@+id/lista"
+    <LinearLayout
+        android:id="@+id/lista_archivos"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/Ruta_Actual"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Ruta Actual" />
+
+        <ListView
+            android:id="@+id/listview_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

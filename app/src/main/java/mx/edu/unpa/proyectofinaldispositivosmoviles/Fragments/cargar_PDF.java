@@ -69,7 +69,7 @@ public class cargar_PDF extends Fragment {
         }
     }
 
-    String DIRECTORY_NAME = "MySolicitud";
+    String DIRECTORY_NAME = "MyPDFs";
     private EditText txtNom;
     Button busca;
     @Override
