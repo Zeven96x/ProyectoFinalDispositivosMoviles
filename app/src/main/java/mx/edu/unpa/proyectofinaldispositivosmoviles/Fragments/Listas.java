@@ -1,5 +1,6 @@
 package mx.edu.unpa.proyectofinaldispositivosmoviles.Fragments;
 
+import android.app.usage.UsageEvents;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -8,7 +9,9 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
 import android.os.Environment;
+import android.provider.CalendarContract;
 import android.provider.DocumentsContract;
+import android.util.EventLog;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -93,7 +96,7 @@ public class Listas extends Fragment implements AdapterView.OnItemClickListener 
         carpetaActual= v.findViewById(R.id.Ruta_Actual);
         listas=v.findViewById(R.id.listview_list);
         //directorio raiz
-        directorioRaiz=getPath()+"";
+        directorioRaiz=Environment.getExternalStorageDirectory()+"";
 
         listas.setOnItemClickListener(this);
         verDirectorio(directorioRaiz);
