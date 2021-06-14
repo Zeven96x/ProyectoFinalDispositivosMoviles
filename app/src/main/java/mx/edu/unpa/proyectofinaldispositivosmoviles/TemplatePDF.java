@@ -81,6 +81,19 @@ public class TemplatePDF {
         childParagraph.setAlignment(Element.ALIGN_CENTER);
         paragraph.add(childParagraph);
     }
+    public void addParagraph(String text){
+        try {
+        paragraph= new Paragraph(text,fText);
+        paragraph.setSpacingAfter(5);
+        paragraph.setSpacingBefore(5);
+        document.add(paragraph);
+        }catch (DocumentException e) {
+            Log.e("addParagraph",e.toString());
+
+        }
+
+
+    }
 
 
 }
