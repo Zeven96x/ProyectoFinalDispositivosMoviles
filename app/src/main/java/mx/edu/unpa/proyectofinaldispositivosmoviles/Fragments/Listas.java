@@ -1,17 +1,22 @@
 package mx.edu.unpa.proyectofinaldispositivosmoviles.Fragments;
 
 import android.app.usage.UsageEvents;
+import android.content.ActivityNotFoundException;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 
 import android.os.Environment;
 import android.provider.CalendarContract;
 import android.provider.DocumentsContract;
 import android.util.EventLog;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -24,13 +29,22 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.lowagie.text.Document;
+
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 
 import mx.edu.unpa.proyectofinaldispositivosmoviles.R;
+
+import static android.Manifest.permission.READ_EXTERNAL_STORAGE;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -86,22 +100,68 @@ public class Listas extends Fragment implements AdapterView.OnItemClickListener 
     private  String directorioRaiz;
     private TextView carpetaActual;
     ListView listas;
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View v= inflater.inflate(R.layout.fragment_listas, container, false);
 
+
+        File d= new File(Environment.getExternalStorageDirectory().toString(),"ASS");
+        Toast.makeText(getActivity(),d.toString(), Toast.LENGTH_SHORT).show();
+        if (!d.exists()){
+            d.mkdirs();
+            File pdFfile= new File(getPath(),"unpa_diana");
+        }
+
         carpetaActual= v.findViewById(R.id.Ruta_Actual);
         listas=v.findViewById(R.id.listview_list);
         //directorio raiz
         directorioRaiz=Environment.getExternalStorageDirectory()+"";
-
         listas.setOnItemClickListener(this);
         verDirectorio(directorioRaiz);
+
+
         return v;
     }
+
+    public  void  pdfView(View view){
+
+    }
+
+
+    private final static int REQUEST_CODE = 42;
+    public static final int PERMISSION_CODE = 42042;
+
+
+    void pickFile() {
+        int permissionCheck = ContextCompat.checkSelfPermission(getActivity(),
+                READ_EXTERNAL_STORAGE);
+
+        if (permissionCheck != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(
+                    getActivity(),
+                    new String[]{READ_EXTERNAL_STORAGE},
+                    PERMISSION_CODE
+            );
+
+            return;
+        }
+
+        launchPicker();
+    }
+
+    void launchPicker() {
+        Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
+        intent.setType("application/pdf");
+        try {
+            startActivityForResult(intent, REQUEST_CODE);
+        } catch (ActivityNotFoundException e) {
+            //alert user that file manager not working
+            Toast.makeText(getActivity(),"error", Toast.LENGTH_SHORT).show();
+        }
+    }
+
 
     private void verDirectorio(String rutaDirectorio){
         nombresArchivos = new ArrayList<String>();

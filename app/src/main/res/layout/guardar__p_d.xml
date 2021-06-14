@@ -1857,14 +1857,14 @@
             <LinearLayout
                 android:id="@+id/bottonver"
                 android:layout_width="match_parent"
-                android:layout_height="70dp"
+                android:layout_height="50dp"
                 android:background="@drawable/custom_button"
                 android:orientation="vertical">
 
                 <Button
                     android:id="@+id/guardar"
                     android:layout_width="match_parent"
-                    android:layout_height="70dp"
+                    android:layout_height="50dp"
                     android:background="?attr/actionBarItemBackground"
                     android:hint="Guardar"
                     android:textColorHint="@color/colorOnPrimary"
