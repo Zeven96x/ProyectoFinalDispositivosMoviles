@@ -14,12 +14,14 @@ import androidx.fragment.app.FragmentTransaction;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import mx.edu.unpa.proyectofinaldispositivosmoviles.Fragments.Guardar_PDF;
+import mx.edu.unpa.proyectofinaldispositivosmoviles.Fragments.Informacion;
 import mx.edu.unpa.proyectofinaldispositivosmoviles.Fragments.Listas;
 import mx.edu.unpa.proyectofinaldispositivosmoviles.Fragments.cargar_PDF;
 
 public class MainActivity extends AppCompatActivity {
     Guardar_PDF firstFragment = new Guardar_PDF();
     cargar_PDF secondFragment = new cargar_PDF();
+    Informacion informacion = new Informacion();
     Listas thirdFragment = new Listas();
 
     /*FragmentTransaction transaction;
@@ -70,6 +72,7 @@ public class MainActivity extends AppCompatActivity {
 
         switch (item.getItemId()){
             case R.id.help:
+                loadFragment(informacion);
                 Toast.makeText(MainActivity.this,"información",Toast.LENGTH_SHORT).show();
                 return true;
 
