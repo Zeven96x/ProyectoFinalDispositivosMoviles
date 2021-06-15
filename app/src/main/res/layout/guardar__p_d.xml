@@ -56,40 +56,17 @@
                 android:orientation="horizontal">
 
 
-                <LinearLayout
-                    android:id="@+id/Puesto"
-                    android:layout_width="200dp"
-                    android:layout_height="130dp"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="Puesto que Solicitar:"
-                        android:textAlignment="center"
-                        android:textColor="@color/black"
-                        android:textSize="14sp" />
-
-
-                    <EditText
-                        android:id="@+id/txtPuesto_solicitado"
-                        android:layout_width="match_parent"
-                        android:layout_height="115dp"
-                        android:gravity="start|top"
-                        android:inputType="textMultiLine" />
-
-                </LinearLayout>
 
                 <LinearLayout
                     android:id="@+id/fecha_1"
-                    android:layout_width="200dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="Fecha:"
+                        android:hint="       Fecha:     "
                         android:textAlignment="center"
                         android:textColor="@color/black"
                         android:textSize="14sp" />
@@ -163,6 +140,31 @@
                             android:textAlignment="center" />
                     </LinearLayout>
                 </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/Puesto"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Puesto que Solicitar:"
+                        android:textAlignment="center"
+                        android:textColor="@color/black"
+                        android:textSize="14sp" />
+
+
+                    <EditText
+                        android:id="@+id/txtPuesto_solicitado"
+                        android:layout_width="match_parent"
+                        android:layout_height="115dp"
+                        android:gravity="start|top"
+                        android:inputType="textMultiLine" />
+
+                </LinearLayout>
+
             </LinearLayout>
 
 
@@ -175,49 +177,46 @@
 
                 <LinearLayout
                     android:id="@+id/sueldos"
-                    android:layout_width="200dp"
-                    android:layout_height="60dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:orientation="vertical">
 
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="Sueldo mensual deseado:"
+                        android:hint=" Sueldo mensual deseado:        "
                         android:textAlignment="center"
                         android:textSize="14sp" />
 
                     <EditText
                         android:id="@+id/txtSueldoDeseado"
                         android:layout_width="match_parent"
-                        android:layout_height="45dp"
+                        android:layout_height="wrap_content"
                         android:hint="$"
-                        android:inputType="textPersonName"
-                        android:textAlignment="center" />
+                        android:inputType="textPersonName"/>
 
                 </LinearLayout>
 
                 <LinearLayout
                     android:id="@+id/sueldo_Apro"
-                    android:layout_width="200dp"
-                    android:layout_height="60dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
                     android:orientation="vertical">
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="Sueldo mensual Aprobado:"
-                        android:textAlignment="center"
+                        android:hint="  Sueldo mensual Aprobado:  "
                         android:textColor="@color/black"
                         android:textSize="14sp" />
 
                     <EditText
                         android:id="@+id/txtSueldoAprobado"
                         android:layout_width="match_parent"
-                        android:layout_height="45dp"
+                        android:layout_height="wrap_content"
                         android:hint="$"
-                        android:inputType="textPersonName"
-                        android:textAlignment="center" />
+                        android:inputType="textPersonName" />
                 </LinearLayout>
             </LinearLayout>
 
@@ -233,43 +232,12 @@
             <!--"datos de la persona"-->
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="60dp"
+                android:layout_height="wrap_content"
                 android:orientation="horizontal">
-
-                <LinearLayout
-                    android:id="@+id/telefono"
-                    android:layout_width="200dp"
-                    android:layout_height="60dp"
-                    android:orientation="vertical">
-
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="Telefono:"
-                        android:textColor="@color/black"
-                        android:textSize="14sp" />
-
-                    <EditText
-                        android:id="@+id/txtNumeroTELEFENO"
-                        android:layout_width="match_parent"
-                        android:layout_height="40dp"
-                        android:hint="Introduce tu Numero"
-                        android:textAlignment="center"
-                        android:textSize="14sp" />
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="18dp"
-                        android:hint="Vive con:"
-                        android:textSize="14sp" />
-
-                </LinearLayout>
-
                 <LinearLayout
                     android:id="@+id/sexo"
-                    android:layout_width="200dp"
-                    android:layout_height="60dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:orientation="vertical">
 
                     <TextView
@@ -279,17 +247,12 @@
                         android:textColor="@color/black"
                         android:textSize="14sp" />
 
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="Introduce los datos de donde vives:"
-                        android:textColor="@color/black"
-                        android:textSize="14sp" />
+
 
                     <LinearLayout
                         android:id="@+id/sex"
                         android:layout_width="match_parent"
-                        android:layout_height="40dp"
+                        android:layout_height="wrap_content"
                         android:gravity="center"
                         android:orientation="horizontal">
 
@@ -306,6 +269,29 @@
                             android:text="Mujer"></CheckBox>
                     </LinearLayout>
                 </LinearLayout>
+                <LinearLayout
+                    android:id="@+id/telefono"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Telefono:"
+                        android:textColor="@color/black"
+                        android:textSize="14sp" />
+
+                    <EditText
+                        android:id="@+id/txtNumeroTELEFENO"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Introduce tu Numero"
+                        android:textAlignment="center"
+                        android:textSize="14sp" />
+
+                </LinearLayout>
             </LinearLayout>
 
             <TextView
@@ -317,29 +303,29 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="45dp"
+                android:layout_height="wrap_content"
                 android:orientation="horizontal">
 
                 <EditText
                     android:id="@+id/txtNombrePersona"
-                    android:layout_width="134dp"
-                    android:layout_height="45dp"
+                    android:layout_width="180dp"
+                    android:layout_height="wrap_content"
                     android:hint="nombre(s)"
                     android:textAlignment="center"
                     android:textSize="14sp" />
 
                 <EditText
                     android:id="@+id/txtapellidoP"
-                    android:layout_width="134dp"
-                    android:layout_height="45dp"
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
                     android:hint="Apellido P"
                     android:textAlignment="center"
                     android:textSize="14sp" />
 
                 <EditText
                     android:id="@+id/txtApellidoM"
-                    android:layout_width="134dp"
-                    android:layout_height="45dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
                     android:hint="Apellido M"
                     android:inputType="textPersonName"
                     android:textAlignment="center"
@@ -347,31 +333,39 @@
 
             </LinearLayout>
 
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Introduce los datos de donde vives:"
+                android:textColor="@color/black"
+                android:textSize="14sp" />
+
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="45dp"
+                android:layout_height="wrap_content"
                 android:orientation="horizontal">
+
 
                 <EditText
                     android:id="@+id/txtDomicilio"
-                    android:layout_width="134dp"
-                    android:layout_height="45dp"
+                    android:layout_width="180dp"
+                    android:layout_height="wrap_content"
                     android:hint="Domicilio"
                     android:textAlignment="center"
                     android:textSize="14sp" />
 
                 <EditText
                     android:id="@+id/txtColonia"
-                    android:layout_width="134dp"
-                    android:layout_height="45dp"
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
                     android:hint="colonia"
                     android:textAlignment="center"
                     android:textSize="14sp" />
 
                 <EditText
                     android:id="@+id/txtCodigoPostal"
-                    android:layout_width="134dp"
-                    android:layout_height="45dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
                     android:hint="Codigo postal"
                     android:textAlignment="center"
                     android:textSize="14sp" />
@@ -387,29 +381,29 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="45dp"
+                android:layout_height="wrap_content"
                 android:orientation="horizontal">
 
                 <EditText
                     android:id="@+id/txtCiudad"
-                    android:layout_width="134dp"
-                    android:layout_height="45dp"
+                    android:layout_width="180dp"
+                    android:layout_height="wrap_content"
                     android:hint="Ciudad"
                     android:textAlignment="center"
                     android:textSize="14sp" />
 
                 <EditText
                     android:id="@+id/txtEstado"
-                    android:layout_width="134dp"
-                    android:layout_height="45dp"
+                    android:layout_width="110dp"
+                    android:layout_height="wrap_content"
                     android:hint="Estado"
                     android:textAlignment="center"
                     android:textSize="14sp" />
 
                 <EditText
                     android:id="@+id/txtLugar_de_nacimineto"
-                    android:layout_width="134dp"
-                    android:layout_height="45dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
                     android:hint="Lugar De N"
                     android:textAlignment="center"
                     android:textSize="14sp" />
@@ -431,7 +425,7 @@
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="43dp"
+                    android:layout_height="wrap_content"
                     android:gravity="center"
                     android:orientation="horizontal">
 
@@ -502,43 +496,43 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="65dp"
+                android:layout_height="wrap_content"
                 android:orientation="horizontal">
 
                 <LinearLayout
-                    android:layout_width="200dp"
-                    android:layout_height="65dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:orientation="vertical">
 
                     <TextView
-                        android:layout_width="200dp"
-                        android:layout_height="18dp"
-                        android:hint="Fecha de nacimiendo:"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="       Fecha de nacimiendo:             "
                         android:textSize="14sp" />
 
                     <EditText
                         android:id="@+id/txtFecha_de_N"
-                        android:layout_width="200dp"
-                        android:layout_height="50dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
                         android:textAlignment="center" />
 
                 </LinearLayout>
 
                 <LinearLayout
-                    android:layout_width="200dp"
-                    android:layout_height="65dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
                     android:orientation="vertical">
 
                     <TextView
-                        android:layout_width="200dp"
-                        android:layout_height="18dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
                         android:hint="Nacionalidad:"
                         android:textSize="14sp" />
 
                     <EditText
                         android:id="@+id/txtNacionalidad"
-                        android:layout_width="200dp"
-                        android:layout_height="50dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
                         android:textAlignment="center" />
 
                 </LinearLayout>
@@ -546,43 +540,43 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="65dp"
+                android:layout_height="wrap_content"
                 android:orientation="horizontal">
 
                 <LinearLayout
-                    android:layout_width="200dp"
-                    android:layout_height="65dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:orientation="vertical">
 
                     <TextView
-                        android:layout_width="200dp"
-                        android:layout_height="18dp"
-                        android:hint="Peso:"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="         Peso:            "
                         android:textSize="14sp" />
 
                     <EditText
                         android:id="@+id/txtPeso"
-                        android:layout_width="200dp"
-                        android:layout_height="45dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
                         android:textAlignment="center" />
 
                 </LinearLayout>
 
                 <LinearLayout
-                    android:layout_width="200dp"
-                    android:layout_height="65dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
                     android:orientation="vertical">
 
                     <TextView
-                        android:layout_width="200dp"
-                        android:layout_height="18dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
                         android:hint="Estatura:"
                         android:textSize="14sp" />
 
                     <EditText
                         android:id="@+id/txtEstatura"
-                        android:layout_width="200dp"
-                        android:layout_height="45dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
                         android:textAlignment="center" />
 
                 </LinearLayout>
@@ -590,12 +584,12 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="55dp"
+                android:layout_height="wrap_content"
                 android:orientation="vertical">
 
                 <TextView
                     android:layout_width="match_parent"
-                    android:layout_height="22dp"
+                    android:layout_height="wrap_content"
                     android:hint="Estado Civil:"
                     android:textSize="14sp" />
 
@@ -634,38 +628,37 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="70dp"
+                android:layout_height="wrap_content"
                 android:orientation="horizontal">
 
                 <LinearLayout
-                    android:layout_width="200dp"
-                    android:layout_height="65dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:gravity="center"
                     android:orientation="vertical">
 
                     <TextView
                         android:layout_width="match_parent"
-                        android:layout_height="18dp"
-                        android:hint="Numero del seguro Social:"
+                        android:layout_height="wrap_content"
+                        android:hint="Numero del seguro Social:    "
                         android:textSize="14sp" />
 
                     <EditText
                         android:id="@+id/txtNss"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint=""
                         android:textAlignment="center" />
                 </LinearLayout>
 
                 <LinearLayout
-                    android:layout_width="200dp"
-                    android:layout_height="65dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
                     android:gravity="center"
                     android:orientation="vertical">
 
                     <TextView
                         android:layout_width="match_parent"
-                        android:layout_height="18dp"
+                        android:layout_height="wrap_content"
                         android:hint="Introduce tu Curp:"
                         android:textSize="14sp" />
 
@@ -673,26 +666,25 @@
                         android:id="@+id/txtcurp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint=""
                         android:textAlignment="center" />
                 </LinearLayout>
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="70dp"
+                android:layout_height="wrap_content"
                 android:orientation="horizontal">
 
                 <LinearLayout
-                    android:layout_width="200dp"
-                    android:layout_height="65dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:gravity="center"
                     android:orientation="vertical">
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="18dp"
-                        android:hint="Introduce tu RFC:"
+                        android:hint="  Introduce tu RFC:                            "
                         android:textSize="14sp" />
 
                     <EditText
@@ -704,24 +696,22 @@
                 </LinearLayout>
 
                 <LinearLayout
-                    android:layout_width="200dp"
-                    android:layout_height="65dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
                     android:gravity="center"
                     android:orientation="vertical">
 
                     <TextView
                         android:layout_width="match_parent"
-                        android:layout_height="18dp"
+                        android:layout_height="wrap_content"
                         android:hint="AFORE:"
                         android:textSize="14sp" />
 
                     <EditText
                         android:id="@+id/txtAfore"
                         android:layout_width="match_parent"
-                        android:layout_height="45dp"
-                        android:hint="En caso de tener"
-                        android:textAlignment="center"
-                        android:textSize="14sp" />
+                        android:layout_height="wrap_content"
+                        android:hint="En caso de tener" />
                 </LinearLayout>
             </LinearLayout>
 
@@ -731,39 +721,17 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
 
-                <LinearLayout
-                    android:id="@+id/CartillaMilitar"
-                    android:layout_width="200dp"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
 
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="Cartilla de Servicio Militar No."
-                        android:textAlignment="center"
-                        android:textColor="@color/black"
-                        android:textSize="14sp" />
-
-                    <EditText
-                        android:id="@+id/txtCartillaMilitar"
-                        android:layout_width="match_parent"
-                        android:layout_height="63dp"
-                        android:hint=""
-                        android:textAlignment="center" />
-
-                </LinearLayout>
 
                 <LinearLayout
-                    android:layout_width="200dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="Cuenta con licencia de manejo:"
+                        android:hint="Cuenta con licencia de manejo:     "
                         android:textAlignment="center"
                         android:textColor="@color/black"
                         android:textSize="14sp" />
@@ -771,7 +739,6 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:gravity="center"
                         android:orientation="horizontal">
 
                         <CheckBox
@@ -795,6 +762,30 @@
                             android:textSize="14sp" />
 
                     </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/CartillaMilitar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Cartilla de Servicio Militar"
+                        android:textAlignment="center"
+                        android:textColor="@color/black"
+                        android:textSize="14sp" />
+
+                    <EditText
+                        android:id="@+id/txtCartillaMilitar"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint=""
+                        android:textAlignment="center" />
+
                 </LinearLayout>
             </LinearLayout>
 
@@ -851,8 +842,7 @@
                 <LinearLayout
                     android:id="@+id/enfermedades"
                     android:layout_width="match_parent"
-                    android:layout_height="43dp"
-                    android:gravity="center"
+                    android:layout_height="wrap_content"
                     android:orientation="horizontal">
 
                     <CheckBox
@@ -867,8 +857,8 @@
 
                     <EditText
                         android:id="@+id/txtTipo_enfermedad"
-                        android:layout_width="134dp"
-                        android:layout_height="45dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
                         android:hint="Expica"
                         android:textAlignment="center"
                         android:textSize="14sp" />
@@ -884,7 +874,7 @@
                 <EditText
                     android:id="@+id/txtmeta"
                     android:layout_width="match_parent"
-                    android:layout_height="63dp"
+                    android:layout_height="wrap_content"
                     android:hint=""
                     android:textAlignment="center" />
             </LinearLayout>
@@ -942,48 +932,44 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="70dp"
+                android:layout_height="wrap_content"
                 android:orientation="horizontal">
 
                 <LinearLayout
-                    android:layout_width="200dp"
-                    android:layout_height="65dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:gravity="center"
                     android:orientation="vertical">
 
                     <TextView
                         android:layout_width="match_parent"
-                        android:layout_height="18dp"
-                        android:hint="Nombre de la Institucion:"
+                        android:layout_height="wrap_content"
+                        android:hint="Nombre de la Institucion:   "
                         android:textSize="14sp" />
 
                     <EditText
                         android:id="@+id/txtNombre_Institucion"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint=""
                         android:textAlignment="center" />
                 </LinearLayout>
 
                 <LinearLayout
-                    android:layout_width="200dp"
-                    android:layout_height="65dp"
-                    android:gravity="center"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
                     android:orientation="vertical">
 
                     <TextView
                         android:layout_width="match_parent"
-                        android:layout_height="16dp"
-                        android:hint="Nombre del titulo Obtenido:"
+                        android:layout_height="wrap_content"
+                        android:hint="  Nombre del titulo Obtenido:"
                         android:textSize="14sp" />
 
                     <EditText
                         android:id="@+id/txtNombre_TituloEducativo"
                         android:layout_width="match_parent"
-                        android:layout_height="48dp"
-                        android:hint=""
-                        android:textAlignment="center"
-                        android:textSize="14sp" />
+                        android:layout_height="wrap_content"
+                        android:textAlignment="center" />
                 </LinearLayout>
 
             </LinearLayout>
@@ -991,7 +977,7 @@
             <LinearLayout
                 android:id="@+id/Estudios_Actuales"
                 android:layout_width="match_parent"
-                android:layout_height="70dp"
+                android:layout_height="wrap_content"
                 android:orientation="vertical">
 
 
@@ -1004,7 +990,7 @@
                 <EditText
                     android:id="@+id/txtEstudio_Actual"
                     android:layout_width="match_parent"
-                    android:layout_height="45dp"
+                    android:layout_height="wrap_content"
                     android:inputType="textPersonName"
                     android:textAlignment="center" />
 
@@ -1020,43 +1006,53 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="90dp"
+                android:layout_height="wrap_content"
                 android:orientation="horizontal">
 
                 <LinearLayout
-                    android:layout_width="200dp"
-                    android:layout_height="80dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:orientation="vertical">
 
                     <TextView
-                        android:layout_width="200dp"
-                        android:layout_height="35dp"
-                        android:hint="Que Idiomas hablas (Nivel 50%,75%,100%)"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Que Idiomas hablas     "
+                        android:textSize="14sp" />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="(Nivel 50%,75%,100%)   "
                         android:textSize="14sp" />
 
                     <EditText
                         android:id="@+id/txtIdiomas"
-                        android:layout_width="200dp"
-                        android:layout_height="50dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
                         android:textAlignment="center" />
 
                 </LinearLayout>
 
                 <LinearLayout
-                    android:layout_width="200dp"
-                    android:layout_height="80dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
                     android:orientation="vertical">
 
                     <TextView
-                        android:layout_width="200dp"
-                        android:layout_height="35dp"
-                        android:hint="Funciones de Oficina que domina:"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Funciones de Oficina "
+                        android:textSize="14sp" />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="que domina:"
                         android:textSize="14sp" />
 
                     <EditText
                         android:id="@+id/txtFunciones_oficinas"
-                        android:layout_width="200dp"
-                        android:layout_height="50dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
                         android:textAlignment="center" />
 
                 </LinearLayout>
@@ -1064,43 +1060,53 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="90dp"
+                android:layout_height="wrap_content"
                 android:orientation="horizontal">
 
                 <LinearLayout
-                    android:layout_width="200dp"
-                    android:layout_height="80dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:orientation="vertical">
 
                     <TextView
-                        android:layout_width="200dp"
-                        android:layout_height="35dp"
-                        android:hint="Maquinas de Oficina o de taller que sepa manejar:"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Maquinas de Oficina o"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="de taller que sepa manejar:"
                         android:textSize="14sp" />
 
                     <EditText
                         android:id="@+id/txtMaquinas_manejadas"
-                        android:layout_width="200dp"
-                        android:layout_height="50dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
                         android:textAlignment="center" />
 
                 </LinearLayout>
 
                 <LinearLayout
-                    android:layout_width="200dp"
-                    android:layout_height="80dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
                     android:orientation="vertical">
 
                     <TextView
-                        android:layout_width="200dp"
-                        android:layout_height="35dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
                         android:hint="Software que conoce:"
+                        android:textSize="14sp" />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
                         android:textSize="14sp" />
 
                     <EditText
                         android:id="@+id/txtSoftware_conocido"
-                        android:layout_width="200dp"
-                        android:layout_height="50dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
                         android:textAlignment="center" />
 
                 </LinearLayout>
@@ -1108,7 +1114,7 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="70dp"
+                android:layout_height="wrap_content"
                 android:orientation="vertical">
 
 
@@ -1121,7 +1127,7 @@
                 <EditText
                     android:id="@+id/txtOtros_Trabajos"
                     android:layout_width="match_parent"
-                    android:layout_height="45dp"
+                    android:layout_height="wrap_content"
                     android:inputType="textPersonName"
                     android:textAlignment="center" />
 
@@ -1136,62 +1142,61 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="90dp"
+                android:layout_height="wrap_content"
                 android:orientation="horizontal">
 
                 <LinearLayout
                     android:layout_width="wrap_content"
-                    android:layout_height="80dp"
+                    android:layout_height="wrap_content"
                     android:orientation="vertical">
 
                     <TextView
-                        android:layout_width="200dp"
-                        android:layout_height="20dp"
-                        android:hint="Nombre de la Empresa:"
-                        android:textSize="14sp" />
-
-                    <EditText
-                        android:id="@+id/txtEmpresa1"
-                        android:layout_width="200dp"
-                        android:layout_height="50dp"
-                        android:textAlignment="center" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="100dp"
-                    android:layout_height="80dp"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="100dp"
-                        android:layout_height="20dp"
-                        android:hint="de que año:"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="de que año:  "
                         android:textSize="14sp" />
 
                     <EditText
                         android:id="@+id/txtAnoEntrada1"
-                        android:layout_width="200dp"
-                        android:layout_height="50dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
                         android:textAlignment="center" />
 
                 </LinearLayout>
 
                 <LinearLayout
-                    android:layout_width="100dp"
-                    android:layout_height="80dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:orientation="vertical">
 
                     <TextView
-                        android:layout_width="100dp"
-                        android:layout_height="20dp"
-                        android:hint="a que año:"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="a que año:  "
                         android:textSize="14sp" />
 
                     <EditText
                         android:id="@+id/txtSAnoSalia1"
-                        android:layout_width="100dp"
-                        android:layout_height="50dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textAlignment="center" />
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="   Nombre de la Empresa:"
+                        android:textSize="14sp" />
+
+                    <EditText
+                        android:id="@+id/txtEmpresa1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
                         android:textAlignment="center" />
 
                 </LinearLayout>
@@ -1199,62 +1204,61 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="90dp"
+                android:layout_height="wrap_content"
                 android:orientation="horizontal">
 
                 <LinearLayout
                     android:layout_width="wrap_content"
-                    android:layout_height="80dp"
+                    android:layout_height="wrap_content"
                     android:orientation="vertical">
 
                     <TextView
-                        android:layout_width="200dp"
-                        android:layout_height="20dp"
-                        android:hint="Nombre de la Empresa:"
-                        android:textSize="14sp" />
-
-                    <EditText
-                        android:id="@+id/txtEmpresa2"
-                        android:layout_width="200dp"
-                        android:layout_height="50dp"
-                        android:textAlignment="center" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="100dp"
-                    android:layout_height="80dp"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="100dp"
-                        android:layout_height="20dp"
-                        android:hint="de que año:"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="de que año:  "
                         android:textSize="14sp" />
 
                     <EditText
                         android:id="@+id/txtAnoEntrada2"
-                        android:layout_width="200dp"
-                        android:layout_height="50dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
                         android:textAlignment="center" />
 
                 </LinearLayout>
 
                 <LinearLayout
-                    android:layout_width="100dp"
-                    android:layout_height="80dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:orientation="vertical">
 
                     <TextView
-                        android:layout_width="100dp"
-                        android:layout_height="20dp"
-                        android:hint="a que año:"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="a que año:  "
                         android:textSize="14sp" />
 
                     <EditText
                         android:id="@+id/txtSAnoSalia2"
-                        android:layout_width="100dp"
-                        android:layout_height="50dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textAlignment="center" />
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint=" Nombre de la Empresa:"
+                        android:textSize="14sp" />
+
+                    <EditText
+                        android:id="@+id/txtEmpresa2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
                         android:textAlignment="center" />
 
                 </LinearLayout>
@@ -1262,62 +1266,62 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="90dp"
+                android:layout_height="wrap_content"
                 android:orientation="horizontal">
 
                 <LinearLayout
                     android:layout_width="wrap_content"
-                    android:layout_height="80dp"
+                    android:layout_height="wrap_content"
                     android:orientation="vertical">
 
                     <TextView
-                        android:layout_width="200dp"
-                        android:layout_height="20dp"
-                        android:hint="Nombre de la Empresa:"
-                        android:textSize="14sp" />
-
-                    <EditText
-                        android:id="@+id/txtEmpresa3"
-                        android:layout_width="200dp"
-                        android:layout_height="50dp"
-                        android:textAlignment="center" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="100dp"
-                    android:layout_height="80dp"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="100dp"
-                        android:layout_height="20dp"
-                        android:hint="de que año:"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="de que año:  "
                         android:textSize="14sp" />
 
                     <EditText
                         android:id="@+id/txtAnoEntrada3"
-                        android:layout_width="200dp"
-                        android:layout_height="50dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
                         android:textAlignment="center" />
 
                 </LinearLayout>
 
                 <LinearLayout
-                    android:layout_width="100dp"
-                    android:layout_height="80dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:orientation="vertical">
 
                     <TextView
-                        android:layout_width="100dp"
-                        android:layout_height="20dp"
-                        android:hint="a que año:"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="a que año:  "
                         android:textSize="14sp" />
 
                     <EditText
                         android:id="@+id/txtSAnoSalia3"
-                        android:layout_width="100dp"
-                        android:layout_height="50dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textAlignment="center" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint=" Nombre de la Empresa:"
+                        android:textSize="14sp" />
+
+                    <EditText
+                        android:id="@+id/txtEmpresa3"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
                         android:textAlignment="center" />
 
                 </LinearLayout>
@@ -1340,29 +1344,29 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="55dp"
+                android:layout_height="wrap_content"
                 android:orientation="horizontal">
 
                 <EditText
                     android:id="@+id/txtNombreReferencia1"
-                    android:layout_width="134dp"
-                    android:layout_height="50dp"
+                    android:layout_width="130dp"
+                    android:layout_height="wrap_content"
                     android:hint="nombre"
                     android:textAlignment="center"
                     android:textSize="14sp" />
 
                 <EditText
                     android:id="@+id/txtDomicilioR1"
-                    android:layout_width="134dp"
-                    android:layout_height="50dp"
+                    android:layout_width="130dp"
+                    android:layout_height="wrap_content"
                     android:hint="Domicilio"
                     android:textAlignment="center"
                     android:textSize="14sp" />
 
                 <EditText
                     android:id="@+id/txtTelefono1"
-                    android:layout_width="134dp"
-                    android:layout_height="50dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
                     android:hint="Telefono"
                     android:inputType="textPersonName"
                     android:textAlignment="center"
@@ -1372,22 +1376,24 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="55dp"
+                android:layout_height="wrap_content"
                 android:orientation="horizontal">
 
-                <EditText
-                    android:id="@+id/txtOcupacionR1"
-                    android:layout_width="200dp"
-                    android:layout_height="50dp"
-                    android:hint="Ocupacion"
-                    android:textAlignment="center"
-                    android:textSize="14sp" />
+
 
                 <EditText
                     android:id="@+id/txtTiempoConocerR1"
                     android:layout_width="200dp"
-                    android:layout_height="50dp"
+                    android:layout_height="wrap_content"
                     android:hint="Tiempo de conocerlo"
+                    android:textAlignment="center"
+                    android:textSize="14sp" />
+
+                <EditText
+                    android:id="@+id/txtOcupacionR1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Ocupacion"
                     android:textAlignment="center"
                     android:textSize="14sp" />
 
@@ -1403,29 +1409,29 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="55dp"
+                android:layout_height="wrap_content"
                 android:orientation="horizontal">
 
                 <EditText
                     android:id="@+id/txtNombreReferencia2"
-                    android:layout_width="134dp"
-                    android:layout_height="50dp"
+                    android:layout_width="130dp"
+                    android:layout_height="wrap_content"
                     android:hint="nombre"
                     android:textAlignment="center"
                     android:textSize="14sp" />
 
                 <EditText
                     android:id="@+id/txtDomicilioR2"
-                    android:layout_width="134dp"
-                    android:layout_height="50dp"
+                    android:layout_width="130dp"
+                    android:layout_height="wrap_content"
                     android:hint="Domicilio"
                     android:textAlignment="center"
                     android:textSize="14sp" />
 
                 <EditText
                     android:id="@+id/txtTelefono2"
-                    android:layout_width="134dp"
-                    android:layout_height="50dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
                     android:hint="Telefono"
                     android:inputType="textPersonName"
                     android:textAlignment="center"
@@ -1435,22 +1441,22 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="55dp"
+                android:layout_height="wrap_content"
                 android:orientation="horizontal">
-
-                <EditText
-                    android:id="@+id/txtOcupacionR2"
-                    android:layout_width="200dp"
-                    android:layout_height="50dp"
-                    android:hint="Ocupacion"
-                    android:textAlignment="center"
-                    android:textSize="14sp" />
 
                 <EditText
                     android:id="@+id/txtTiempoConocerR2"
                     android:layout_width="200dp"
-                    android:layout_height="50dp"
+                    android:layout_height="wrap_content"
                     android:hint="Tiempo de conocerlo"
+                    android:textAlignment="center"
+                    android:textSize="14sp" />
+
+                <EditText
+                    android:id="@+id/txtOcupacionR2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Ocupacion"
                     android:textAlignment="center"
                     android:textSize="14sp" />
 
@@ -1465,29 +1471,29 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="55dp"
+                android:layout_height="wrap_content"
                 android:orientation="horizontal">
 
                 <EditText
                     android:id="@+id/txtNombreReferencia3"
-                    android:layout_width="134dp"
-                    android:layout_height="50dp"
+                    android:layout_width="130dp"
+                    android:layout_height="wrap_content"
                     android:hint="nombre"
                     android:textAlignment="center"
                     android:textSize="14sp" />
 
                 <EditText
                     android:id="@+id/txtDomicilioR3"
-                    android:layout_width="134dp"
-                    android:layout_height="50dp"
+                    android:layout_width="130dp"
+                    android:layout_height="wrap_content"
                     android:hint="Domicilio"
                     android:textAlignment="center"
                     android:textSize="14sp" />
 
                 <EditText
                     android:id="@+id/txtTelefono3"
-                    android:layout_width="134dp"
-                    android:layout_height="50dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
                     android:hint="Telefono"
                     android:inputType="textPersonName"
                     android:textAlignment="center"
@@ -1497,24 +1503,26 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="55dp"
+                android:layout_height="wrap_content"
                 android:orientation="horizontal">
-
-                <EditText
-                    android:id="@+id/txtOcupacionR3"
-                    android:layout_width="200dp"
-                    android:layout_height="50dp"
-                    android:hint="Ocupacion"
-                    android:textAlignment="center"
-                    android:textSize="14sp" />
 
                 <EditText
                     android:id="@+id/txtTiempoConocerR3"
                     android:layout_width="200dp"
-                    android:layout_height="50dp"
+                    android:layout_height="wrap_content"
                     android:hint="Tiempo de conocerlo"
                     android:textAlignment="center"
                     android:textSize="14sp" />
+
+                <EditText
+                    android:id="@+id/txtOcupacionR3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Ocupacion"
+                    android:textAlignment="center"
+                    android:textSize="14sp" />
+
+
 
             </LinearLayout>
 

@@ -117,7 +117,7 @@ public class TemplatePDF {
         }
         for(int indexR=0;indexR<clients.size();indexR++){
             String[] row=clients.get(indexR);
-            for(indexC=0;indexC<clients.size();indexC++){
+            for(indexC=0;indexC<header.length;indexC++){
                 pdfPCell= new PdfPCell(new Phrase(row[indexC]));
                 pdfPCell.setHorizontalAlignment(Element.ALIGN_CENTER);
                 pdfPCell.setFixedHeight(40);

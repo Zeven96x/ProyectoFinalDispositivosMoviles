@@ -141,7 +141,7 @@ public class Guardar_PDF extends Fragment {
                                 templatePDF.addTitles("tiend codigo","clientes","6/12/2021");
                                 templatePDF.addParagraph(shortText);
                                 templatePDF.addParagraph(longtext);
-                                //templatePDF.createTable(header,getClients());
+                                templatePDF.createTable(header,getClients());
                                 templatePDF.closeDocument();
                             }else{
                                 // Permiso no aceptado / Se pregunta por primera vez
@@ -162,7 +162,7 @@ public class Guardar_PDF extends Fragment {
                             }
                         }else{
 
-                            //olderVersions(nombre,contenido);
+                            olderVersions(nombre,contenido);
                         }
                     } else {
                         Toast.makeText(getActivity(),"pdf con contenido vacio",Toast.LENGTH_LONG).show();
@@ -241,7 +241,13 @@ public class Guardar_PDF extends Fragment {
 
     private void olderVersions(String nombre, String contenido){
         if(checkPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE)){
-            //createPDF(nombre,contenido);
+            templatePDF.openDocument(nombre);
+            templatePDF.addMetaData("clientes","ventas","DANI");
+            templatePDF.addTitles("tiend codigo","clientes","6/12/2021");
+            templatePDF.addParagraph(shortText);
+            templatePDF.addParagraph(longtext);
+            templatePDF.createTable(header,getClients());
+            templatePDF.closeDocument();
         }else{
             Toast.makeText(getActivity(),"PERMISSION_DENIED",Toast.LENGTH_LONG).show();
         }
