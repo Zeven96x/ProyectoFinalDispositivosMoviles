@@ -10,11 +10,17 @@ import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.Element;
 import com.itextpdf.text.Font;
 import com.itextpdf.text.Paragraph;
+import com.itextpdf.text.Phrase;
+import com.itextpdf.text.pdf.PdfPCell;
+import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfWriter;
 import com.lowagie.text.PageSize;
+import com.lowagie.text.pdf.PdfCell;
+import com.lowagie.text.pdf.PdfTable;
 
 import java.io.File;
 import java.io.FileOutputStream;
+import java.util.ArrayList;
 
 import static com.lowagie.text.PageSize.*;
 
@@ -89,11 +95,38 @@ public class TemplatePDF {
         document.add(paragraph);
         }catch (DocumentException e) {
             Log.e("addParagraph",e.toString());
-
         }
-
-
     }
 
+    public void createTable(String[] header, ArrayList<String[]> clients ){
+        try {
+        paragraph = new Paragraph();
+        paragraph.setFont(fText);
+        PdfPTable pdfPTable = new PdfPTable(header.length);
+        pdfPTable.setWidthPercentage(100);
+        PdfPCell pdfPCell;
+        int indexC=0;
+        while(indexC<header.length){
+            pdfPCell= new PdfPCell(new Phrase(header[indexC++],fSubTitle));
+            pdfPCell.setHorizontalAlignment(Element.ALIGN_CENTER);
+            pdfPCell.setBackgroundColor(BaseColor.GREEN);
+            pdfPTable.addCell(pdfPCell);
+        }
+        for(int indexR=0;indexR<clients.size();indexR++){
+            String[] row=clients.get(indexR);
+            for(indexC=0;indexC<clients.size();indexC++){
+                pdfPCell= new PdfPCell(new Phrase(row[indexC]));
+                pdfPCell.setHorizontalAlignment(Element.ALIGN_CENTER);
+                pdfPCell.setFixedHeight(40);
+                pdfPTable.addCell(pdfPCell);
+            }
+        }
+        paragraph.add(pdfPTable);
+
+        document.add(paragraph);
+        }catch (DocumentException e) {
+            Log.e("createTable",e.toString());
+        }
+    }
 
 }
