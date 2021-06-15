@@ -57,20 +57,4 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-   /* public void OnClik(View view){
-        transaction = getSupportFragmentManager().beginTransaction();
-        switch(view.getId()){
-            case R.id.guardar:
-                transaction.replace(R.id.idFragments,guardarPDF);
-                transaction.addToBackStack(null);
-                break;
-            case R.id.buscar1:
-                transaction.replace(R.id.idFragments,cargar);
-                transaction.addToBackStack(null);
-                break;
-            default:
-        }
-        transaction.commit();
-    }*/
-
 }

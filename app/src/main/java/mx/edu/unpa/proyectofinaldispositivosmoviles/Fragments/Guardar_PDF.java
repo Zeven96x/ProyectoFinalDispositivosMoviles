@@ -10,12 +10,16 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.Settings;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.ListView;
 import android.widget.Toast;
 
 import androidx.core.app.ActivityCompat;
@@ -26,12 +30,18 @@ import com.lowagie.text.DocumentException;
 import com.lowagie.text.Paragraph;
 import com.lowagie.text.pdf.PdfWriter;
 
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.List;
 
 import mx.edu.unpa.proyectofinaldispositivosmoviles.R;
 
+import static android.content.Context.MODE_PRIVATE;
 import static android.widget.Toast.LENGTH_SHORT;
 
 
@@ -77,7 +87,17 @@ public class Guardar_PDF extends Fragment {
     String DIRECTORY_NAME = "MySolicitud";
     private EditText txtNombre3, txtContenido;
     Button guarda;
-    LinearLayout linearLayout;
+
+
+    //esto es para crear un txt con lo nombres de los pdf
+    private EditText etfile;
+    private Button btGuardar;
+    private Button btRead;
+    private static  final  String FILE_NAME="Lista_pdf.txt";
+
+    ListView _listView;
+    List<String> studentsList;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -99,7 +119,9 @@ public class Guardar_PDF extends Fragment {
             public void onClick(View v) {
                 String nombre = txtNombre3.getText().toString();//guarda el nombr del archivo en la variable
                 String contenido = "hola mundo";//guarda lo que va dentro deñ archivo en la variable
-                if(nombre!= null && !nombre.isEmpty()) {
+                etfile=txtNombre3;
+                saveFile();
+                /*if(nombre!= null && !nombre.isEmpty()) {
                     if (contenido != null && !contenido.isEmpty()) {
                         // Comprobar la versión actual de android del dispositivo
                         if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M){
@@ -134,11 +156,74 @@ public class Guardar_PDF extends Fragment {
                     }
                 }else{
                     Toast.makeText(getActivity(), "Inserta el nombre para el pdf", Toast.LENGTH_LONG).show();
-                }
+                }*/
             }
         });
         return v;
     }
+
+
+
+    List<String> list = new ArrayList<String>();
+    private void saveFile(){
+        ver();
+
+        String nombreS= etfile.getText().toString();
+        FileOutputStream fileOutputStream= null;
+        try {
+            fileOutputStream= getActivity().openFileOutput(FILE_NAME,MODE_PRIVATE);
+            list.add(nombreS+"/");
+            for (int i = 0; i <list.size() ; i++) {
+                fileOutputStream.write(list.get(i).getBytes());
+            }
+            Toast.makeText(getActivity(),getActivity().getFilesDir()+"/"+FILE_NAME,Toast.LENGTH_LONG).show();
+            Log.d("TAG1","FICHERO SALVADO EN LA RUTA: "+getActivity().getFilesDir()+"/"+FILE_NAME);
+        }catch (Exception e){
+            e.printStackTrace();
+        }finally {
+            if (fileOutputStream!=null){
+                try {
+                    fileOutputStream.close();
+                }catch (Exception e){
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+
+
+    private  void ver(){
+        list.clear();
+        FileInputStream fileInputStream= null;
+        StringBuilder stringBuilder= new StringBuilder();
+        try {
+            fileInputStream= getActivity().openFileInput(FILE_NAME);
+            InputStreamReader inputStreamReader= new InputStreamReader(fileInputStream);
+            BufferedReader bufferedReader= new BufferedReader(inputStreamReader);
+            String linetexto;
+            while ((linetexto= bufferedReader.readLine())!= null){
+                stringBuilder.append(linetexto).append("\n");
+                list.add(linetexto);
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }finally {
+            if (fileInputStream!=null){
+                try {
+                    fileInputStream.close();
+                }catch (Exception e){
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+
+
+
+
+
+
+
 
     //region Generate PDF file
     public void createPDF(String nombre, String contenido) {

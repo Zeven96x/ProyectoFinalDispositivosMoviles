@@ -5,6 +5,7 @@ import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -25,17 +26,22 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.lowagie.text.Document;
 
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -93,44 +99,90 @@ public class Listas extends Fragment  {
         }
     }
 
+
     String DIRECTORY_NAME = "MyPDFs";
-    private  List<String> nombresArchivos;
-    private  List<String> rutasArchivos;
-    private ArrayAdapter<String> adaptador;
-    private  String directorioRaiz;
-    private TextView carpetaActual;
-    ListView listas;
+
+
+    //esto es para crear un txt con lo nombres de los pdf
+    private static  final  String FILE_NAME="Lista_pdf.txt";
+    ListView _listView;
+    List<String> studentsList;
+    List<String> list = new ArrayList<String>();
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View v= inflater.inflate(R.layout.fragment_listas, container, false);
-
-
-       /*File d= new File(Environment.getExternalStorageDirectory().toString(),"ASS");
-        Toast.makeText(getActivity(),d.toString(), Toast.LENGTH_SHORT).show();
-        if (!d.exists()){
-            d.mkdirs();
-            File pdFfile= new File(getPath(),"unpa_diana");
+        _listView = (ListView) v.findViewById(R.id.listViewStudents);
+        studentsList = new ArrayList<String>();
+        ver();
+        String[] aux= list.get(0).split("/");
+        for (int i = 0; i < aux.length; i++) {
+            studentsList.add(aux[i]);
         }
 
-        carpetaActual= v.findViewById(R.id.Ruta_Actual);
-        listas=v.findViewById(R.id.listview_list);
-        //directorio raiz
-        directorioRaiz=Environment.getExternalStorageDirectory()+"";
-        listas.setOnItemClickListener(this);
-        verDirectorio(directorioRaiz);
-*/
+        ArrayAdapter<String> _arrayAdapter =
+                new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1, studentsList);
+
+        _listView.setAdapter(_arrayAdapter);
+
+        _listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                displayPDF(studentsList.get(position));
+            }
+        });
 
         return v;
     }
 
+    private  void ver(){
+        list.clear();
+        FileInputStream fileInputStream= null;
+        StringBuilder stringBuilder= new StringBuilder();
+        try {
+            fileInputStream= getActivity().openFileInput(FILE_NAME);
+            InputStreamReader inputStreamReader= new InputStreamReader(fileInputStream);
+            BufferedReader bufferedReader= new BufferedReader(inputStreamReader);
+            String linetexto;
+            while ((linetexto= bufferedReader.readLine())!= null){
+                stringBuilder.append(linetexto).append("\n");
+                list.add(linetexto);
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }finally {
+            if (fileInputStream!=null){
+                try {
+                    fileInputStream.close();
+                }catch (Exception e){
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
 
 
-
-
-
-
+    public void displayPDF(String nombrepd) {
+        File file = new File(getPath() + "/" + nombrepd+".pdf");
+        if(file.exists()) {
+            Intent target = new Intent(Intent.ACTION_VIEW);
+            if (Build.VERSION.SDK_INT >=  Build.VERSION_CODES.N) {
+                target.setDataAndType(Uri.parse(file.getPath()), "application/pdf");
+            } else{
+                target.setDataAndType(Uri.fromFile(file), "application/pdf");
+            }
+            target.setFlags(Intent.FLAG_ACTIVITY_NO_HISTORY | Intent.FLAG_GRANT_READ_URI_PERMISSION);
+            Intent intent = Intent.createChooser(target, "Open File");
+            try {
+                startActivity(intent);
+            } catch (ActivityNotFoundException e) {
+            }
+        }
+        else
+            Toast.makeText(getActivity().getApplicationContext(), "El Archivo no existe" , Toast.LENGTH_LONG).show();
+    }
 
     public File getPath() {
         File path = null;
@@ -146,5 +198,4 @@ public class Listas extends Fragment  {
         }
         return path;
     }
-
 }
