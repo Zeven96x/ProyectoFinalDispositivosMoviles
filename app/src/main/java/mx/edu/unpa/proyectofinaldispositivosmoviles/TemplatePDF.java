@@ -56,6 +56,7 @@ public class TemplatePDF {
         document.close();
     }
     String DIRECTORY_NAME = "MyPDFs";
+
     private  void createFile(String nombreDel_pdf){
         File folder= new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS),DIRECTORY_NAME);
         if (!folder.exists()){
@@ -72,12 +73,13 @@ public class TemplatePDF {
   //checqar
     public void  addTitles(String title,String subject,String date){
         try {
-        paragraph= new Paragraph();
-        addChildP(new Paragraph(title,fTitle));
-        addChildP(new Paragraph(subject,fSubTitle));
-        addChildP(new Paragraph("Generado: "+date,fHighText));
-        paragraph.setSpacingAfter(30);
-        document.add(paragraph);
+                paragraph= new Paragraph();
+                addChildP(new Paragraph(title,fTitle));
+                addChildP(new Paragraph(subject,fSubTitle));
+                addChildP(new Paragraph("Generado: "+date,fHighText));
+                paragraph.setSpacingAfter(30);
+
+                document.add(paragraph);
         }catch (DocumentException e) {
             Log.e("addTitles",e.toString());
         }
@@ -90,10 +92,10 @@ public class TemplatePDF {
     }
     public void addParagraph(String text){
         try {
-        paragraph= new Paragraph(text,fText);
-        paragraph.setSpacingAfter(5);
-        paragraph.setSpacingBefore(5);
-        document.add(paragraph);
+            paragraph= new Paragraph(text,fText);
+            paragraph.setSpacingAfter(5);
+            paragraph.setSpacingBefore(5);
+            document.add(paragraph);
         }catch (DocumentException e) {
             Log.e("addParagraph",e.toString());
         }
@@ -101,11 +103,11 @@ public class TemplatePDF {
 
     public void createTable(String[] header, ArrayList<String[]> clients ){
         try {
-        paragraph = new Paragraph();
-        paragraph.setFont(fText);
-        PdfPTable pdfPTable = new PdfPTable(header.length);
-        pdfPTable.setWidthPercentage(100);
-        PdfPCell pdfPCell;
+            paragraph = new Paragraph();
+            paragraph.setFont(fText);
+            PdfPTable pdfPTable = new PdfPTable(header.length);
+            pdfPTable.setWidthPercentage(100);
+            PdfPCell pdfPCell;
         int indexC=0;
         while(indexC<header.length){
             pdfPCell= new PdfPCell(new Phrase(header[indexC++],fSubTitle));

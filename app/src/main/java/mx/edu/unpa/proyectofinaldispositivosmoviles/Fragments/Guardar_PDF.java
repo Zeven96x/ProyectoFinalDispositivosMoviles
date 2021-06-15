@@ -138,10 +138,10 @@ public class Guardar_PDF extends Fragment {
                                 }
                                 templatePDF.openDocument(nombre);
                                 templatePDF.addMetaData("clientes","ventas","DANI");
-                                /*templatePDF.addTitles("tiend codigo","clientes","6/12/2021");
+                                templatePDF.addTitles("tiend codigo","clientes","6/12/2021");
                                 templatePDF.addParagraph(shortText);
                                 templatePDF.addParagraph(longtext);
-                                templatePDF.createTable(header,getClients());*/
+                                //templatePDF.createTable(header,getClients());
                                 templatePDF.closeDocument();
                             }else{
                                 // Permiso no aceptado / Se pregunta por primera vez
