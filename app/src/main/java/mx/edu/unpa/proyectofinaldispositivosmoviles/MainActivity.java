@@ -1,7 +1,10 @@
 package mx.edu.unpa.proyectofinaldispositivosmoviles;
 
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -55,6 +58,29 @@ public class MainActivity extends AppCompatActivity {
         transaction.replace(R.id.frame_container,fragment);
         transaction.commit();
     }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater= getMenuInflater();
+        inflater.inflate(R.menu.action_bar_menu,menu);
+        return true; //super.onCreateOptionsMenu(menu);
+    }
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+
+        switch (item.getItemId()){
+            case R.id.add:
+                Toast.makeText(MainActivity.this,"información",Toast.LENGTH_SHORT).show();
+                return true;
+
+            default:
+
+                return super.onOptionsItemSelected(item);
+        }
+
+
+
+    }
+
 
 
 }
