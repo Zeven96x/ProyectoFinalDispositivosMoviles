@@ -51,7 +51,7 @@ import static android.Manifest.permission.READ_EXTERNAL_STORAGE;
  * Use the {@link Listas#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class Listas extends Fragment implements AdapterView.OnItemClickListener {
+public class Listas extends Fragment  {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -107,7 +107,7 @@ public class Listas extends Fragment implements AdapterView.OnItemClickListener 
         View v= inflater.inflate(R.layout.fragment_listas, container, false);
 
 
-        File d= new File(Environment.getExternalStorageDirectory().toString(),"ASS");
+       /*File d= new File(Environment.getExternalStorageDirectory().toString(),"ASS");
         Toast.makeText(getActivity(),d.toString(), Toast.LENGTH_SHORT).show();
         if (!d.exists()){
             d.mkdirs();
@@ -120,90 +120,13 @@ public class Listas extends Fragment implements AdapterView.OnItemClickListener 
         directorioRaiz=Environment.getExternalStorageDirectory()+"";
         listas.setOnItemClickListener(this);
         verDirectorio(directorioRaiz);
-
+*/
 
         return v;
     }
 
-    public  void  pdfView(View view){
-
-    }
 
 
-    private final static int REQUEST_CODE = 42;
-    public static final int PERMISSION_CODE = 42042;
-
-
-    void pickFile() {
-        int permissionCheck = ContextCompat.checkSelfPermission(getActivity(),
-                READ_EXTERNAL_STORAGE);
-
-        if (permissionCheck != PackageManager.PERMISSION_GRANTED) {
-            ActivityCompat.requestPermissions(
-                    getActivity(),
-                    new String[]{READ_EXTERNAL_STORAGE},
-                    PERMISSION_CODE
-            );
-
-            return;
-        }
-
-        launchPicker();
-    }
-
-    void launchPicker() {
-        Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
-        intent.setType("application/pdf");
-        try {
-            startActivityForResult(intent, REQUEST_CODE);
-        } catch (ActivityNotFoundException e) {
-            //alert user that file manager not working
-            Toast.makeText(getActivity(),"error", Toast.LENGTH_SHORT).show();
-        }
-    }
-
-
-    private void verDirectorio(String rutaDirectorio){
-        nombresArchivos = new ArrayList<String>();
-        rutasArchivos= new ArrayList<String>();
-        int count=0;
-        //
-        File directorioActual= new File(rutaDirectorio);
-        File[] listaArchivos = directorioActual.listFiles();
-
-
-
-        if(!rutaDirectorio.equals(directorioRaiz)){
-            nombresArchivos.add("../");
-            rutasArchivos.add(directorioActual.getParent());
-            count=1;
-        }
-
-        //ALMACENA LA RUTA DE LOS ARCHIVOS Y LAS CARPETAS DEL DIRECTORIO
-        for (File file:listaArchivos) {
-            rutasArchivos.add(file.getPath());
-        }
-        //ORDENA LOS ARCHIVOS DE MANERA ALFABETICA
-        Collections.sort(rutasArchivos,String.CASE_INSENSITIVE_ORDER);
-        //recorremos la lista de archivos para mostrar el el listview
-        for (int i = count; i <rutasArchivos.size() ; i++) {
-            File archivo= new File(rutasArchivos.get(i));
-            if(archivo.isFile()){
-                nombresArchivos.add(archivo.getName());
-            }else{
-                nombresArchivos.add("/"+archivo.getName());
-            }
-        }
-
-        if (listaArchivos.length<1){
-            nombresArchivos.add("no hay ningun archivo");
-            rutasArchivos.add(rutaDirectorio);
-        }
-
-        adaptador= new ArrayAdapter<String>(getActivity(),R.layout.lista_archivos,nombresArchivos);
-        listas.setAdapter(adaptador);
-
-    }
 
 
 
@@ -224,14 +147,4 @@ public class Listas extends Fragment implements AdapterView.OnItemClickListener 
         return path;
     }
 
-    @Override
-    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-           File archivo= new File(rutasArchivos.get(position));
-            if (archivo.isFile()){
-                Toast.makeText(getActivity(),"has selecionado el archivo "+archivo.getName(),Toast.LENGTH_LONG).show();
-            }else{
-                verDirectorio(rutasArchivos.get(position));
-            }
-
-    }
 }

@@ -92,14 +92,13 @@ public class Guardar_PDF extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.guardar__p_d, container, false);
-        /* txtNombre3= (EditText) v.findViewById(R.id.txtNombre2);
-        //txtContenido =  (EditText) v.findViewById(R.id.txtContenido2);
-        //guarda= v.findViewById(R.id.guardar2);
+        txtNombre3= (EditText) v.findViewById(R.id.txtNombre_Archivo);
+        guarda= v.findViewById(R.id.guardar);
         guarda.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String nombre = txtNombre3.getText().toString();//guarda el nombr del archivo en la variable
-                String contenido = txtContenido.getText().toString();//guarda lo que va dentro deñ archivo en la variable
+                String contenido = "hola mundo";//guarda lo que va dentro deñ archivo en la variable
                 if(nombre!= null && !nombre.isEmpty()) {
                     if (contenido != null && !contenido.isEmpty()) {
                         // Comprobar la versión actual de android del dispositivo
@@ -137,7 +136,7 @@ public class Guardar_PDF extends Fragment {
                     Toast.makeText(getActivity(), "Inserta el nombre para el pdf", Toast.LENGTH_LONG).show();
                 }
             }
-        });*/
+        });
         return v;
     }
 
@@ -152,7 +151,6 @@ public class Guardar_PDF extends Fragment {
             FileOutputStream PDFFile = new FileOutputStream(file.getAbsolutePath());
             PdfWriter writer = PdfWriter.getInstance(document, PDFFile);
             document.open();
-            // document.add(new Paragraph( "Jose Domingo juarez hernandez"+"\n\n"));
             document.add(new Paragraph( TEXT_CONTENT + "\n\n"));
             txtNombre3.setText("");//limpia el txt
             txtContenido.setText("");//limpia el txt

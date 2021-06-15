@@ -7,32 +7,12 @@
     android:layout_height="match_parent"
     tools:context=".Fragments.Listas">
 
-    <LinearLayout
-        android:id="@+id/lista_archivos"
+    <ListView
+        android:id="@+id/listViewStudents"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="8dp"
-        android:orientation="vertical"
+        android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <TextView
-            android:id="@+id/Ruta_Actual"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Ruta Actual" />
-
-        <ListView
-            android:id="@+id/listview_list"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
-
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:onClick="pdfView" />
-    </LinearLayout>
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
