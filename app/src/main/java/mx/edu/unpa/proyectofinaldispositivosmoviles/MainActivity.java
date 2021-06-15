@@ -58,6 +58,7 @@ public class MainActivity extends AppCompatActivity {
         transaction.replace(R.id.frame_container,fragment);
         transaction.commit();
     }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater= getMenuInflater();
@@ -68,7 +69,7 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
 
         switch (item.getItemId()){
-            case R.id.add:
+            case R.id.help:
                 Toast.makeText(MainActivity.this,"información",Toast.LENGTH_SHORT).show();
                 return true;
 
