@@ -3,6 +3,7 @@ package mx.edu.unpa.proyectofinaldispositivosmoviles;
 import android.content.Context;
 import android.os.Environment;
 import android.util.Log;
+import android.widget.Toast;
 
 import com.itextpdf.text.BaseColor;
 import com.itextpdf.text.Document;
@@ -36,12 +37,12 @@ public class TemplatePDF {
     private Font fHighText=new Font(Font.FontFamily.TIMES_ROMAN,15,Font.BOLD,BaseColor.RED);
 
 
-    public TemplatePDF(Context context) {
+    /*public TemplatePDF(Context context) {
         this.context = context;
-    }
+    }*/
 
     public void openDocument(String nombreDel_pdf){
-        createFile(nombreDel_pdf);
+        createFile(nombreDel_pdf+".pdf");
         try {
             document= new Document(com.itextpdf.text.PageSize.A4);
             pdfWriter= PdfWriter.getInstance(document,new FileOutputStream(pdfFile));
@@ -54,9 +55,9 @@ public class TemplatePDF {
     public  void  closeDocument(){
         document.close();
     }
-
+    String DIRECTORY_NAME = "MyPDFs";
     private  void createFile(String nombreDel_pdf){
-        File folder= new File(Environment.getExternalStorageDirectory().toString(),"MyAPPpdf");
+        File folder= new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS),DIRECTORY_NAME);
         if (!folder.exists()){
             folder.mkdirs();
         }
@@ -68,7 +69,7 @@ public class TemplatePDF {
         document.addSubject(subject);
         document.addAuthor(author);
     }
-
+  //checqar
     public void  addTitles(String title,String subject,String date){
         try {
         paragraph= new Paragraph();

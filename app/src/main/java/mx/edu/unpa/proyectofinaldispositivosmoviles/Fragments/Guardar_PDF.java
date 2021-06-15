@@ -40,6 +40,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import mx.edu.unpa.proyectofinaldispositivosmoviles.R;
+import mx.edu.unpa.proyectofinaldispositivosmoviles.TemplatePDF;
 
 import static android.content.Context.MODE_PRIVATE;
 import static android.widget.Toast.LENGTH_SHORT;
@@ -106,7 +107,11 @@ public class Guardar_PDF extends Fragment {
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
     }
-
+//getActivity().getApplicationContext()
+    private  String[] header={"id","Nombre","apellido"};
+    private  String shortText="hola";
+    private String longtext="mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm";
+    TemplatePDF templatePDF= new TemplatePDF();
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -121,7 +126,8 @@ public class Guardar_PDF extends Fragment {
                 String contenido = "hola mundo";//guarda lo que va dentro deñ archivo en la variable
                 etfile=txtNombre3;
                 saveFile();
-                /*if(nombre!= null && !nombre.isEmpty()) {
+
+                if(nombre!= null && !nombre.isEmpty()) {
                     if (contenido != null && !contenido.isEmpty()) {
                         // Comprobar la versión actual de android del dispositivo
                         if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M){
@@ -130,7 +136,13 @@ public class Guardar_PDF extends Fragment {
                                 if(ActivityCompat.checkSelfPermission(getActivity(),Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED){
                                     return;
                                 }
-                                createPDF(nombre,contenido);
+                                templatePDF.openDocument(nombre);
+                                templatePDF.addMetaData("clientes","ventas","DANI");
+                                /*templatePDF.addTitles("tiend codigo","clientes","6/12/2021");
+                                templatePDF.addParagraph(shortText);
+                                templatePDF.addParagraph(longtext);
+                                templatePDF.createTable(header,getClients());*/
+                                templatePDF.closeDocument();
                             }else{
                                 // Permiso no aceptado / Se pregunta por primera vez
                                 if (!shouldShowRequestPermissionRationale(Manifest.permission.WRITE_EXTERNAL_STORAGE)) {
@@ -149,20 +161,29 @@ public class Guardar_PDF extends Fragment {
                                 }
                             }
                         }else{
-                            olderVersions(nombre,contenido);
+
+                            //olderVersions(nombre,contenido);
                         }
                     } else {
                         Toast.makeText(getActivity(),"pdf con contenido vacio",Toast.LENGTH_LONG).show();
                     }
                 }else{
                     Toast.makeText(getActivity(), "Inserta el nombre para el pdf", Toast.LENGTH_LONG).show();
-                }*/
+                }
             }
         });
         return v;
     }
 
+    private ArrayList<String[]>getClients(){
+        ArrayList<String[]>rows=new ArrayList<>();
 
+        rows.add(new String[]{"1","pedro","sand"});
+        rows.add(new String[]{"2","pro","sfrrfand"});
+        rows.add(new String[]{"3","peo","sandrf"});
+        rows.add(new String[]{"4","dro","sandrvfr"});
+        return  rows;
+    }
 
     List<String> list = new ArrayList<String>();
     private void saveFile(){
@@ -218,65 +239,9 @@ public class Guardar_PDF extends Fragment {
         }
     }
 
-
-
-
-
-
-
-
-    //region Generate PDF file
-    public void createPDF(String nombre, String contenido) {
-        Document document = new Document();
-        try {
-            DOCUMENT_NAME = nombre + ".pdf";
-            String TEXT_CONTENT = contenido;
-            File file = createFile(DOCUMENT_NAME);
-
-            FileOutputStream PDFFile = new FileOutputStream(file.getAbsolutePath());
-            PdfWriter writer = PdfWriter.getInstance(document, PDFFile);
-            document.open();
-            document.add(new Paragraph( TEXT_CONTENT + "\n\n"));
-            txtNombre3.setText("");//limpia el txt
-            txtContenido.setText("");//limpia el txt
-            Toast.makeText(getActivity(), "se guardo correctamente", LENGTH_SHORT).show();//confirmacion de guardado
-        } catch(DocumentException e) {
-            Toast.makeText(getActivity(), "no se pudo guardar el archivo", LENGTH_SHORT).show();//en caso de error
-        }catch(IOException e) {
-            Toast.makeText(getActivity(), "no se pudo guardar el archivo", LENGTH_SHORT).show();//en caso de error
-        }finally {
-            document.close();
-        }
-    }
-
-    public File createFile(String fileName) {
-        File path = getPath();
-        File file = null;
-        if(path != null) {
-            file = new File(path, fileName);
-        }
-        return file;
-    }
-
-    public File getPath() {
-        File path = null;
-        if(Environment.MEDIA_MOUNTED.equals(Environment.getExternalStorageState())) {
-            path = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS), DIRECTORY_NAME);
-            if(path != null) {
-                if(!path.mkdirs()) {
-                    if(!path.exists()) {
-                        return null;
-                    }
-                }
-            }
-        }
-        return path;
-    }
-
-
     private void olderVersions(String nombre, String contenido){
         if(checkPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE)){
-            createPDF(nombre,contenido);
+            //createPDF(nombre,contenido);
         }else{
             Toast.makeText(getActivity(),"PERMISSION_DENIED",Toast.LENGTH_LONG).show();
         }
