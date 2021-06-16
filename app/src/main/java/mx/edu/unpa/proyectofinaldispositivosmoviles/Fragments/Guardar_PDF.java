@@ -85,7 +85,7 @@ public class Guardar_PDF extends Fragment {
     }
     String DOCUMENT_NAME;
     private static  final int WRITE_STORAGE_CODE=100;
-    String DIRECTORY_NAME = "MySolicitud";
+    String DIRECTORY_NAME = "MyPDFs";
     private EditText txtNombre3, txtContenido;
     Button guarda;
 
@@ -124,51 +124,55 @@ public class Guardar_PDF extends Fragment {
             public void onClick(View v) {
                 String nombre = txtNombre3.getText().toString();//guarda el nombr del archivo en la variable
                 String contenido = "hola mundo";//guarda lo que va dentro deñ archivo en la variable
-                etfile=txtNombre3;
-                saveFile();
+                etfile = txtNombre3;
+                File file = new File(getPath() + "/" + txtNombre3.getText().toString() + ".pdf");
+                if(file.exists()) {
+                    Toast.makeText(getActivity().getApplicationContext(), "El Archivo ya existe" , Toast.LENGTH_LONG).show();
+                }else{
+                    saveFile();
+                    if (nombre != null && !nombre.isEmpty()) {
+                        if (contenido != null && !contenido.isEmpty()) {
+                            // Comprobar la versión actual de android del dispositivo
+                            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                                if (checkPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE)) {
+                                    // Permiso aceptado
+                                    if (ActivityCompat.checkSelfPermission(getActivity(), Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
+                                        return;
+                                    }
+                                    templatePDF.openDocument(nombre);
+                                    templatePDF.addMetaData("clientes", "ventas", "DANI");
+                                    templatePDF.addTitles("tiend codigo", "clientes", "6/12/2021");
+                                    templatePDF.addParagraph(shortText);
+                                    templatePDF.addParagraph(longtext);
+                                    templatePDF.createTable(header, getClients());
+                                    templatePDF.closeDocument();
+                                } else {
+                                    // Permiso no aceptado / Se pregunta por primera vez
+                                    if (!shouldShowRequestPermissionRationale(Manifest.permission.WRITE_EXTERNAL_STORAGE)) {
+                                        // No se ha preguntado
+                                        requestPermissions(new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, WRITE_STORAGE_CODE);
+                                    } else {
+                                        // Permiso denegado
+                                        Toast.makeText(getActivity(), "Please, enable the request permission", Toast.LENGTH_LONG).show();
+                                        Intent intentSettings = new Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS);
+                                        intentSettings.addCategory(Intent.CATEGORY_DEFAULT);
+                                        intentSettings.setData(Uri.parse("package:" + getActivity().getPackageName()));
+                                        intentSettings.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                                        intentSettings.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
+                                        intentSettings.addFlags(Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS);
+                                        startActivity(intentSettings);
+                                    }
+                                }
+                            } else {
 
-                if(nombre!= null && !nombre.isEmpty()) {
-                    if (contenido != null && !contenido.isEmpty()) {
-                        // Comprobar la versión actual de android del dispositivo
-                        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M){
-                            if(checkPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE)){
-                                // Permiso aceptado
-                                if(ActivityCompat.checkSelfPermission(getActivity(),Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED){
-                                    return;
-                                }
-                                templatePDF.openDocument(nombre);
-                                templatePDF.addMetaData("clientes","ventas","DANI");
-                                templatePDF.addTitles("tiend codigo","clientes","6/12/2021");
-                                templatePDF.addParagraph(shortText);
-                                templatePDF.addParagraph(longtext);
-                                templatePDF.createTable(header,getClients());
-                                templatePDF.closeDocument();
-                            }else{
-                                // Permiso no aceptado / Se pregunta por primera vez
-                                if (!shouldShowRequestPermissionRationale(Manifest.permission.WRITE_EXTERNAL_STORAGE)) {
-                                    // No se ha preguntado
-                                    requestPermissions(new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, WRITE_STORAGE_CODE);
-                                }else{
-                                    // Permiso denegado
-                                    Toast.makeText(getActivity(),"Please, enable the request permission",Toast.LENGTH_LONG).show();
-                                    Intent intentSettings = new Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS);
-                                    intentSettings.addCategory(Intent.CATEGORY_DEFAULT);
-                                    intentSettings.setData(Uri.parse("package:" + getActivity().getPackageName()));
-                                    intentSettings.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                                    intentSettings.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
-                                    intentSettings.addFlags(Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS);
-                                    startActivity(intentSettings);
-                                }
+                                olderVersions(nombre, contenido);
                             }
-                        }else{
-
-                            olderVersions(nombre,contenido);
+                        } else {
+                            Toast.makeText(getActivity(), "pdf con contenido vacio", Toast.LENGTH_LONG).show();
                         }
                     } else {
-                        Toast.makeText(getActivity(),"pdf con contenido vacio",Toast.LENGTH_LONG).show();
+                        Toast.makeText(getActivity(), "Inserta el nombre para el pdf", Toast.LENGTH_LONG).show();
                     }
-                }else{
-                    Toast.makeText(getActivity(), "Inserta el nombre para el pdf", Toast.LENGTH_LONG).show();
                 }
             }
         });
@@ -256,5 +260,20 @@ public class Guardar_PDF extends Fragment {
     private  boolean  checkPermission(String permission){
         int result= getActivity().checkCallingOrSelfPermission(permission);
         return result == PackageManager.PERMISSION_GRANTED;
+    }
+
+    public File getPath() {
+        File path = null;
+        if(Environment.MEDIA_MOUNTED.equals(Environment.getExternalStorageState())) {
+            path = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS), DIRECTORY_NAME);
+            if(path != null) {
+                if(!path.mkdirs()) {
+                    if(!path.exists()) {
+                        return null;
+                    }
+                }
+            }
+        }
+        return path;
     }
 }

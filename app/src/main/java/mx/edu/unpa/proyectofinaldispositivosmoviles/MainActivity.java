@@ -1,6 +1,7 @@
 package mx.edu.unpa.proyectofinaldispositivosmoviles;
 
 import android.os.Bundle;
+import android.os.Environment;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -12,6 +13,8 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+
+import java.io.File;
 
 import mx.edu.unpa.proyectofinaldispositivosmoviles.Fragments.Guardar_PDF;
 import mx.edu.unpa.proyectofinaldispositivosmoviles.Fragments.Informacion;
@@ -35,8 +38,25 @@ public class MainActivity extends AppCompatActivity {
         BottomNavigationView navigation = findViewById(R.id.bottom_navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
         loadFragment(firstFragment);
+
     }
 
+
+    String DIRECTORY_NAME = "MyPDFs";
+    public File getPath() {
+        File path = null;
+        if(Environment.MEDIA_MOUNTED.equals(Environment.getExternalStorageState())) {
+            path = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS), DIRECTORY_NAME);
+            if(path != null) {
+                if(!path.mkdirs()) {
+                    if(!path.exists()) {
+                        return null;
+                    }
+                }
+            }
+        }
+        return path;
+    }
     private final BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener= new BottomNavigationView.OnNavigationItemSelectedListener() {
         @Override
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {

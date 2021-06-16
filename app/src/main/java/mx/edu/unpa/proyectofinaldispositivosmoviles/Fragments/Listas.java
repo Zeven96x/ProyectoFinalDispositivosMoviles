@@ -51,6 +51,7 @@ import java.util.List;
 import mx.edu.unpa.proyectofinaldispositivosmoviles.R;
 
 import static android.Manifest.permission.READ_EXTERNAL_STORAGE;
+import static android.content.Context.MODE_PRIVATE;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -117,24 +118,68 @@ public class Listas extends Fragment  {
         _listView = (ListView) v.findViewById(R.id.listViewStudents);
         studentsList = new ArrayList<String>();
         ver();
-        String[] aux= list.get(0).split("/");
-        for (int i = 0; i < aux.length; i++) {
-            studentsList.add(aux[i]);
-        }
 
-        ArrayAdapter<String> _arrayAdapter =
-                new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1, studentsList);
 
-        _listView.setAdapter(_arrayAdapter);
+        if(list.size()==0){
+            studentsList.add("Lista vacia");
+            ArrayAdapter<String> _arrayAdapter =
+                    new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1, studentsList);
 
-        _listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                displayPDF(studentsList.get(position));
+            _listView.setAdapter(_arrayAdapter);
+
+            _listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                @Override
+                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                    Toast.makeText(getActivity(),"la lista esta vacia crea archivos",Toast.LENGTH_LONG).show();
+                }
+            });
+        }else{
+            String[] aux= list.get(0).split("/");
+            list.clear();
+            for (int i = 0; i < aux.length; i++) {
+                File file = new File(getPath() + "/" + aux[i] + ".pdf");
+                if(file.exists()) {
+                    studentsList.add(aux[i]);
+                    list.add(aux[i]+"/");
+                }
             }
-        });
+            saveFile();
+            ArrayAdapter<String> _arrayAdapter =
+                    new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1, studentsList);
 
+            _listView.setAdapter(_arrayAdapter);
+
+            _listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                @Override
+                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                    displayPDF(studentsList.get(position));
+                }
+            });
+
+        }
         return v;
+    }
+
+
+    private void saveFile(){
+        FileOutputStream fileOutputStream= null;
+        try {
+            fileOutputStream= getActivity().openFileOutput(FILE_NAME,MODE_PRIVATE);
+            for (int i = 0; i <list.size() ; i++) {
+                fileOutputStream.write(list.get(i).getBytes());
+            }
+            Log.d("TAG1","FICHERO SALVADO EN LA RUTA: "+getActivity().getFilesDir()+"/"+FILE_NAME);
+        }catch (Exception e){
+            e.printStackTrace();
+        }finally {
+            if (fileOutputStream!=null){
+                try {
+                    fileOutputStream.close();
+                }catch (Exception e){
+                    e.printStackTrace();
+                }
+            }
+        }
     }
 
     private  void ver(){
