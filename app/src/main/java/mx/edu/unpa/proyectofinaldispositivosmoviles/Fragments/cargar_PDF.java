@@ -1,5 +1,6 @@
 package mx.edu.unpa.proyectofinaldispositivosmoviles.Fragments;
 
+import android.app.Activity;
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.net.Uri;
@@ -91,12 +92,14 @@ public class cargar_PDF extends Fragment {
         return v;
     }
 
+
+
     public void displayPDF() {
         File file = new File(getPath() + "/" + txtNom.getText().toString()+".pdf");
         if(file.exists()) {
             Intent target = new Intent(Intent.ACTION_VIEW);
             if (Build.VERSION.SDK_INT >=  Build.VERSION_CODES.N) {
-                target.setDataAndType(Uri.parse(file.getPath()), "application/pdf");
+                target.setDataAndType(Uri.parse(getPath()+"/"+txtNom.getText().toString()+".pdf"), "application/pdf");
             } else{
                 target.setDataAndType(Uri.fromFile(file), "application/pdf");
             }
@@ -105,6 +108,7 @@ public class cargar_PDF extends Fragment {
             try {
                 startActivity(intent);
             } catch (ActivityNotFoundException e) {
+                startActivity(new Intent(Intent.ACTION_VIEW,Uri.parse("market://details?id=cn.wps.moffice_eng")));
             }
         }
         else

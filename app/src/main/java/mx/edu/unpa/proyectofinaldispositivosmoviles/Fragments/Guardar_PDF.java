@@ -36,8 +36,10 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.nio.charset.MalformedInputException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 import mx.edu.unpa.proyectofinaldispositivosmoviles.R;
 import mx.edu.unpa.proyectofinaldispositivosmoviles.TemplatePDF;
@@ -118,6 +120,7 @@ public class Guardar_PDF extends Fragment {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.guardar__p_d, container, false);
         txtNombre3= (EditText) v.findViewById(R.id.txtNombre_Archivo);
+        txtNombre3.setText(generar_nombre());
         guarda= v.findViewById(R.id.guardar);
         guarda.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -164,7 +167,6 @@ public class Guardar_PDF extends Fragment {
                                     }
                                 }
                             } else {
-
                                 olderVersions(nombre, contenido);
                             }
                         } else {
@@ -188,11 +190,27 @@ public class Guardar_PDF extends Fragment {
         rows.add(new String[]{"4","dro","sandrvfr"});
         return  rows;
     }
+    private String generar_nombre(){
+        String s="Solicitud";
+        int b=1;
+        ver();
+        for (int i = 0; i < list.size(); i++) {
+            if (s.equals(list.get(i))){
+                  if(b==0){
 
+                  }else {
+                      b++;
+                  }
+                  i=0;
+                  s="Solicitud";
+                  s=s+b;
+            }
+        }
+        return s;
+    }
     List<String> list = new ArrayList<String>();
     private void saveFile(){
         ver();
-
         String nombreS= etfile.getText().toString();
         FileOutputStream fileOutputStream= null;
         try {
