@@ -109,7 +109,11 @@ public class Guardar_PDF extends Fragment {
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
     }
-//getActivity().getApplicationContext()
+//
+    //android:clickable="false"
+    //android:cursorVisible="false"
+    //android:focusable="false"
+    //android:focusableInTouchMode="false"
     private  String[] header={"id","Nombre","apellido"};
     private  String shortText="hola";
     private String longtext="mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm";
@@ -120,7 +124,6 @@ public class Guardar_PDF extends Fragment {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.guardar__p_d, container, false);
         txtNombre3= (EditText) v.findViewById(R.id.txtNombre_Archivo);
-        txtNombre3.setText(generar_nombre());
         guarda= v.findViewById(R.id.guardar);
         guarda.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -149,6 +152,8 @@ public class Guardar_PDF extends Fragment {
                                     templatePDF.addParagraph(longtext);
                                     templatePDF.createTable(header, getClients());
                                     templatePDF.closeDocument();
+                                    String a=generar_nombre();
+                                    txtNombre3.setText("");
                                 } else {
                                     // Permiso no aceptado / Se pregunta por primera vez
                                     if (!shouldShowRequestPermissionRationale(Manifest.permission.WRITE_EXTERNAL_STORAGE)) {
@@ -192,20 +197,25 @@ public class Guardar_PDF extends Fragment {
     }
     private String generar_nombre(){
         String s="Solicitud";
-        int b=1;
+        /*int b=1;
         ver();
-        for (int i = 0; i < list.size(); i++) {
-            if (s.equals(list.get(i))){
-                  if(b==0){
+        if(list.size()==0){
 
-                  }else {
-                      b++;
-                  }
-                  i=0;
-                  s="Solicitud";
-                  s=s+b;
+        }else{
+            String[] w= list.get(0).split("/");
+            for (int i = 0; i < w.length; i++) {
+                if (s.equals(w[i])){
+                      if(b==0){
+
+                      }else {
+                          b++;
+                          i=0;
+                          s="Solicitud";
+                          s=s+b;
+                      }
+                }
             }
-        }
+        }*/
         return s;
     }
     List<String> list = new ArrayList<String>();
