@@ -967,21 +967,25 @@
                     android:orientation="horizontal">
 
                     <CheckBox
+                        android:id="@+id/primaria"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Primaria"></CheckBox>
 
                     <CheckBox
+                        android:id="@+id/secundaria"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Secundaria"></CheckBox>
 
                     <CheckBox
+                        android:id="@+id/preparatoria"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Preparatoria"></CheckBox>
 
                     <CheckBox
+                        android:id="@+id/superior"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="superior"></CheckBox>

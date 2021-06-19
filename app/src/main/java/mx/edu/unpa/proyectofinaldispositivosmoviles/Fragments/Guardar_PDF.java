@@ -91,9 +91,11 @@ public class Guardar_PDF extends Fragment {
     private EditText txtNombre3, puestoSolicitado,diaf,mesf,anof,diafc,mesfc,anofc,sueldoD,sueldoA;
 
     private EditText numero_telefono,nombreP,apelllidop,aellidom,domicilio,colonia,codigo_p,ciudad,estado,lugarde_n;
-    private EditText fechade_n,nacionalidad,peso,edad,estatura;
+    private EditText fechade_n,nacionalidad,peso,edad,estatura,institucion,titulo,estudioActual;
+    private EditText idiomas,funcionesOficina,maquinaOficina,software,otrosTrabajos;
+    private EditText anoE1,anoE2,anoE3,anoS1,anoS2,anoS3,empresa1,empresa2,empresa3;
     CheckBox hombre,mujer,suspadres,sufamilia,susparientes,suotros,dephijos,depconyuge,deppadres,depotros;
-    CheckBox casado,solero,esaotro;
+    CheckBox casado,solero,esaotro,primaria,secundaria,preparatoria,superior;
 
     private EditText curp,afore,nss,cartilla_militar,tipoilicencia,rcf;
     CheckBox si_licencia,no_licencia;
@@ -183,6 +185,28 @@ public class Guardar_PDF extends Fragment {
         salud_reglar=(CheckBox) v.findViewById(R.id.saludregular);
         si_enfermo=(CheckBox) v.findViewById(R.id.sienfe);
         no_enfermo=(CheckBox) v.findViewById(R.id.noenfermo);
+        //ESCOLARIDAD
+        primaria=(CheckBox) v.findViewById(R.id.primaria);
+        secundaria=(CheckBox) v.findViewById(R.id.secundaria);
+        preparatoria=(CheckBox) v.findViewById(R.id.preparatoria);
+        superior=(CheckBox) v.findViewById(R.id.superior);
+        institucion=(EditText) v.findViewById((R.id.txtNombre_Institucion));
+        titulo=(EditText) v.findViewById((R.id.txtNombre_TituloEducativo));
+        estudioActual=(EditText) v.findViewById((R.id.txtEstudio_Actual));
+        //CONOCIMIENTOS GENERALES
+        idiomas=v.findViewById((R.id.txtIdiomas));
+        funcionesOficina=v.findViewById((R.id.txtFunciones_oficinas));
+        maquinaOficina=v.findViewById((R.id.txtMaquinas_manejadas));
+        software=v.findViewById((R.id.txtSoftware_conocido));
+        otrosTrabajos=v.findViewById(R.id.txtOtros_Trabajos);
+        //EMPLEO ACTUAL Y ANTERIORES
+
+        //REFERENCIAS PERSONALES
+
+
+        //DATOS GENERALES
+
+
 
 
             //button
@@ -386,7 +410,7 @@ public class Guardar_PDF extends Fragment {
         if (estado_Civil.equals("3")){
             estado_Civil=" Soltero( ) Casado( ) Otro(X)";
         }
-
+//.isChecked())
         ArrayList<String[]>rows=new ArrayList<>();
         rows.add(new String[]{"Apellido Paterno ","Apellido Materno","Nombre (s) ","Edad","Sexo"});
         rows.add(new String[]{Apellido_p,Apellido_m,nombreE,edad,sexo});
@@ -447,21 +471,45 @@ public class Guardar_PDF extends Fragment {
     }
     private ArrayList<String[]>escolaridad(){
         ArrayList<String[]>rows=new ArrayList<>();
-        rows.add(new String[]{"Estudios alcanzado","Primaria(  ) Secundaria(   )  Preparatoria(  )  Superior( X )"});
-        rows.add(new String[]{"Nombre de la institución","UNPA"});
-        rows.add(new String[]{"Nombre del título obtenido","Inenieria en computación"});
-        rows.add(new String[]{"Estudios que efectua en la actualidad"," Lincenciatura "});
+        String alcanzado="";
+
+        if (primaria.isChecked()){
+            alcanzado="Primaria( X ) Secundaria(   )  Preparatoria(  )  Superior(  )";
+        }else{
+            if(secundaria.isChecked()){
+                alcanzado="Primaria(  ) Secundaria( X )  Preparatoria(  )  Superior(  )";
+            }else{
+                if(preparatoria.isChecked()) {
+                    alcanzado = "Primaria(  ) Secundaria(  )  Preparatoria( X )  Superior(  )";
+                }else{
+                    if(superior.isChecked()) {
+                        alcanzado = "Primaria(  ) Secundaria(  )  Preparatoria(  )  Superior( X )";
+                    }else{
+                        alcanzado = "Primaria(  ) Secundaria(  )  Preparatoria(  )  Superior(  )";
+                    }
+                }
+            }
+
+        }
+
+
+
+
+        rows.add(new String[]{"Estudios alcanzado",alcanzado});
+        rows.add(new String[]{"Nombre de la institución", String.valueOf(institucion.getText())});
+        rows.add(new String[]{"Nombre del título obtenido",String.valueOf(titulo.getText())});
+        rows.add(new String[]{"Estudios que efectua en la actualidad",String.valueOf(estudioActual.getText())});
 
         return  rows;
     }
     private ArrayList<String[]>conocimientosGenerales(){
         ArrayList<String[]>rows=new ArrayList<>();
         rows.add(new String[]{"¿Qué idioma hablas?(50%,75%,100%)","Funciones de oficina que domina"});
-        rows.add(new String[]{"ingles 75%","ninguno"});
+        rows.add(new String[]{String.valueOf(idiomas.getText()), String.valueOf(funcionesOficina.getText())});
         rows.add(new String[]{"Maquina de oficina o taller que sepa manejar","Software que domina"});
-        rows.add(new String[]{"maquina de escribir"," la paqueteria de office"});
+        rows.add(new String[]{String.valueOf(maquinaOficina.getText()), String.valueOf(software.getText())});
         rows.add(new String[]{"Otros trabajos o funciones que domina"});
-        rows.add(new String[]{"Por el momento ninguna"});
+        rows.add(new String[]{String.valueOf(otrosTrabajos.getText())});
 
         return  rows;
     }
