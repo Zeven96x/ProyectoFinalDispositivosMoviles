@@ -154,6 +154,12 @@ public class Guardar_PDF extends Fragment {
                                     templatePDF.createP2( "DATOS PERSONALES", datos_PERSONALES());
                                     templatePDF.createP3( "DOCUMENTACIÓN", documentacion());
                                     templatePDF.createP4( "ESTADO DE SALUD Y HÁBITOS PERSONALES", estadoSalud());
+                                    templatePDF.createP5( "ESCOLARIDAD", escolaridad());
+                                    templatePDF.createP6( "CONOCIMIENTOS ENERALES", conocimientosGenerales());
+                                    templatePDF.createP7( "EMPLEO ACTUAL Y ANTERIORES", empleos());
+                                    templatePDF.createP8( "REFERENCIAS PERSONALES", referencias());
+                                    templatePDF.createP9( "DATOS GENERALES", datosGenerales());
+                                    templatePDF.createP10( "COMENTARIOS DEL ENTREVISTADOR", comentariosEntrevistador());
                                     templatePDF.closeDocument();
                                     txtNombre3.setText("");
                                 } else {
@@ -230,6 +236,76 @@ public class Guardar_PDF extends Fragment {
         rows.add(new String[]{"Bueno (  )  Malo ( X ) Regular (  )","tener dinero para sobrevivir"});
         rows.add(new String[]{"¿Padece de alguna enfermedad cronica?","Explique cual(es)"});
         rows.add(new String[]{"ño","como ya dije ninguna"});
+
+        return  rows;
+    }
+    private ArrayList<String[]>escolaridad(){
+        ArrayList<String[]>rows=new ArrayList<>();
+        rows.add(new String[]{"Estudios alcanzado","Primaria(  ) Secundaria(   )  Preparatoria(  )  Superior( X )"});
+        rows.add(new String[]{"Nombre de la institución","UNPA"});
+        rows.add(new String[]{"Nombre del título obtenido","Inenieria en computación"});
+        rows.add(new String[]{"Estudios que efectua en la actualidad"," Lincenciatura "});
+
+        return  rows;
+    }
+    private ArrayList<String[]>conocimientosGenerales(){
+        ArrayList<String[]>rows=new ArrayList<>();
+        rows.add(new String[]{"¿Qué idioma hablas?(50%,75%,100%)","Funciones de oficina que domina"});
+        rows.add(new String[]{"ingles 75%","ninguno"});
+        rows.add(new String[]{"Maquina de oficina o taller que sepa manejar","Software que domina"});
+        rows.add(new String[]{"maquina de escribir"," la paqueteria de office"});
+        rows.add(new String[]{"Otros trabajos o funciones que domina"});
+        rows.add(new String[]{"Por el momento ninguna"});
+
+        return  rows;
+    }
+    private ArrayList<String[]>empleos(){
+        ArrayList<String[]>rows=new ArrayList<>();
+        rows.add(new String[]{" ","Empleo anterior","Empleo anterior","Empleo anterior"});
+        rows.add(new String[]{"Nombre de la empresa","NASA","TESLA","Ninguno"});
+        rows.add(new String[]{"Del año","2018","2018"," "});
+        rows.add(new String[]{"Al año","2020","2016"," "});
+
+        return  rows;
+    }
+    private ArrayList<String[]>referencias(){
+        ArrayList<String[]>rows=new ArrayList<>();
+        rows.add(new String[]{"Nombre","Telefono","Domicilio","Ocupación","Tiempo de conocerlo"});
+        rows.add(new String[]{"suriel quevedo ortiz","878887","san bartolo","EStudiante","4 años"});
+        rows.add(new String[]{"Jahir corral","2656545","su casa","estudiante","3 años"});
+        rows.add(new String[]{"José Domingo","45656456","UNPA","Profesor","4 años"});
+
+        return  rows;
+    }
+    private ArrayList<String[]>datosGenerales(){
+        ArrayList<String[]>rows=new ArrayList<>();
+        rows.add(new String[]{"¿Cómo supo del empleo?"});
+        rows.add(new String[]{"Anuncio( X )  Internet( )  Otro( )"," lo vi en la tele"});
+        rows.add(new String[]{"¿Tiene parientes trabajando en esta empresa?"});
+        rows.add(new String[]{"No( X )  Si( ) ","  "});
+        rows.add(new String[]{"¿Has estado afianzado?"});
+        rows.add(new String[]{"No( X )  Si( )"," "});
+        rows.add(new String[]{"¿has estado afiliado a algun sindicato?"});
+        rows.add(new String[]{"No( )  Si(X)"," al CTM"});
+        rows.add(new String[]{"¿Tienes seguro de vida?"});
+        rows.add(new String[]{"No( X )  Si( )"," "});
+        rows.add(new String[]{"Disposición de viajar"});
+        rows.add(new String[]{"No( X )  Si( )"," porque tengo presión alta"});
+        rows.add(new String[]{"¿Disponibilidad a cambiar su residencia"});
+        rows.add(new String[]{"No( )  Si( X )"," no tengo ningun problema"});
+        rows.add(new String[]{"¿Fechha en que podria presentarse a trabajar?"});
+        rows.add(new String[]{"la semana siguiente"});
+        rows.add(new String[]{"Firma Solicitante"," "});
+
+
+        return  rows;
+    }
+    private ArrayList<String[]>comentariosEntrevistador(){
+        ArrayList<String[]>rows=new ArrayList<>();
+        rows.add(new String[]{"pues he de decir que no creo que valgas la pena en nuestra empresa"});
+        rows.add(new String[]{"Firma del entrevistador"});
+        rows.add(new String[]{"   "});
+
 
         return  rows;
     }
