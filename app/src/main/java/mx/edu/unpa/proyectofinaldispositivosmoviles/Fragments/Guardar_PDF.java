@@ -114,7 +114,7 @@ public class Guardar_PDF extends Fragment {
     //android:cursorVisible="false"
     //android:focusable="false"
     //android:focusableInTouchMode="false"
-    private  String[] header={"id","Nombre","apellido"};
+    private  String[] header={"Solicitu De empleo"};
     private  String shortText="hola";
     private String longtext="mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm";
     TemplatePDF templatePDF= new TemplatePDF();
@@ -146,13 +146,13 @@ public class Guardar_PDF extends Fragment {
                                         return;
                                     }
                                     templatePDF.openDocument(nombre);
-                                    templatePDF.addMetaData("clientes", "ventas", "DANI");
-                                    templatePDF.addTitles("tiend codigo", "clientes", "6/12/2021");
-                                    templatePDF.addParagraph(shortText);
-                                    templatePDF.addParagraph(longtext);
-                                    templatePDF.createTable(header, getClients());
+                                    //templatePDF.addMetaData("clientes", "ventas", "DANI");
+                                    //templatePDF.addTitles("tiend codigo", "clientes", "6/12/2021");
+                                    //templatePDF.addParagraph(shortText);
+                                    //templatePDF.addParagraph(longtext);
+                                    templatePDF.createP("SOLICITU DE EMPLEO", solicitud());
+                                    templatePDF.createP2( "DATOS PERSONALES", datos_PERSONALES());
                                     templatePDF.closeDocument();
-                                    String a=generar_nombre();
                                     txtNombre3.setText("");
                                 } else {
                                     // Permiso no aceptado / Se pregunta por primera vez
@@ -186,38 +186,28 @@ public class Guardar_PDF extends Fragment {
         return v;
     }
 
-    private ArrayList<String[]>getClients(){
+    private ArrayList<String[]>solicitud(){
         ArrayList<String[]>rows=new ArrayList<>();
-
-        rows.add(new String[]{"1","pedro","sand"});
-        rows.add(new String[]{"2","pro","sfrrfand"});
-        rows.add(new String[]{"3","peo","sandrf"});
-        rows.add(new String[]{"4","dro","sandrvfr"});
+        rows.add(new String[]{"puesto solicitado","gerente","\n\nNota: La informacion aquí proporcionada sera tratada confidencialmente"});
+        rows.add(new String[]{"fecha de Ingreso:","12-12-1222"  , "fecha de entrada:  "," 22-22-2222","Sueldo Mensual Deseado:","$ 128930","Sueldo Mensual Autorizado:","$ 28390"});
+        rows.add(new String[]{"foto"});
         return  rows;
     }
-    private String generar_nombre(){
-        String s="Solicitud";
-        /*int b=1;
-        ver();
-        if(list.size()==0){
-
-        }else{
-            String[] w= list.get(0).split("/");
-            for (int i = 0; i < w.length; i++) {
-                if (s.equals(w[i])){
-                      if(b==0){
-
-                      }else {
-                          b++;
-                          i=0;
-                          s="Solicitud";
-                          s=s+b;
-                      }
-                }
-            }
-        }*/
-        return s;
+    private ArrayList<String[]>datos_PERSONALES(){
+        ArrayList<String[]>rows=new ArrayList<>();
+        rows.add(new String[]{"Apellido Paterno ","Apellido Materno","Nombre (s) ","Edad","Sexo"});
+        rows.add(new String[]{"reyes","garcia","luis daniel ","33","F( )  M(X)"});
+        rows.add(new String[]{"Domicilio (calle y número)","Colonia","Código postal"});
+        rows.add(new String[]{"DESCONOCIDO","DESCONOCIDA","2321"});
+        rows.add(new String[]{"Lugar de Nacimiento","Estado","Ciudad"});
+        rows.add(new String[]{"DESCONOCIDO","VERACRUZ","CORDOBA"});
+        rows.add(new String[]{"Vive con","Nacionalidad ","Fecha de Nacimiento","Estatura ","Peso"});
+        rows.add(new String[]{"Padres(X) Familia() Parientes()Solo()","mexicano","8-11-1998","1.75cm","80"});
+        rows.add(new String[]{"Personas que dependen de usted ","Estado Civil"});
+        rows.add(new String[]{"Hijos() Padres() Conyugue() Otros()"," Soltero(X) Casado() Otro()"});
+        return  rows;
     }
+
     List<String> list = new ArrayList<String>();
     private void saveFile(){
         ver();
@@ -278,7 +268,7 @@ public class Guardar_PDF extends Fragment {
             templatePDF.addTitles("tiend codigo","clientes","6/12/2021");
             templatePDF.addParagraph(shortText);
             templatePDF.addParagraph(longtext);
-            templatePDF.createTable(header,getClients());
+            templatePDF.createTable(header,solicitud());
             templatePDF.closeDocument();
         }else{
             Toast.makeText(getActivity(),"PERMISSION_DENIED",Toast.LENGTH_LONG).show();
