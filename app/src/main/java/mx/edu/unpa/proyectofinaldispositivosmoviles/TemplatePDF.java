@@ -169,7 +169,7 @@ public class TemplatePDF {
             PdfPTable pdfPTable4 = new PdfPTable(2);
             pdfPTable4.setWidthPercentage(100);
 
-            for(int indexR=8;indexR<clients.size();indexR++){
+            for(int indexR=8;indexR<10;indexR++){
                 String[] row=clients.get(indexR);
                 for(indexC=0;indexC<row.length;indexC++){
                     pdfPCell= new PdfPCell(new Phrase(row[indexC]));
@@ -179,6 +179,21 @@ public class TemplatePDF {
                 }
             }
             paragraph.add(pdfPTable4);
+
+
+            PdfPTable pdfPTable55 = new PdfPTable(1);
+            pdfPTable55.setWidthPercentage(100);
+
+            for(int indexR=10;indexR<clients.size();indexR++){
+                String[] row=clients.get(indexR);
+                for(indexC=0;indexC<row.length;indexC++){
+                    pdfPCell= new PdfPCell(new Phrase(row[indexC]));
+                    pdfPCell.setHorizontalAlignment(Element.ALIGN_CENTER);
+                    pdfPCell.setFixedHeight(25);
+                    pdfPTable55.addCell(pdfPCell);
+                }
+            }
+            paragraph.add(pdfPTable55);
             paragraph.add("\n");
             document.add(paragraph);
         }catch (DocumentException e) {

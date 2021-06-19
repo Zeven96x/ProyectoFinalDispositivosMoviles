@@ -17,6 +17,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.ListView;
@@ -88,6 +89,21 @@ public class Guardar_PDF extends Fragment {
     private static  final int WRITE_STORAGE_CODE=100;
     String DIRECTORY_NAME = "MyPDFs";
     private EditText txtNombre3, puestoSolicitado,diaf,mesf,anof,diafc,mesfc,anofc,sueldoD,sueldoA;
+
+    private EditText numero_telefono,nombreP,apelllidop,aellidom,domicilio,colonia,codigo_p,ciudad,estado,lugarde_n;
+    private EditText fechade_n,nacionalidad,peso,edad,estatura;
+    CheckBox hombre,mujer,suspadres,sufamilia,susparientes,suotros,dephijos,depconyuge,deppadres,depotros;
+    CheckBox casado,solero,esaotro;
+
+    private EditText curp,afore,nss,cartilla_militar,tipoilicencia,rcf;
+    CheckBox si_licencia,no_licencia;
+
+    private EditText enfermedadesPA,metasp;
+    CheckBox salud_buena,salud_mala,salud_reglar,si_enfermo,no_enfermo;
+
+
+
+
     Button guarda;
 
 
@@ -118,10 +134,58 @@ public class Guardar_PDF extends Fragment {
         anof=(EditText) v.findViewById(R.id.txtaño);
         diafc=(EditText) v.findViewById(R.id.txtDiac);
         mesfc=(EditText) v.findViewById(R.id.txtMesc);
-        anofc=(EditText) v.findViewById(R.id.txtañoc);//txtSueldoDeseado,txtSueldoAprobado
+        anofc=(EditText) v.findViewById(R.id.txtañoc);
         sueldoD=(EditText) v.findViewById(R.id.txtSueldoDeseado);
         sueldoA=(EditText) v.findViewById(R.id.txtSueldoAprobado);
-        //button
+        //datos personales
+        hombre= v.findViewById(R.id.Hombre);
+        mujer= v.findViewById(R.id.Mujer);
+        suspadres= v.findViewById(R.id.vivipadres);
+        sufamilia= v.findViewById(R.id.vivifamilia);
+        susparientes= v.findViewById(R.id.viviparientes);
+        suotros= v.findViewById(R.id.vivisolo);
+        dephijos= v.findViewById(R.id.depnedeHijos);
+        depconyuge= v.findViewById(R.id.depnedecontuge);
+        deppadres= v.findViewById(R.id.depnedepadres);
+        depotros= v.findViewById(R.id.depnedeotros);
+        casado= v.findViewById(R.id.estado_civilcasado);
+        solero= v.findViewById(R.id.estado_civilSoltero);
+        esaotro= v.findViewById(R.id.estado_civilotro);
+        numero_telefono=(EditText) v.findViewById(R.id.txtNumeroTELEFENO);
+        nombreP=(EditText) v.findViewById(R.id.txtNombrePersona);
+        apelllidop=(EditText) v.findViewById(R.id.txtapellidoP);
+        aellidom=(EditText) v.findViewById(R.id.txtApellidoM);
+        domicilio=(EditText) v.findViewById(R.id.txtDomicilio);
+        colonia=(EditText) v.findViewById(R.id.txtColonia);
+        codigo_p=(EditText) v.findViewById(R.id.txtCodigoPostal);
+        ciudad=(EditText) v.findViewById(R.id.txtCiudad);
+        estado=(EditText) v.findViewById(R.id.txtEstado);
+        lugarde_n=(EditText) v.findViewById(R.id.txtLugar_de_nacimineto);
+        fechade_n=(EditText) v.findViewById(R.id.txtFecha_de_N);
+        nacionalidad=(EditText) v.findViewById(R.id.txtNacionalidad);
+        peso=(EditText) v.findViewById(R.id.txtPeso);
+        edad=(EditText) v.findViewById(R.id.txtedad);
+        estatura=(EditText) v.findViewById(R.id.txtEstatura);
+        //DOCUMENTACIÓN
+        curp=(EditText) v.findViewById(R.id.txtcurp);
+        afore=(EditText) v.findViewById(R.id.txtAfore);
+        nss=(EditText) v.findViewById(R.id.txtNss);
+        cartilla_militar=(EditText) v.findViewById(R.id.txtCartillaMilitar);
+        tipoilicencia=(EditText) v.findViewById(R.id.txtTipoLicencia);
+        rcf=(EditText) v.findViewById(R.id.txtRFC);
+        si_licencia=(CheckBox) v.findViewById(R.id.si_licencia);
+        no_licencia=(CheckBox) v.findViewById(R.id.no_licencia);
+        //ESTADO DE SALUD Y HÁBITOS PERSONALES
+        enfermedadesPA=(EditText) v.findViewById(R.id.txtTipo_enfermedad);
+        metasp=(EditText) v.findViewById(R.id.txtmeta);
+        salud_buena=(CheckBox) v.findViewById(R.id.saludbuena);
+        salud_mala=(CheckBox) v.findViewById(R.id.saludmala);
+        salud_reglar=(CheckBox) v.findViewById(R.id.saludregular);
+        si_enfermo=(CheckBox) v.findViewById(R.id.sienfe);
+        no_enfermo=(CheckBox) v.findViewById(R.id.noenfermo);
+
+
+            //button
         guarda= v.findViewById(R.id.guardar);
         guarda.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -145,9 +209,91 @@ public class Guardar_PDF extends Fragment {
                                     }
                                     templatePDF.openDocument(nombre);
                                     templatePDF.createP("SOLICITUD DE EMPLEO", solicitud(puestoSolicitado.getText().toString(),diaf.getText().toString(),mesf.getText().toString(),anof.getText().toString(),diafc.getText().toString(),mesfc.getText().toString(),anofc.getText().toString(),sueldoD.getText().toString(),sueldoA.getText().toString()));
-                                    templatePDF.createP2( "DATOS PERSONALES", datos_PERSONALES());
-                                    templatePDF.createP3( "DOCUMENTACIÓN", documentacion());
-                                    templatePDF.createP4( "ESTADO DE SALUD Y HÁBITOS PERSONALES", estadoSalud());
+                                    String sexo="0";
+                                    if(hombre.isChecked()){
+                                        sexo="1";
+                                    }else{
+                                        if(mujer.isChecked()){
+                                            sexo="2";
+                                        }
+                                    }
+                                    String vive_con="0";
+                                    if (suspadres.isChecked()){
+                                        vive_con="1";
+                                    }
+                                    if (sufamilia.isChecked()){
+                                        vive_con="2";
+                                    }
+                                    if (susparientes.isChecked()){
+                                        vive_con="3";
+                                    }
+                                    if (suotros.isChecked()){
+                                        vive_con="4";
+                                    }
+
+                                    String personas_dependen="0";
+                                    if (dephijos.isChecked()){
+                                        personas_dependen="1";
+                                    }
+                                    if (deppadres.isChecked()){
+                                        personas_dependen="2";
+                                    }
+                                    if (depconyuge.isChecked()){
+                                        personas_dependen="3";
+                                    }
+                                    if (depotros.isChecked()){
+                                        personas_dependen="4";
+                                    }
+
+                                    String estado_Civil="0";
+                                    if (solero.isChecked()){
+                                        estado_Civil="1";
+                                    }
+                                    if (casado.isChecked()){
+                                        estado_Civil="2";
+                                    }
+                                    if (esaotro.isChecked()){
+                                        estado_Civil="3";
+                                    }
+                                    templatePDF.createP2( "DATOS PERSONALES", datos_PERSONALES (apelllidop.getText().toString(),apelllidop.getText().toString(),nombreP.getText().toString(),edad.getText().toString(),sexo,domicilio.getText().toString()
+                                            ,colonia.getText().toString(),codigo_p.getText().toString(),lugarde_n.getText().toString(),estado.getText().toString(),ciudad.getText().toString(),vive_con,
+                                            nacionalidad.getText().toString() ,fechade_n.getText().toString(),estatura.getText().toString(),peso.getText().toString(),personas_dependen, estado_Civil,numero_telefono.getText().toString() ));
+
+                                    String licenciamanejo="0";
+                                    if(si_licencia.isChecked()){
+                                        licenciamanejo="1";
+                                    }else{
+                                        if(no_licencia.isChecked()){
+                                            licenciamanejo="2";
+                                        }
+                                    }
+                                    CheckBox si_licencia,no_licencia;
+                                    templatePDF.createP3( "DOCUMENTACIÓN", documentacion(curp.getText().toString(),afore.getText().toString(),nss.getText().toString(),
+                                            cartilla_militar.getText().toString(),licenciamanejo,tipoilicencia.getText().toString(),rcf.getText().toString()));
+
+
+                                    //(String estadoactual,String metaVida,String algunaEnfermedad,String cualEn)
+                                    String estadoactual="0";
+                                    if (salud_buena.isChecked()){
+                                        estadoactual="1";
+                                    }
+                                    if (salud_mala.isChecked()){
+                                        estadoactual="2";
+                                    }
+                                    if (salud_reglar.isChecked()){
+                                        estadoactual="3";
+                                    }
+
+                                    String algunaEnfermedad="0";
+                                    if(si_enfermo.isChecked()){
+                                        algunaEnfermedad="1";
+                                    }else{
+                                        if(no_enfermo.isChecked()){
+                                            algunaEnfermedad="2";
+                                        }
+                                    }
+                                    CheckBox si_enfermo,no_enfermo;
+                                    templatePDF.createP4( "ESTADO DE SALUD Y HÁBITOS PERSONALES", estadoSalud( estadoactual,metasp.getText().toString(),algunaEnfermedad,enfermedadesPA.getText().toString()));
                                     templatePDF.createP5( "ESCOLARIDAD", escolaridad());
                                     templatePDF.createP6( "CONOCIMIENTOS GENERALES", conocimientosGenerales());
                                     templatePDF.createP7( "EMPLEO ACTUAL Y ANTERIORES", empleos());
@@ -197,40 +343,105 @@ public class Guardar_PDF extends Fragment {
         return  rows;
     }
 
-    private ArrayList<String[]>datos_PERSONALES(){
+    private ArrayList<String[]>datos_PERSONALES(String Apellido_p,String Apellido_m,String nombreE,String edad,String sexo,String domicilio
+                                               ,String colonia,String codigop,String lugar_n,String estado,String ciudad,String vive_con,
+                                                String nacionalidad ,String fecha_n,String estatura ,String peso,String personas_dependen,
+                                                String estado_Civil,String numero_telefono ){
+        if(sexo.equals("1")){
+            sexo="F( )  M(X)";
+        }else{
+            sexo="F(X)  M( )";
+        }
+        if (vive_con.equals("1")){
+            vive_con="Sus padres(X) Familia( ) Parienetes( ) Solo( )";
+        }
+        if (vive_con.equals("2")){
+            vive_con="Sus padres( ) Familia(X) Parienetes( ) Solo( )";
+        }
+        if (vive_con.equals("3")){
+            vive_con="Sus padres( ) Familia( ) Parienetes(X) Solo( )";
+        }
+        if (vive_con.equals("4")){
+            vive_con="Sus padres( ) Familia( ) Parienetes( ) Solo(X)";
+        }
+        if (personas_dependen.equals("1")){
+            personas_dependen="Hijos(X) Padres( ) Conyugue( ) Otros( )";
+        }
+        if (personas_dependen.equals("2")){
+            personas_dependen="Hijos( ) Padres(X) Conyugue( ) Otros( )";
+        }
+        if (personas_dependen.equals("3")){
+            personas_dependen="Hijos( ) Padres( ) Conyugue(X) Otros( )";
+        }
+        if (personas_dependen.equals("4")){
+            personas_dependen="Hijos( ) Padres( ) Conyugue( ) Otros(X)";
+        }
+
+        if (estado_Civil.equals("1")){
+            estado_Civil=" Soltero(X) Casado( ) Otro( )";
+        }
+        if (estado_Civil.equals("2")){
+            estado_Civil=" Soltero( ) Casado(X) Otro( )";
+        }
+        if (estado_Civil.equals("3")){
+            estado_Civil=" Soltero( ) Casado( ) Otro(X)";
+        }
+
         ArrayList<String[]>rows=new ArrayList<>();
         rows.add(new String[]{"Apellido Paterno ","Apellido Materno","Nombre (s) ","Edad","Sexo"});
-        rows.add(new String[]{"reyes","garcia","luis daniel ","33","F( )  M(X)"});
+        rows.add(new String[]{Apellido_p,Apellido_m,nombreE,edad,sexo});
         rows.add(new String[]{"Domicilio (calle y número)","Colonia","Código postal"});
-        rows.add(new String[]{"DESCONOCIDO","DESCONOCIDA","2321"});
+        rows.add(new String[]{domicilio,colonia,codigop});
         rows.add(new String[]{"Lugar de Nacimiento","Estado","Ciudad"});
-        rows.add(new String[]{"DESCONOCIDO","VERACRUZ","CORDOBA"});
+        rows.add(new String[]{lugar_n,estado,ciudad});
         rows.add(new String[]{"Vive con","Nacionalidad ","Fecha de Nacimiento","Estatura ","Peso"});
-        rows.add(new String[]{"Padres(X) Familia() Parientes()Solo()","mexicano","8-11-1998","1.75cm","80"});
+        rows.add(new String[]{vive_con,nacionalidad,fecha_n,estatura,peso});
         rows.add(new String[]{"Personas que dependen de usted ","Estado Civil"});
-        rows.add(new String[]{"Hijos() Padres() Conyugue(X) Otros()"," Soltero(X) Casado() Otro()"});
-        rows.add(new String[]{"Fecha de nacimiento","Nacionalidad",});
+        rows.add(new String[]{personas_dependen,estado_Civil});
+        rows.add(new String[]{"Numero de telefono"});
+        rows.add(new String[]{numero_telefono});
 
         return  rows;
     }
 
 
-    private ArrayList<String[]>documentacion(){
+    private ArrayList<String[]>documentacion(String curp,String AFORE,String Numero_seguridad_social,String cartill_militar,String licenciamanejo,String Tipo,String RFC){
+        if(licenciamanejo.equals("1")){
+            licenciamanejo="SI(X)  NO( )";
+        }else{
+            licenciamanejo="SI( )  NO(X)";
+        }
         ArrayList<String[]>rows=new ArrayList<>();
         rows.add(new String[]{"clave única de registro de población(CURP}","AFORE"});
-        rows.add(new String[]{"esta es mi curp :v","no se exactamente que va aquí, pero es mucho texto"});
+        rows.add(new String[]{curp,AFORE});
         rows.add(new String[]{"Numero de seguridad social","Numero de cartilla militar"});
-        rows.add(new String[]{"NDDF2346546","FFFGFDGF4554545445"});
+        rows.add(new String[]{Numero_seguridad_social,cartill_militar});
         rows.add(new String[]{"licencia de manejo","Tipo","RFC"});
-        rows.add(new String[]{"Luis Daniel","Carga Pesada","RF334245532"});
+        rows.add(new String[]{licenciamanejo,Tipo,RFC});
         return  rows;
     }
-    private ArrayList<String[]>estadoSalud(){
+    private ArrayList<String[]>estadoSalud(String estadoactual,String metaVida,String algunaEnfermedad,String cualEn){
+        if (estadoactual.equals("1")){
+            estadoactual="Bueno (X)  Malo( ) Regular( )";
+        }
+        if (estadoactual.equals("2")){
+            estadoactual="Bueno ( )  Malo(X) Regular( )";
+        }
+        if (estadoactual.equals("3")){
+            estadoactual="Bueno ( )  Malo( ) Regular(X)";
+        }
+
+        if (algunaEnfermedad.equals("1")){
+            algunaEnfermedad="SI(X)  NO( )";
+        }
+        if (algunaEnfermedad.equals("2")){
+            algunaEnfermedad="SI( )  NO(X)";
+        }
         ArrayList<String[]>rows=new ArrayList<>();
         rows.add(new String[]{"¿Cómo consideras tu estado de salud actual","¿Cúal es tu meta en la vida?"});
-        rows.add(new String[]{"Bueno (  )  Malo ( X ) Regular (  )","tener dinero para sobrevivir"});
+        rows.add(new String[]{estadoactual,metaVida});
         rows.add(new String[]{"¿Padece de alguna enfermedad cronica?","Explique cual(es)"});
-        rows.add(new String[]{"ño","como ya dije ninguna"});
+        rows.add(new String[]{algunaEnfermedad,cualEn});
 
         return  rows;
     }

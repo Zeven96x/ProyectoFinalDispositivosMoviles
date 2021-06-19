@@ -455,21 +455,25 @@
                     android:orientation="horizontal">
 
                     <CheckBox
+                        android:id="@+id/vivipadres"
                         android:layout_width="115dp"
                         android:layout_height="wrap_content"
                         android:text="Sus Padres"></CheckBox>
 
                     <CheckBox
+                        android:id="@+id/vivifamilia"
                         android:layout_width="100dp"
                         android:layout_height="wrap_content"
                         android:text="Su Familia"></CheckBox>
 
                     <CheckBox
+                        android:id="@+id/viviparientes"
                         android:layout_width="100dp"
                         android:layout_height="wrap_content"
                         android:text="Parientes"></CheckBox>
 
                     <CheckBox
+                        android:id="@+id/vivisolo"
                         android:layout_width="80dp"
                         android:layout_height="wrap_content"
                         android:text="Solo"></CheckBox>
@@ -496,21 +500,25 @@
                     android:orientation="horizontal">
 
                     <CheckBox
+                        android:id="@+id/depnedeHijos"
                         android:layout_width="100dp"
                         android:layout_height="wrap_content"
                         android:text="Hijos"></CheckBox>
 
                     <CheckBox
+                        android:id="@+id/depnedecontuge"
                         android:layout_width="100dp"
                         android:layout_height="wrap_content"
                         android:text="Conyuge"></CheckBox>
 
                     <CheckBox
+                        android:id="@+id/depnedepadres"
                         android:layout_width="100dp"
                         android:layout_height="wrap_content"
                         android:text="Padres"></CheckBox>
 
                     <CheckBox
+                        android:id="@+id/depnedeotros"
                         android:layout_width="80dp"
                         android:layout_height="wrap_content"
                         android:text="Otros"></CheckBox>
@@ -586,6 +594,24 @@
                         android:textAlignment="center" />
 
                 </LinearLayout>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="         Edad:            "
+                        android:textSize="14sp" />
+
+                    <EditText
+                        android:id="@+id/txtedad"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textAlignment="center" />
+
+                </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -625,16 +651,19 @@
                     android:orientation="horizontal">
 
                     <CheckBox
+                        android:id="@+id/estado_civilSoltero"
                         android:layout_width="100dp"
                         android:layout_height="40dp"
                         android:text="Soltero"></CheckBox>
 
                     <CheckBox
+                        android:id="@+id/estado_civilcasado"
                         android:layout_width="100dp"
                         android:layout_height="40dp"
                         android:text="Casado"></CheckBox>
 
                     <CheckBox
+                        android:id="@+id/estado_civilotro"
                         android:layout_width="100dp"
                         android:layout_height="40dp"
                         android:text="Otro"></CheckBox>
@@ -843,16 +872,19 @@
                     android:orientation="horizontal">
 
                     <CheckBox
+                        android:id="@+id/saludbuena"
                         android:layout_width="120dp"
                         android:layout_height="wrap_content"
                         android:text="Bueno"></CheckBox>
 
                     <CheckBox
+                        android:id="@+id/saludregular"
                         android:layout_width="100dp"
                         android:layout_height="wrap_content"
                         android:text="Regular"></CheckBox>
 
                     <CheckBox
+                        android:id="@+id/saludmala"
                         android:layout_width="100dp"
                         android:layout_height="wrap_content"
                         android:text="Malo"></CheckBox>
@@ -872,11 +904,13 @@
                     android:orientation="horizontal">
 
                     <CheckBox
+                        android:id="@+id/sienfe"
                         android:layout_width="120dp"
                         android:layout_height="wrap_content"
                         android:text="no"></CheckBox>
 
                     <CheckBox
+                        android:id="@+id/noenfermo"
                         android:layout_width="130dp"
                         android:layout_height="wrap_content"
                         android:text="si(Explique)"></CheckBox>
