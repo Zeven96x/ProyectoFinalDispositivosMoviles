@@ -262,4 +262,161 @@ public class TemplatePDF {
     }
 
 
+
+    public void createP3(String header, ArrayList<String[]> clients ){
+        try {
+            paragraph = new Paragraph();
+            paragraph.setFont(fText);
+            PdfPTable pdfPTable = new PdfPTable(1);
+            pdfPTable.setWidthPercentage(100);
+            PdfPCell pdfPCell;
+            int indexC=0;
+            //ENCABEZADO aqui solo van la s partes en grises
+            while(indexC<1){
+                pdfPCell= new PdfPCell(new Phrase(header,fSubTitle));
+                pdfPCell.setHorizontalAlignment(Element.ALIGN_CENTER);
+                pdfPCell.setBackgroundColor(BaseColor.GRAY);
+                pdfPTable.addCell(pdfPCell);
+                indexC++;
+            }
+            paragraph.add(pdfPTable);
+            //esto es lo que va dentro de la tabla
+            PdfPTable pdfPTable2 = new PdfPTable(2);//sirve para indicar el numero de columnas que quieres dentro de la tabla
+            pdfPTable2.setWidthPercentage(100);//sirve para ver el porcentaje dentro de la tabla que vas a agarrar dejalo siempre en 100
+
+            for(int indexR=0;indexR<2;indexR++){//toma un arreglo de string
+                String[] row=clients.get(indexR);//añade el arreglo por sepadado
+                for(indexC=0;indexC<row.length;indexC++){//introduce pocicion por pocicion en el arreglo
+                    pdfPCell= new PdfPCell(new Phrase(row[indexC]));
+                    pdfPCell.setHorizontalAlignment(Element.ALIGN_CENTER);
+                    pdfPCell.setFixedHeight(20);
+                    pdfPTable2.addCell(pdfPCell);//añade esa columna a la tabla
+                }
+            }
+            paragraph.add(pdfPTable2);//añade la tabla a la tabla
+
+            PdfPTable pdfPTable3 = new PdfPTable(2);
+            pdfPTable3.setWidthPercentage(100);
+
+            for(int indexR=2;indexR<4;indexR++){
+                String[] row=clients.get(indexR);
+                for(indexC=0;indexC<row.length;indexC++){
+                    pdfPCell= new PdfPCell(new Phrase(row[indexC]));
+                    pdfPCell.setHorizontalAlignment(Element.ALIGN_CENTER);
+                    pdfPCell.setFixedHeight(20);
+                    pdfPTable3.addCell(pdfPCell);
+                }
+            }
+            paragraph.add(pdfPTable3);
+
+            PdfPTable pdfPTable5 = new PdfPTable(3);
+            pdfPTable5.setWidthPercentage(100);
+            for(int indexR=4;indexR<6;indexR++){
+                String[] row=clients.get(indexR);
+                for(indexC=0;indexC<row.length;indexC++){
+                    pdfPCell= new PdfPCell(new Phrase(row[indexC]));
+                    pdfPCell.setHorizontalAlignment(Element.ALIGN_CENTER);
+                    pdfPCell.setFixedHeight(20);
+                    pdfPTable5.addCell(pdfPCell);
+                }
+            }
+            paragraph.add(pdfPTable5);
+/*
+            PdfPTable pdfPTable4 = new PdfPTable(2);
+            pdfPTable4.setWidthPercentage(100);
+
+            for(int indexR=8;indexR<clients.size();indexR++){
+                String[] row=clients.get(indexR);
+                for(indexC=0;indexC<row.length;indexC++){
+                    pdfPCell= new PdfPCell(new Phrase(row[indexC]));
+                    pdfPCell.setHorizontalAlignment(Element.ALIGN_CENTER);
+                    pdfPCell.setFixedHeight(20);
+                    pdfPTable4.addCell(pdfPCell);
+                }
+            }
+
+            paragraph.add(pdfPTable4);
+            */
+
+            document.add(paragraph);
+        }catch (DocumentException e) {
+            Log.e("createTable",e.toString());
+        }
+    }
+
+
+
+    public void createP4(String header, ArrayList<String[]> clients ){
+        try {
+            paragraph = new Paragraph();
+            paragraph.setFont(fText);
+            PdfPTable pdfPTable = new PdfPTable(1);
+            pdfPTable.setWidthPercentage(100);
+            PdfPCell pdfPCell;
+            int indexC=0;
+            //ENCABEZADO aqui solo van la s partes en grises
+            while(indexC<1){
+                pdfPCell= new PdfPCell(new Phrase(header,fSubTitle));
+                pdfPCell.setHorizontalAlignment(Element.ALIGN_CENTER);
+                pdfPCell.setBackgroundColor(BaseColor.GRAY);
+                pdfPTable.addCell(pdfPCell);
+                indexC++;
+            }
+            paragraph.add(pdfPTable);
+            //esto es lo que va dentro de la tabla
+            PdfPTable pdfPTable2 = new PdfPTable(2);//sirve para indicar el numero de columnas que quieres dentro de la tabla
+            pdfPTable2.setWidthPercentage(100);//sirve para ver el porcentaje dentro de la tabla que vas a agarrar dejalo siempre en 100
+
+            for(int indexR=0;indexR<2;indexR++){//toma un arreglo de string
+                String[] row=clients.get(indexR);//añade el arreglo por sepadado
+                for(indexC=0;indexC<row.length;indexC++){//introduce pocicion por pocicion en el arreglo
+                    pdfPCell= new PdfPCell(new Phrase(row[indexC]));
+                    pdfPCell.setHorizontalAlignment(Element.ALIGN_CENTER);
+                    pdfPCell.setFixedHeight(20);
+                    pdfPTable2.addCell(pdfPCell);//añade esa columna a la tabla
+                }
+            }
+            paragraph.add(pdfPTable2);//añade la tabla a la tabla
+
+            PdfPTable pdfPTable3 = new PdfPTable(2);
+            pdfPTable3.setWidthPercentage(100);
+
+            for(int indexR=2;indexR<4;indexR++){
+                String[] row=clients.get(indexR);
+                for(indexC=0;indexC<row.length;indexC++){
+                    pdfPCell= new PdfPCell(new Phrase(row[indexC]));
+                    pdfPCell.setHorizontalAlignment(Element.ALIGN_CENTER);
+                    pdfPCell.setFixedHeight(20);
+                    pdfPTable3.addCell(pdfPCell);
+                }
+            }
+            paragraph.add(pdfPTable3);
+
+
+/*
+            PdfPTable pdfPTable4 = new PdfPTable(2);
+            pdfPTable4.setWidthPercentage(100);
+
+            for(int indexR=8;indexR<clients.size();indexR++){
+                String[] row=clients.get(indexR);
+                for(indexC=0;indexC<row.length;indexC++){
+                    pdfPCell= new PdfPCell(new Phrase(row[indexC]));
+                    pdfPCell.setHorizontalAlignment(Element.ALIGN_CENTER);
+                    pdfPCell.setFixedHeight(20);
+                    pdfPTable4.addCell(pdfPCell);
+                }
+            }
+
+            paragraph.add(pdfPTable4);
+            */
+
+            document.add(paragraph);
+        }catch (DocumentException e) {
+            Log.e("createTable",e.toString());
+        }
+    }
+
+
+
+
 }

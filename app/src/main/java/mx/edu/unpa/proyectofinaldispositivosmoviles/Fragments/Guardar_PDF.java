@@ -150,8 +150,10 @@ public class Guardar_PDF extends Fragment {
                                     //templatePDF.addTitles("tiend codigo", "clientes", "6/12/2021");
                                     //templatePDF.addParagraph(shortText);
                                     //templatePDF.addParagraph(longtext);
-                                    templatePDF.createP("SOLICITU DE EMPLEO", solicitud());
+                                    templatePDF.createP("SOLICITUD DE EMPLEO", solicitud());
                                     templatePDF.createP2( "DATOS PERSONALES", datos_PERSONALES());
+                                    templatePDF.createP3( "DOCUMENTACIÓN", documentacion());
+                                    templatePDF.createP4( "ESTADO DE SALUD Y HÁBITOS PERSONALES", estadoSalud());
                                     templatePDF.closeDocument();
                                     txtNombre3.setText("");
                                 } else {
@@ -193,6 +195,7 @@ public class Guardar_PDF extends Fragment {
         rows.add(new String[]{"foto"});
         return  rows;
     }
+
     private ArrayList<String[]>datos_PERSONALES(){
         ArrayList<String[]>rows=new ArrayList<>();
         rows.add(new String[]{"Apellido Paterno ","Apellido Materno","Nombre (s) ","Edad","Sexo"});
@@ -204,7 +207,30 @@ public class Guardar_PDF extends Fragment {
         rows.add(new String[]{"Vive con","Nacionalidad ","Fecha de Nacimiento","Estatura ","Peso"});
         rows.add(new String[]{"Padres(X) Familia() Parientes()Solo()","mexicano","8-11-1998","1.75cm","80"});
         rows.add(new String[]{"Personas que dependen de usted ","Estado Civil"});
-        rows.add(new String[]{"Hijos() Padres() Conyugue() Otros()"," Soltero(X) Casado() Otro()"});
+        rows.add(new String[]{"Hijos() Padres() Conyugue(X) Otros()"," Soltero(X) Casado() Otro()"});
+        rows.add(new String[]{"Fecha de nacimiento","Nacionalidad",});
+
+        return  rows;
+    }
+
+
+    private ArrayList<String[]>documentacion(){
+        ArrayList<String[]>rows=new ArrayList<>();
+        rows.add(new String[]{"clave única de registro de población(CURP}","AFORE"});
+        rows.add(new String[]{"esta es mi curp :v","no se exactamente que va aquí, pero es mucho texto"});
+        rows.add(new String[]{"Numero de seguridad social","Numero de cartilla militar"});
+        rows.add(new String[]{"NDDF2346546","FFFGFDGF4554545445"});
+        rows.add(new String[]{"licencia de manejo","Tipo","RFC"});
+        rows.add(new String[]{"Luis Daniel","Carga Pesada","RF334245532"});
+        return  rows;
+    }
+    private ArrayList<String[]>estadoSalud(){
+        ArrayList<String[]>rows=new ArrayList<>();
+        rows.add(new String[]{"¿Cómo consideras tu estado de salud actual","¿Cúal es tu meta en la vida?"});
+        rows.add(new String[]{"Bueno (  )  Malo ( X ) Regular (  )","tener dinero para sobrevivir"});
+        rows.add(new String[]{"¿Padece de alguna enfermedad cronica?","Explique cual(es)"});
+        rows.add(new String[]{"ño","como ya dije ninguna"});
+
         return  rows;
     }
 
