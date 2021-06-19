@@ -94,14 +94,17 @@ public class Guardar_PDF extends Fragment {
     private EditText fechade_n,nacionalidad,peso,edad,estatura,institucion,titulo,estudioActual;
     private EditText idiomas,funcionesOficina,maquinaOficina,software,otrosTrabajos;
     private EditText anoE1,anoE2,anoE3,anoS1,anoS2,anoS3,empresa1,empresa2,empresa3;
-    CheckBox hombre,mujer,suspadres,sufamilia,susparientes,suotros,dephijos,depconyuge,deppadres,depotros;
-    CheckBox casado,solero,esaotro,primaria,secundaria,preparatoria,superior;
+    private CheckBox hombre,mujer,suspadres,sufamilia,susparientes,suotros,dephijos,depconyuge,deppadres,depotros;
+    private CheckBox casado,solero,esaotro,primaria,secundaria,preparatoria,superior;
 
     private EditText curp,afore,nss,cartilla_militar,tipoilicencia,rcf;
-    CheckBox si_licencia,no_licencia;
+    private CheckBox si_licencia,no_licencia;
 
     private EditText enfermedadesPA,metasp;
-    CheckBox salud_buena,salud_mala,salud_reglar,si_enfermo,no_enfermo;
+    private CheckBox salud_buena,salud_mala,salud_reglar,si_enfermo,no_enfermo;
+    private EditText nRefe1,nRefe2,nRefe3,domi1,domi2,domi3,telef1,telef2,telef3,tc1,tc2,tc3,ocupa1,ocupa2,ocupa3;
+    private EditText otroMedio,pariente,afianza,sindicato,seguro,razonesV,razonesC,fechaPresentarse;
+    private CheckBox no1,no2,no3,no4,no5,no6,otrosMedios,anuncio,si1,si2,si3,si4,si5,si6;
 
 
 
@@ -200,16 +203,66 @@ public class Guardar_PDF extends Fragment {
         software=v.findViewById((R.id.txtSoftware_conocido));
         otrosTrabajos=v.findViewById(R.id.txtOtros_Trabajos);
         //EMPLEO ACTUAL Y ANTERIORES
+        anoE1=v.findViewById(R.id.txtAnoEntrada1);
+        anoE2=v.findViewById(R.id.txtAnoEntrada2);
+        anoE3=v.findViewById(R.id.txtAnoEntrada3);
+        anoS1=v.findViewById(R.id.txtSAnoSalia1);
+        anoS2=v.findViewById(R.id.txtSAnoSalia2);
+        anoS3=v.findViewById(R.id.txtSAnoSalia3);
+        empresa1=v.findViewById(R.id.txtEmpresa1);
+        empresa2=v.findViewById(R.id.txtEmpresa2);
+        empresa3=v.findViewById(R.id.txtEmpresa3);
 
         //REFERENCIAS PERSONALES
-
-
+        nRefe1=v.findViewById(R.id.txtNombreReferencia1);
+        nRefe2=v.findViewById(R.id.txtNombreReferencia2);
+        nRefe3=v.findViewById(R.id.txtNombreReferencia3);
+        domi1=v.findViewById(R.id.txtDomicilioR1);
+        domi2=v.findViewById(R.id.txtDomicilioR2);
+        domi3=v.findViewById(R.id.txtDomicilioR3);
+        telef1=v.findViewById(R.id.txtTelefono1);
+        telef2=v.findViewById(R.id.txtTelefono2);
+        telef3=v.findViewById(R.id.txtTelefono3);
+        tc1=v.findViewById(R.id.txtTiempoConocerR1);
+        tc2=v.findViewById(R.id.txtTiempoConocerR2);
+        tc3=v.findViewById(R.id.txtTiempoConocerR3);
+        ocupa1=v.findViewById(R.id.txtOcupacionR1);
+        ocupa2=v.findViewById(R.id.txtOcupacionR2);
+        ocupa3=v.findViewById(R.id.txtOcupacionR3);
         //DATOS GENERALES
+        // private EditText otroMedio,pariente,afianza,sindicato,seguro,razonesV,razonesC,fechaPresentarse;
+        otroMedio=v.findViewById(R.id.txtOtro_medio);
+        pariente=v.findViewById(R.id.txtNombre_Pariente);
+        afianza=v.findViewById(R.id.txtNombre_Afianza);
+        sindicato=v.findViewById(R.id.txtNombre_Sindicato);
+        seguro=v.findViewById(R.id.txtNombre_Seguro);
+        razonesV=v.findViewById(R.id.txtRazones);
+        razonesC=v.findViewById(R.id.txtRazones_nocambiar);
+        fechaPresentarse=v.findViewById(R.id.txtFecha_presentar_trabajo);
+        //    private CheckBox no1,no2,no3,no4,no5,no6,otrosMedios,anuncio,si1,si2,si3,si4,si5,si6;
+        no1=(CheckBox) v.findViewById(R.id.parientes_no);
+        no2=(CheckBox) v.findViewById(R.id.afianza_no);
+        no3=(CheckBox) v.findViewById(R.id.sindicatoNo);
+        no4=(CheckBox) v.findViewById(R.id.seguroV_no);
+        no5=(CheckBox) v.findViewById(R.id.viajar_no);
+        no6=(CheckBox) v.findViewById(R.id.cambiarResi_no);
+        si1=(CheckBox) v.findViewById(R.id.Parientes_si);
+        si2=(CheckBox) v.findViewById(R.id.afianza_si);
+        si3=(CheckBox) v.findViewById(R.id.sindicatoSi);
+        si4=(CheckBox) v.findViewById(R.id.seguroV_si);
+        si5=(CheckBox) v.findViewById(R.id.viajar_si);
+        si6=(CheckBox) v.findViewById(R.id.cambiarResi_si);
+        otrosMedios=v.findViewById(R.id.oMedio);
+        anuncio=v.findViewById(R.id.anuncio);
 
 
 
 
-            //button
+
+
+
+
+        //button
         guarda= v.findViewById(R.id.guardar);
         guarda.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -516,39 +569,117 @@ public class Guardar_PDF extends Fragment {
     private ArrayList<String[]>empleos(){
         ArrayList<String[]>rows=new ArrayList<>();
         rows.add(new String[]{" ","Empleo anterior","Empleo anterior","Empleo anterior"});
-        rows.add(new String[]{"Nombre de la empresa","NASA","TESLA","Ninguno"});
-        rows.add(new String[]{"Del año","2018","2018"," "});
-        rows.add(new String[]{"Al año","2020","2016"," "});
+        rows.add(new String[]{"Nombre de la empresa",String.valueOf(empresa1.getText()),String.valueOf(empresa2.getText()),String.valueOf(empresa3.getText())});
+        rows.add(new String[]{"Del año",String.valueOf(anoE1.getText()),String.valueOf(anoE2.getText()),String.valueOf(anoE3.getText())});
+        rows.add(new String[]{"Al año",String.valueOf(anoS1.getText()),String.valueOf(anoS2.getText()),String.valueOf(anoS3.getText())});
 
         return  rows;
     }
     private ArrayList<String[]>referencias(){
+
+        //nRefe1 domi1 telef1 tc1 ocupa1
         ArrayList<String[]>rows=new ArrayList<>();
         rows.add(new String[]{"Nombre","Telefono","Domicilio","Ocupación","Tiempo de conocerlo"});
-        rows.add(new String[]{"suriel quevedo ortiz","878887","san bartolo","EStudiante","4 años"});
-        rows.add(new String[]{"Jahir corral","2656545","su casa","estudiante","3 años"});
-        rows.add(new String[]{"José Domingo","45656456","UNPA","Profesor","4 años"});
+        rows.add(new String[]{String.valueOf(nRefe1.getText()),String.valueOf(telef1.getText()),String.valueOf(domi1.getText()),String.valueOf(ocupa1.getText()),String.valueOf(tc1.getText())});
+        rows.add(new String[]{String.valueOf(nRefe2.getText()),String.valueOf(telef2.getText()),String.valueOf(domi2.getText()),String.valueOf(ocupa2.getText()),String.valueOf(tc2.getText())});
+        rows.add(new String[]{String.valueOf(nRefe3.getText()),String.valueOf(telef3.getText()),String.valueOf(domi3.getText()),String.valueOf(ocupa3.getText()),String.valueOf(tc3.getText())});
 
         return  rows;
     }
     private ArrayList<String[]>datosGenerales(){
+
+        String aux1,aux2,aux3,aux4,aux5,aux6,aux7;
+        if(anuncio.isChecked()){
+            aux7="Anuncio( X )  Otro medios(  )";
+        }else{
+            if(otrosMedios.isChecked()){
+                aux7="Anuncio(  )  Otro medios( X )";
+            }else{
+                aux7="Anuncio(  )  Otro medios(  )";
+
+            }
+        }
+        if(si1.isChecked()){
+            aux1="No(  )  Si( X )";
+        }else{
+            if(no1.isChecked()){
+                aux1="No( X )  Si(  )";
+            }else{
+                aux1="No(  )  Si(  )";
+
+            }
+        }
+        if(si2.isChecked()){
+            aux2="No(  )  Si( X )";
+        }else{
+            if(no2.isChecked()){
+                aux2="No( X )  Si(  )";
+            }else{
+                aux2="No(  )  Si(  )";
+
+            }
+        }
+        if(si3.isChecked()){
+            aux3="No(  )  Si( X )";
+        }else{
+            if(no3.isChecked()){
+                aux3="No( X )  Si(  )";
+            }else{
+                aux3="No(  )  Si(  )";
+
+            }
+        }
+        if(si4.isChecked()){
+            aux4="No(  )  Si( X )";
+        }else{
+            if(no4.isChecked()){
+                aux4="No( X )  Si(  )";
+            }else{
+                aux4="No(  )  Si(  )";
+
+            }
+        }
+        if(si5.isChecked()){
+            aux5="No(  )  Si( X )";
+        }else{
+            if(no5.isChecked()){
+                aux5="No( X )  Si(  )";
+            }else{
+                aux5="No(  )  Si(  )";
+
+            }
+        }
+        if(si6.isChecked()){
+            aux6="No(  )  Si( X )";
+        }else{
+            if(no6.isChecked()){
+                aux6="No( X )  Si(  )";
+            }else{
+                aux6="No(  )  Si(  )";
+
+            }
+        }
+
+
+
+// private EditText otroMedio,pariente,afianza,sindicato,seguro,razonesV,razonesC,fechaPresentarse;
         ArrayList<String[]>rows=new ArrayList<>();
         rows.add(new String[]{"¿Cómo supo del empleo?"});
-        rows.add(new String[]{"Anuncio( X )  Internet( )  Otro( )"," lo vi en la tele"});
+        rows.add(new String[]{aux7, String.valueOf(otroMedio.getText())});
         rows.add(new String[]{"¿Tiene parientes trabajando en esta empresa?"});
-        rows.add(new String[]{"No( X )  Si( ) ","  "});
+        rows.add(new String[]{aux1,String.valueOf(pariente.getText())});
         rows.add(new String[]{"¿Has estado afianzado?"});
-        rows.add(new String[]{"No( X )  Si( )"," "});
+        rows.add(new String[]{aux2,String.valueOf(afianza.getText())});
         rows.add(new String[]{"¿has estado afiliado a algun sindicato?"});
-        rows.add(new String[]{"No( )  Si(X)"," al CTM"});
+        rows.add(new String[]{aux3,String.valueOf(sindicato.getText())});
         rows.add(new String[]{"¿Tienes seguro de vida?"});
-        rows.add(new String[]{"No( X )  Si( )"," "});
+        rows.add(new String[]{aux4,String.valueOf(seguro.getText())});
         rows.add(new String[]{"Disposición de viajar"});
-        rows.add(new String[]{"No( X )  Si( )"," porque tengo presión alta"});
+        rows.add(new String[]{aux5,String.valueOf(razonesV.getText())});
         rows.add(new String[]{"¿Disponibilidad a cambiar su residencia"});
-        rows.add(new String[]{"No( )  Si( X )"," no tengo ningun problema"});
+        rows.add(new String[]{aux6,String.valueOf(razonesC.getText())});
         rows.add(new String[]{"¿Fechha en que podria presentarse a trabajar?"});
-        rows.add(new String[]{"la semana siguiente"});
+        rows.add(new String[]{String.valueOf(fechaPresentarse.getText())});
         rows.add(new String[]{"Firma Solicitante"," "});
 
 
@@ -556,7 +687,7 @@ public class Guardar_PDF extends Fragment {
     }
     private ArrayList<String[]>comentariosEntrevistador(){
         ArrayList<String[]>rows=new ArrayList<>();
-        rows.add(new String[]{"pues he de decir que no creo que valgas la pena en nuestra empresa"});
+        rows.add(new String[]{"  "});
         rows.add(new String[]{"Firma del entrevistador"});
         rows.add(new String[]{"   "});
 

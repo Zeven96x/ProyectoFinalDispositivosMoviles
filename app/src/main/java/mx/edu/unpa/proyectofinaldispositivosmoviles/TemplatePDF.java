@@ -355,7 +355,7 @@ public class TemplatePDF {
                 for(indexC=0;indexC<row.length;indexC++){//introduce pocicion por pocicion en el arreglo
                     pdfPCell= new PdfPCell(new Phrase(row[indexC]));
                     pdfPCell.setHorizontalAlignment(Element.ALIGN_CENTER);
-                    pdfPCell.setFixedHeight(25);
+                    pdfPCell.setFixedHeight(40);
                     pdfPTable2.addCell(pdfPCell);//añade esa columna a la tabla
                 }
             }
@@ -557,6 +557,11 @@ public class TemplatePDF {
                 pdfPTable.addCell(pdfPCell);
                 indexC++;
             }
+            paragraph.add("\n");
+            paragraph.add("\n");
+            paragraph.add("\n");
+            paragraph.add("\n");
+            paragraph.add("\n");
             paragraph.add(pdfPTable);
             //esto es lo que va dentro de la tabla
             PdfPTable pdfPTable2 = new PdfPTable(5);//sirve para indicar el numero de columnas que quieres dentro de la tabla
@@ -567,7 +572,7 @@ public class TemplatePDF {
                 for(indexC=0;indexC<row.length;indexC++){//introduce pocicion por pocicion en el arreglo
                     pdfPCell= new PdfPCell(new Phrase(row[indexC]));
                     pdfPCell.setHorizontalAlignment(Element.ALIGN_CENTER);
-                    pdfPCell.setFixedHeight(25);
+                    pdfPCell.setFixedHeight(40);
                   //  pdfPCell.setBackgroundColor(BaseColor.CYAN);
                     pdfPTable2.addCell(pdfPCell);//añade esa columna a la tabla
                 }
@@ -583,7 +588,7 @@ public class TemplatePDF {
                 for(indexC=0;indexC<row.length;indexC++){
                     pdfPCell= new PdfPCell(new Phrase(row[indexC]));
                     pdfPCell.setHorizontalAlignment(Element.ALIGN_CENTER);
-                    pdfPCell.setFixedHeight(25);
+                    pdfPCell.setFixedHeight(40);
                     pdfPTable4.addCell(pdfPCell);
                 }
             }
@@ -837,7 +842,7 @@ public class TemplatePDF {
             }
 
             paragraph.add(pdfPTable15);
-            paragraph.add("\n\n");
+           // paragraph.add("\n\n");
 
             //Fecha en que podria presentarse a trabajar
             PdfPTable pdfPTable16 = new PdfPTable(1);//sirve para indicar el numero de columnas que quieres dentro de la tabla
@@ -884,6 +889,12 @@ public class TemplatePDF {
                 }
             }
             paragraph.add(pdfPTable18);
+            paragraph.add("\n");
+            paragraph.add("\n");
+            paragraph.add("\n");
+            paragraph.add("\n");
+            paragraph.add("\n");
+
 
 
             document.add(paragraph);

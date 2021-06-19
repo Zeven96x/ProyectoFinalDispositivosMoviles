@@ -1628,11 +1628,13 @@
                     android:orientation="horizontal">
 
                     <CheckBox
+                        android:id="@+id/anuncio"
                         android:layout_width="85dp"
                         android:layout_height="wrap_content"
                         android:text="Anuncio"></CheckBox>
 
                     <CheckBox
+                        android:id="@+id/oMedio"
                         android:layout_width="140dp"
                         android:layout_height="wrap_content"
                         android:text="Otro medio(Anotelo)"></CheckBox>
@@ -1750,11 +1752,13 @@
                     android:orientation="horizontal">
 
                     <CheckBox
+                        android:id="@+id/sindicatoNo"
                         android:layout_width="85dp"
                         android:layout_height="wrap_content"
                         android:text="no"></CheckBox>
 
                     <CheckBox
+                        android:id="@+id/sindicatoSi"
                         android:layout_width="140dp"
                         android:layout_height="wrap_content"
                         android:text="si¿A cual?"></CheckBox>
