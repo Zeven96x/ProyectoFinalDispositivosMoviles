@@ -85,21 +85,16 @@ public class Guardar_PDF extends Fragment {
         fragment.setArguments(args);
         return fragment;
     }
-    String DOCUMENT_NAME;
     private static  final int WRITE_STORAGE_CODE=100;
     String DIRECTORY_NAME = "MyPDFs";
-    private EditText txtNombre3, txtContenido;
+    private EditText txtNombre3, puestoSolicitado,diaf,mesf,anof,diafc,mesfc,anofc,sueldoD,sueldoA;
     Button guarda;
 
 
     //esto es para crear un txt con lo nombres de los pdf
     private EditText etfile;
-    private Button btGuardar;
-    private Button btRead;
     private static  final  String FILE_NAME="Lista_pdf.txt";
 
-    ListView _listView;
-    List<String> studentsList;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -109,14 +104,7 @@ public class Guardar_PDF extends Fragment {
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
     }
-//
-    //android:clickable="false"
-    //android:cursorVisible="false"
-    //android:focusable="false"
-    //android:focusableInTouchMode="false"
-    private  String[] header={"Solicitu De empleo"};
-    private  String shortText="hola";
-    private String longtext="mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm";
+
     TemplatePDF templatePDF= new TemplatePDF();
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -124,6 +112,16 @@ public class Guardar_PDF extends Fragment {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.guardar__p_d, container, false);
         txtNombre3= (EditText) v.findViewById(R.id.txtNombre_Archivo);
+        puestoSolicitado= (EditText) v.findViewById(R.id.txtPuesto_solicitado);
+        diaf=(EditText) v.findViewById(R.id.txtDia);
+        mesf=(EditText) v.findViewById(R.id.txtMes);
+        anof=(EditText) v.findViewById(R.id.txtaño);
+        diafc=(EditText) v.findViewById(R.id.txtDiac);
+        mesfc=(EditText) v.findViewById(R.id.txtMesc);
+        anofc=(EditText) v.findViewById(R.id.txtañoc);//txtSueldoDeseado,txtSueldoAprobado
+        sueldoD=(EditText) v.findViewById(R.id.txtSueldoDeseado);
+        sueldoA=(EditText) v.findViewById(R.id.txtSueldoAprobado);
+        //button
         guarda= v.findViewById(R.id.guardar);
         guarda.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -146,22 +144,18 @@ public class Guardar_PDF extends Fragment {
                                         return;
                                     }
                                     templatePDF.openDocument(nombre);
-                                    //templatePDF.addMetaData("clientes", "ventas", "DANI");
-                                    //templatePDF.addTitles("tiend codigo", "clientes", "6/12/2021");
-                                    //templatePDF.addParagraph(shortText);
-                                    //templatePDF.addParagraph(longtext);
-                                    templatePDF.createP("SOLICITUD DE EMPLEO", solicitud());
+                                    templatePDF.createP("SOLICITUD DE EMPLEO", solicitud(puestoSolicitado.getText().toString(),diaf.getText().toString(),mesf.getText().toString(),anof.getText().toString(),diafc.getText().toString(),mesfc.getText().toString(),anofc.getText().toString(),sueldoD.getText().toString(),sueldoA.getText().toString()));
                                     templatePDF.createP2( "DATOS PERSONALES", datos_PERSONALES());
                                     templatePDF.createP3( "DOCUMENTACIÓN", documentacion());
                                     templatePDF.createP4( "ESTADO DE SALUD Y HÁBITOS PERSONALES", estadoSalud());
                                     templatePDF.createP5( "ESCOLARIDAD", escolaridad());
-                                    templatePDF.createP6( "CONOCIMIENTOS ENERALES", conocimientosGenerales());
+                                    templatePDF.createP6( "CONOCIMIENTOS GENERALES", conocimientosGenerales());
                                     templatePDF.createP7( "EMPLEO ACTUAL Y ANTERIORES", empleos());
                                     templatePDF.createP8( "REFERENCIAS PERSONALES", referencias());
                                     templatePDF.createP9( "DATOS GENERALES", datosGenerales());
                                     templatePDF.createP10( "COMENTARIOS DEL ENTREVISTADOR", comentariosEntrevistador());
                                     templatePDF.closeDocument();
-                                    txtNombre3.setText("");
+                                    txtNombre3.setText("");puestoSolicitado.setText("");diaf.setText("");mesf.setText("");anof.setText("");diafc.setText("");mesfc.setText("");anofc.setText("");sueldoD.setText("");sueldoA.setText("");
                                 } else {
                                     // Permiso no aceptado / Se pregunta por primera vez
                                     if (!shouldShowRequestPermissionRationale(Manifest.permission.WRITE_EXTERNAL_STORAGE)) {
@@ -194,10 +188,11 @@ public class Guardar_PDF extends Fragment {
         return v;
     }
 
-    private ArrayList<String[]>solicitud(){
+
+    private ArrayList<String[]>solicitud(String gerente,String a,String b,String c,String d,String e,String f,String suel,String sueldoA){
         ArrayList<String[]>rows=new ArrayList<>();
-        rows.add(new String[]{"puesto solicitado","gerente","\n\nNota: La informacion aquí proporcionada sera tratada confidencialmente"});
-        rows.add(new String[]{"fecha de Ingreso:","12-12-1222"  , "fecha de entrada:  "," 22-22-2222","Sueldo Mensual Deseado:","$ 128930","Sueldo Mensual Autorizado:","$ 28390"});
+        rows.add(new String[]{"puesto solicitado",gerente,"\n\nNota: La informacion aquí proporcionada sera tratada confidencialmente"});
+        rows.add(new String[]{"fecha de Ingreso:",a+"-"+b+"-"+c  , "fecha de entrada:  ",d+"-"+e+"-"+f ,"Sueldo Mensual Deseado:","$ "+suel,"Sueldo Mensual Autorizado:","$ "+sueldoA});
         rows.add(new String[]{"foto"});
         return  rows;
     }
@@ -321,7 +316,6 @@ public class Guardar_PDF extends Fragment {
             for (int i = 0; i <list.size() ; i++) {
                 fileOutputStream.write(list.get(i).getBytes());
             }
-            Toast.makeText(getActivity(),getActivity().getFilesDir()+"/"+FILE_NAME,Toast.LENGTH_LONG).show();
             Log.d("TAG1","FICHERO SALVADO EN LA RUTA: "+getActivity().getFilesDir()+"/"+FILE_NAME);
         }catch (Exception e){
             e.printStackTrace();
@@ -365,13 +359,7 @@ public class Guardar_PDF extends Fragment {
 
     private void olderVersions(String nombre, String contenido){
         if(checkPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE)){
-            templatePDF.openDocument(nombre);
-            templatePDF.addMetaData("clientes","ventas","DANI");
-            templatePDF.addTitles("tiend codigo","clientes","6/12/2021");
-            templatePDF.addParagraph(shortText);
-            templatePDF.addParagraph(longtext);
-            templatePDF.createTable(header,solicitud());
-            templatePDF.closeDocument();
+            //createpdf(nombre);
         }else{
             Toast.makeText(getActivity(),"PERMISSION_DENIED",Toast.LENGTH_LONG).show();
         }

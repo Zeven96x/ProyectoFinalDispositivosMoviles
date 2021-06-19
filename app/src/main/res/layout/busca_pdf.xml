@@ -5,11 +5,12 @@
     android:id="@+id/frameLayout2"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/descarga"
     tools:context=".Fragments.cargar_PDF">
 
     <LinearLayout
-        android:layout_width="347dp"
-        android:layout_height="212dp"
+        android:layout_width="357dp"
+        android:layout_height="197dp"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
         android:orientation="vertical"
@@ -17,19 +18,19 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.498">
+        app:layout_constraintVertical_bias="0.594">
 
         <TextView
             android:id="@+id/txtTitulo"
-            android:layout_width="332dp"
-            android:layout_height="50dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
             android:fontFamily="sans-serif"
             android:text="  introduce el nombre del pdf"
             android:textAlignment="center"
-            android:textColor="#040404"
+            android:textColor="@color/black"
             android:textSize="24sp" />
 
         <EditText
@@ -54,7 +55,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="?attr/actionBarItemBackground"
-                android:text="Buscar" />
+                android:text="Buscar"
+                android:textColor="@color/colorOnPrimary" />
         </LinearLayout>
     </LinearLayout>
 

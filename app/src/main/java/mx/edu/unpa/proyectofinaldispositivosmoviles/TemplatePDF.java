@@ -36,11 +36,6 @@ public class TemplatePDF {
     private Font fText=new Font(Font.FontFamily.TIMES_ROMAN,12,Font.BOLD);
     private Font fHighText=new Font(Font.FontFamily.TIMES_ROMAN,15,Font.BOLD,BaseColor.RED);
 
-
-    /*public TemplatePDF(Context context) {
-        this.context = context;
-    }*/
-
     public void openDocument(String nombreDel_pdf){
         createFile(nombreDel_pdf+".pdf");
         try {
@@ -65,73 +60,6 @@ public class TemplatePDF {
         pdfFile=new File(folder,nombreDel_pdf);
     }
 
-    public  void addMetaData(String title,String subject,String author){
-        document.addTitle(title);
-        document.addSubject(subject);
-        document.addAuthor(author);
-    }
-  //checqar
-    public void  addTitles(String title,String subject,String date){
-        try {
-                paragraph= new Paragraph();
-                addChildP(new Paragraph(title,fTitle));
-                addChildP(new Paragraph(subject,fSubTitle));
-                addChildP(new Paragraph("Generado: "+date,fHighText));
-                paragraph.setSpacingAfter(30);
-
-                document.add(paragraph);
-        }catch (DocumentException e) {
-            Log.e("addTitles",e.toString());
-        }
-
-    }
-
-    private  void  addChildP(Paragraph childParagraph){
-        childParagraph.setAlignment(Element.ALIGN_CENTER);
-        paragraph.add(childParagraph);
-    }
-    public void addParagraph(String text){
-        try {
-            paragraph= new Paragraph(text,fText);
-            paragraph.setSpacingAfter(5);
-            paragraph.setSpacingBefore(5);
-            document.add(paragraph);
-        }catch (DocumentException e) {
-            Log.e("addParagraph",e.toString());
-        }
-    }
-
-    public void createTable(String[] header, ArrayList<String[]> clients ){
-        try {
-            paragraph = new Paragraph();
-            paragraph.setFont(fText);
-            PdfPTable pdfPTable = new PdfPTable(header.length);
-            pdfPTable.setWidthPercentage(100);
-            PdfPCell pdfPCell;
-        int indexC=0;
-        while(indexC<header.length){
-            pdfPCell= new PdfPCell(new Phrase(header[indexC++],fSubTitle));
-            pdfPCell.setHorizontalAlignment(Element.ALIGN_CENTER);
-            pdfPCell.setBackgroundColor(BaseColor.GREEN);
-            pdfPTable.addCell(pdfPCell);
-        }
-        for(int indexR=0;indexR<clients.size();indexR++){
-            String[] row=clients.get(indexR);
-            for(indexC=0;indexC<header.length;indexC++){
-                pdfPCell= new PdfPCell(new Phrase(row[indexC]));
-                pdfPCell.setHorizontalAlignment(Element.ALIGN_CENTER);
-                pdfPCell.setFixedHeight(40);
-                pdfPTable.addCell(pdfPCell);
-            }
-        }
-        paragraph.add(pdfPTable);
-
-        document.add(paragraph);
-        }catch (DocumentException e) {
-            Log.e("createTable",e.toString());
-        }
-    }
-
     public void createP(String header, ArrayList<String[]> clients ){
         try {
             paragraph = new Paragraph();
@@ -153,8 +81,6 @@ public class TemplatePDF {
             PdfPTable pdfPTable3 = new PdfPTable(1);
             PdfPTable pdfPTable2 = new PdfPTable(3);
             pdfPTable2.setWidthPercentage(100);
-
-            pdfPTable3 = new PdfPTable(1);
             pdfPTable3.setWidthPercentage(50);
 
             for(int indexR=0;indexR<clients.size();indexR++){
@@ -163,24 +89,23 @@ public class TemplatePDF {
                 for(indexC=0;indexC<row.length;indexC++){
                     pdfPCell= new PdfPCell(new Phrase(row[indexC]));
                     pdfPCell.setHorizontalAlignment(Element.ALIGN_CENTER);
-                    pdfPCell.setFixedHeight(20);
+                    pdfPCell.setFixedHeight(25);
                     pdfPTable3.addCell(pdfPCell);
                 }
-                pdfPTable2.addCell(pdfPTable3);
+                pdfPCell= new PdfPCell(pdfPTable3);
+                pdfPCell.setBorderColor(BaseColor.WHITE);
+                pdfPTable2.addCell( pdfPCell);
             }
 
 
             paragraph.add(pdfPTable2);
-
-
+            paragraph.add("\n");
+            paragraph.add("\n");
             document.add(paragraph);
         }catch (DocumentException e) {
             Log.e("createTable",e.toString());
         }
     }
-
-
-
 
     public void createP2(String header, ArrayList<String[]> clients ){
         try {
@@ -208,7 +133,7 @@ public class TemplatePDF {
                 for(indexC=0;indexC<row.length;indexC++){//introduce pocicion por pocicion en el arreglo
                     pdfPCell= new PdfPCell(new Phrase(row[indexC]));
                     pdfPCell.setHorizontalAlignment(Element.ALIGN_CENTER);
-                    pdfPCell.setFixedHeight(20);
+                    pdfPCell.setFixedHeight(25);
                     pdfPTable2.addCell(pdfPCell);//añade esa columna a la tabla
                 }
             }
@@ -222,7 +147,7 @@ public class TemplatePDF {
                 for(indexC=0;indexC<row.length;indexC++){
                     pdfPCell= new PdfPCell(new Phrase(row[indexC]));
                     pdfPCell.setHorizontalAlignment(Element.ALIGN_CENTER);
-                    pdfPCell.setFixedHeight(20);
+                    pdfPCell.setFixedHeight(25);
                     pdfPTable3.addCell(pdfPCell);
                 }
             }
@@ -235,7 +160,7 @@ public class TemplatePDF {
                 for(indexC=0;indexC<row.length;indexC++){
                     pdfPCell= new PdfPCell(new Phrase(row[indexC]));
                     pdfPCell.setHorizontalAlignment(Element.ALIGN_CENTER);
-                    pdfPCell.setFixedHeight(20);
+                    pdfPCell.setFixedHeight(25);
                     pdfPTable5.addCell(pdfPCell);
                 }
             }
@@ -249,12 +174,12 @@ public class TemplatePDF {
                 for(indexC=0;indexC<row.length;indexC++){
                     pdfPCell= new PdfPCell(new Phrase(row[indexC]));
                     pdfPCell.setHorizontalAlignment(Element.ALIGN_CENTER);
-                    pdfPCell.setFixedHeight(20);
+                    pdfPCell.setFixedHeight(25);
                     pdfPTable4.addCell(pdfPCell);
                 }
             }
             paragraph.add(pdfPTable4);
-
+            paragraph.add("\n");
             document.add(paragraph);
         }catch (DocumentException e) {
             Log.e("createTable",e.toString());
@@ -290,7 +215,7 @@ public class TemplatePDF {
                 for(indexC=0;indexC<row.length;indexC++){//introduce pocicion por pocicion en el arreglo
                     pdfPCell= new PdfPCell(new Phrase(row[indexC]));
                     pdfPCell.setHorizontalAlignment(Element.ALIGN_CENTER);
-                    pdfPCell.setFixedHeight(20);
+                    pdfPCell.setFixedHeight(25);
                     pdfPTable2.addCell(pdfPCell);//añade esa columna a la tabla
                 }
             }
@@ -304,7 +229,7 @@ public class TemplatePDF {
                 for(indexC=0;indexC<row.length;indexC++){
                     pdfPCell= new PdfPCell(new Phrase(row[indexC]));
                     pdfPCell.setHorizontalAlignment(Element.ALIGN_CENTER);
-                    pdfPCell.setFixedHeight(20);
+                    pdfPCell.setFixedHeight(25);
                     pdfPTable3.addCell(pdfPCell);
                 }
             }
@@ -318,28 +243,12 @@ public class TemplatePDF {
                 for(indexC=0;indexC<row.length;indexC++){
                     pdfPCell= new PdfPCell(new Phrase(row[indexC]));
                     pdfPCell.setHorizontalAlignment(Element.ALIGN_CENTER);
-                    pdfPCell.setFixedHeight(20);
+                    pdfPCell.setFixedHeight(25);
                     pdfPTable5.addCell(pdfPCell);
                 }
             }
             paragraph.add(pdfPTable5);
-/*
-            PdfPTable pdfPTable4 = new PdfPTable(2);
-            pdfPTable4.setWidthPercentage(100);
-
-            for(int indexR=8;indexR<clients.size();indexR++){
-                String[] row=clients.get(indexR);
-                for(indexC=0;indexC<row.length;indexC++){
-                    pdfPCell= new PdfPCell(new Phrase(row[indexC]));
-                    pdfPCell.setHorizontalAlignment(Element.ALIGN_CENTER);
-                    pdfPCell.setFixedHeight(20);
-                    pdfPTable4.addCell(pdfPCell);
-                }
-            }
-
-            paragraph.add(pdfPTable4);
-            */
-
+            paragraph.add("\n");
             document.add(paragraph);
 
 
@@ -376,7 +285,7 @@ public class TemplatePDF {
                 for(indexC=0;indexC<row.length;indexC++){//introduce pocicion por pocicion en el arreglo
                     pdfPCell= new PdfPCell(new Phrase(row[indexC]));
                     pdfPCell.setHorizontalAlignment(Element.ALIGN_CENTER);
-                    pdfPCell.setFixedHeight(20);
+                    pdfPCell.setFixedHeight(25);
                     pdfPTable2.addCell(pdfPCell);//añade esa columna a la tabla
                 }
             }
@@ -390,30 +299,11 @@ public class TemplatePDF {
                 for(indexC=0;indexC<row.length;indexC++){
                     pdfPCell= new PdfPCell(new Phrase(row[indexC]));
                     pdfPCell.setHorizontalAlignment(Element.ALIGN_CENTER);
-                    pdfPCell.setFixedHeight(20);
+                    pdfPCell.setFixedHeight(25);
                     pdfPTable3.addCell(pdfPCell);
                 }
             }
             paragraph.add(pdfPTable3);
-
-
-/*
-            PdfPTable pdfPTable4 = new PdfPTable(2);
-            pdfPTable4.setWidthPercentage(100);
-
-            for(int indexR=8;indexR<clients.size();indexR++){
-                String[] row=clients.get(indexR);
-                for(indexC=0;indexC<row.length;indexC++){
-                    pdfPCell= new PdfPCell(new Phrase(row[indexC]));
-                    pdfPCell.setHorizontalAlignment(Element.ALIGN_CENTER);
-                    pdfPCell.setFixedHeight(20);
-                    pdfPTable4.addCell(pdfPCell);
-                }
-            }
-
-            paragraph.add(pdfPTable4);
-            */
-
             document.add(paragraph);
         }catch (DocumentException e) {
             Log.e("createTable",e.toString());
@@ -439,7 +329,7 @@ public class TemplatePDF {
                 pdfPTable.addCell(pdfPCell);
                 indexC++;
             }
-            paragraph.add("\n\n\n\n");
+            paragraph.add("\n");
             paragraph.add(pdfPTable);
             //esto es lo que va dentro de la tabla
             PdfPTable pdfPTable2 = new PdfPTable(2);//sirve para indicar el numero de columnas que quieres dentro de la tabla
@@ -450,7 +340,7 @@ public class TemplatePDF {
                 for(indexC=0;indexC<row.length;indexC++){//introduce pocicion por pocicion en el arreglo
                     pdfPCell= new PdfPCell(new Phrase(row[indexC]));
                     pdfPCell.setHorizontalAlignment(Element.ALIGN_CENTER);
-                    pdfPCell.setFixedHeight(20);
+                    pdfPCell.setFixedHeight(25);
                     pdfPTable2.addCell(pdfPCell);//añade esa columna a la tabla
                 }
             }
@@ -464,7 +354,7 @@ public class TemplatePDF {
                 for(indexC=0;indexC<row.length;indexC++){
                     pdfPCell= new PdfPCell(new Phrase(row[indexC]));
                     pdfPCell.setHorizontalAlignment(Element.ALIGN_CENTER);
-                    pdfPCell.setFixedHeight(20);
+                    pdfPCell.setFixedHeight(25);
                     pdfPTable3.addCell(pdfPCell);
                 }
             }
@@ -480,14 +370,13 @@ public class TemplatePDF {
                 for(indexC=0;indexC<row.length;indexC++){
                     pdfPCell= new PdfPCell(new Phrase(row[indexC]));
                     pdfPCell.setHorizontalAlignment(Element.ALIGN_CENTER);
-                    pdfPCell.setFixedHeight(20);
+                    pdfPCell.setFixedHeight(25);
                     pdfPTable4.addCell(pdfPCell);
                 }
             }
 
             paragraph.add(pdfPTable4);
-
-
+            paragraph.add("\n");
             document.add(paragraph);
         }catch (DocumentException e) {
             Log.e("createTable",e.toString());
@@ -522,7 +411,7 @@ public class TemplatePDF {
                 for(indexC=0;indexC<row.length;indexC++){//introduce pocicion por pocicion en el arreglo
                     pdfPCell= new PdfPCell(new Phrase(row[indexC]));
                     pdfPCell.setHorizontalAlignment(Element.ALIGN_CENTER);
-                    pdfPCell.setFixedHeight(20);
+                    pdfPCell.setFixedHeight(25);
                     pdfPTable2.addCell(pdfPCell);//añade esa columna a la tabla
                 }
             }
@@ -536,7 +425,7 @@ public class TemplatePDF {
                 for(indexC=0;indexC<row.length;indexC++){
                     pdfPCell= new PdfPCell(new Phrase(row[indexC]));
                     pdfPCell.setHorizontalAlignment(Element.ALIGN_CENTER);
-                    pdfPCell.setFixedHeight(20);
+                    pdfPCell.setFixedHeight(25);
                     pdfPTable3.addCell(pdfPCell);
                 }
             }
@@ -552,14 +441,13 @@ public class TemplatePDF {
                 for(indexC=0;indexC<row.length;indexC++){
                     pdfPCell= new PdfPCell(new Phrase(row[indexC]));
                     pdfPCell.setHorizontalAlignment(Element.ALIGN_CENTER);
-                 //  pdfPCell.setFixedHeight(80);
+                    pdfPCell.setFixedHeight(25);
                     pdfPTable4.addCell(pdfPCell);
                 }
             }
 
             paragraph.add(pdfPTable4);
-
-
+            paragraph.add("\n");
             document.add(paragraph);
         }catch (DocumentException e) {
             Log.e("createTable",e.toString());
@@ -593,7 +481,7 @@ public class TemplatePDF {
                 for(indexC=0;indexC<row.length;indexC++){//introduce pocicion por pocicion en el arreglo
                     pdfPCell= new PdfPCell(new Phrase(row[indexC]));
                     pdfPCell.setHorizontalAlignment(Element.ALIGN_CENTER);
-                    pdfPCell.setFixedHeight(20);
+                    pdfPCell.setFixedHeight(25);
                     pdfPTable2.addCell(pdfPCell);//añade esa columna a la tabla
                 }
             }
@@ -607,7 +495,7 @@ public class TemplatePDF {
                 for(indexC=0;indexC<row.length;indexC++){
                     pdfPCell= new PdfPCell(new Phrase(row[indexC]));
                     pdfPCell.setHorizontalAlignment(Element.ALIGN_CENTER);
-                    pdfPCell.setFixedHeight(20);
+                    pdfPCell.setFixedHeight(25);
                     pdfPTable3.addCell(pdfPCell);
                 }
             }
@@ -622,12 +510,13 @@ public class TemplatePDF {
                 for(indexC=0;indexC<row.length;indexC++){
                     pdfPCell= new PdfPCell(new Phrase(row[indexC]));
                     pdfPCell.setHorizontalAlignment(Element.ALIGN_CENTER);
-                    pdfPCell.setFixedHeight(20);
+                    pdfPCell.setFixedHeight(25);
                     pdfPTable4.addCell(pdfPCell);
                 }
             }
 
             paragraph.add(pdfPTable4);
+            paragraph.add("\n");
 
 
             document.add(paragraph);
@@ -663,7 +552,7 @@ public class TemplatePDF {
                 for(indexC=0;indexC<row.length;indexC++){//introduce pocicion por pocicion en el arreglo
                     pdfPCell= new PdfPCell(new Phrase(row[indexC]));
                     pdfPCell.setHorizontalAlignment(Element.ALIGN_CENTER);
-                    pdfPCell.setFixedHeight(20);
+                    pdfPCell.setFixedHeight(25);
                   //  pdfPCell.setBackgroundColor(BaseColor.CYAN);
                     pdfPTable2.addCell(pdfPCell);//añade esa columna a la tabla
                 }
@@ -679,13 +568,14 @@ public class TemplatePDF {
                 for(indexC=0;indexC<row.length;indexC++){
                     pdfPCell= new PdfPCell(new Phrase(row[indexC]));
                     pdfPCell.setHorizontalAlignment(Element.ALIGN_CENTER);
-                    pdfPCell.setFixedHeight(20);
+                    pdfPCell.setFixedHeight(25);
                     pdfPTable4.addCell(pdfPCell);
                 }
             }
 
             paragraph.add(pdfPTable4);
-
+            paragraph.add("\n");
+            paragraph.add("\n");
 
             document.add(paragraph);
         }catch (DocumentException e) {
@@ -722,7 +612,7 @@ public class TemplatePDF {
                 for(indexC=0;indexC<row.length;indexC++){//introduce pocicion por pocicion en el arreglo
                     pdfPCell= new PdfPCell(new Phrase(row[indexC]));
                     pdfPCell.setHorizontalAlignment(Element.ALIGN_CENTER);
-                    pdfPCell.setFixedHeight(20);
+                    pdfPCell.setFixedHeight(25);
                     //  pdfPCell.setBackgroundColor(BaseColor.CYAN);
                     pdfPTable2.addCell(pdfPCell);//añade esa columna a la tabla
                 }
@@ -738,7 +628,7 @@ public class TemplatePDF {
                 for(indexC=0;indexC<row.length;indexC++){
                     pdfPCell= new PdfPCell(new Phrase(row[indexC]));
                     pdfPCell.setHorizontalAlignment(Element.ALIGN_CENTER);
-                    pdfPCell.setFixedHeight(20);
+                    pdfPCell.setFixedHeight(25);
                     pdfPTable3.addCell(pdfPCell);
                 }
             }
@@ -754,8 +644,7 @@ public class TemplatePDF {
                 for(indexC=0;indexC<row.length;indexC++){//introduce pocicion por pocicion en el arreglo
                     pdfPCell= new PdfPCell(new Phrase(row[indexC]));
                     pdfPCell.setHorizontalAlignment(Element.ALIGN_CENTER);
-                    pdfPCell.setFixedHeight(20);
-                    //  pdfPCell.setBackgroundColor(BaseColor.CYAN);
+                    pdfPCell.setFixedHeight(25);
                     pdfPTable4.addCell(pdfPCell);//añade esa columna a la tabla
                 }
             }
@@ -770,7 +659,7 @@ public class TemplatePDF {
                 for(indexC=0;indexC<row.length;indexC++){
                     pdfPCell= new PdfPCell(new Phrase(row[indexC]));
                     pdfPCell.setHorizontalAlignment(Element.ALIGN_CENTER);
-                    pdfPCell.setFixedHeight(20);
+                    pdfPCell.setFixedHeight(25);
                     pdfPTable5.addCell(pdfPCell);
                 }
             }
@@ -786,7 +675,7 @@ public class TemplatePDF {
                 for(indexC=0;indexC<row.length;indexC++){//introduce pocicion por pocicion en el arreglo
                     pdfPCell= new PdfPCell(new Phrase(row[indexC]));
                     pdfPCell.setHorizontalAlignment(Element.ALIGN_CENTER);
-                    pdfPCell.setFixedHeight(20);
+                    pdfPCell.setFixedHeight(25);
                     //  pdfPCell.setBackgroundColor(BaseColor.CYAN);
                     pdfPTable6.addCell(pdfPCell);//añade esa columna a la tabla
                 }
@@ -802,7 +691,7 @@ public class TemplatePDF {
                 for(indexC=0;indexC<row.length;indexC++){
                     pdfPCell= new PdfPCell(new Phrase(row[indexC]));
                     pdfPCell.setHorizontalAlignment(Element.ALIGN_CENTER);
-                    pdfPCell.setFixedHeight(20);
+                    pdfPCell.setFixedHeight(25);
                     pdfPTable7.addCell(pdfPCell);
                 }
             }
@@ -817,7 +706,7 @@ public class TemplatePDF {
                 for(indexC=0;indexC<row.length;indexC++){//introduce pocicion por pocicion en el arreglo
                     pdfPCell= new PdfPCell(new Phrase(row[indexC]));
                     pdfPCell.setHorizontalAlignment(Element.ALIGN_CENTER);
-                    pdfPCell.setFixedHeight(20);
+                    pdfPCell.setFixedHeight(25);
                     //  pdfPCell.setBackgroundColor(BaseColor.CYAN);
                     pdfPTable8.addCell(pdfPCell);//añade esa columna a la tabla
                 }
@@ -833,7 +722,7 @@ public class TemplatePDF {
                 for(indexC=0;indexC<row.length;indexC++){
                     pdfPCell= new PdfPCell(new Phrase(row[indexC]));
                     pdfPCell.setHorizontalAlignment(Element.ALIGN_CENTER);
-                    pdfPCell.setFixedHeight(20);
+                    pdfPCell.setFixedHeight(25);
                     pdfPTable9.addCell(pdfPCell);
                 }
             }
@@ -848,7 +737,7 @@ public class TemplatePDF {
                 for(indexC=0;indexC<row.length;indexC++){//introduce pocicion por pocicion en el arreglo
                     pdfPCell= new PdfPCell(new Phrase(row[indexC]));
                     pdfPCell.setHorizontalAlignment(Element.ALIGN_CENTER);
-                    pdfPCell.setFixedHeight(20);
+                    pdfPCell.setFixedHeight(25);
                     //  pdfPCell.setBackgroundColor(BaseColor.CYAN);
                     pdfPTable10.addCell(pdfPCell);//añade esa columna a la tabla
                 }
@@ -864,7 +753,7 @@ public class TemplatePDF {
                 for(indexC=0;indexC<row.length;indexC++){
                     pdfPCell= new PdfPCell(new Phrase(row[indexC]));
                     pdfPCell.setHorizontalAlignment(Element.ALIGN_CENTER);
-                    pdfPCell.setFixedHeight(20);
+                    pdfPCell.setFixedHeight(25);
                     pdfPTable11.addCell(pdfPCell);
                 }
             }
@@ -880,7 +769,7 @@ public class TemplatePDF {
                 for(indexC=0;indexC<row.length;indexC++){//introduce pocicion por pocicion en el arreglo
                     pdfPCell= new PdfPCell(new Phrase(row[indexC]));
                     pdfPCell.setHorizontalAlignment(Element.ALIGN_CENTER);
-                    pdfPCell.setFixedHeight(20);
+                    pdfPCell.setFixedHeight(25);
                     //  pdfPCell.setBackgroundColor(BaseColor.CYAN);
                     pdfPTable12.addCell(pdfPCell);//añade esa columna a la tabla
                 }
@@ -896,7 +785,7 @@ public class TemplatePDF {
                 for(indexC=0;indexC<row.length;indexC++){
                     pdfPCell= new PdfPCell(new Phrase(row[indexC]));
                     pdfPCell.setHorizontalAlignment(Element.ALIGN_CENTER);
-                    pdfPCell.setFixedHeight(20);
+                    pdfPCell.setFixedHeight(25);
                     pdfPTable13.addCell(pdfPCell);
                 }
             }
@@ -911,7 +800,7 @@ public class TemplatePDF {
                 for(indexC=0;indexC<row.length;indexC++){//introduce pocicion por pocicion en el arreglo
                     pdfPCell= new PdfPCell(new Phrase(row[indexC]));
                     pdfPCell.setHorizontalAlignment(Element.ALIGN_CENTER);
-                    pdfPCell.setFixedHeight(20);
+                    pdfPCell.setFixedHeight(25);
                     //  pdfPCell.setBackgroundColor(BaseColor.CYAN);
                     pdfPTable14.addCell(pdfPCell);//añade esa columna a la tabla
                 }
@@ -927,7 +816,7 @@ public class TemplatePDF {
                 for(indexC=0;indexC<row.length;indexC++){
                     pdfPCell= new PdfPCell(new Phrase(row[indexC]));
                     pdfPCell.setHorizontalAlignment(Element.ALIGN_CENTER);
-                    pdfPCell.setFixedHeight(20);
+                    pdfPCell.setFixedHeight(25);
                     pdfPTable15.addCell(pdfPCell);
                 }
             }
@@ -944,7 +833,7 @@ public class TemplatePDF {
                 for(indexC=0;indexC<row.length;indexC++){//introduce pocicion por pocicion en el arreglo
                     pdfPCell= new PdfPCell(new Phrase(row[indexC]));
                     pdfPCell.setHorizontalAlignment(Element.ALIGN_CENTER);
-                    pdfPCell.setFixedHeight(20);
+                    pdfPCell.setFixedHeight(25);
                     //  pdfPCell.setBackgroundColor(BaseColor.CYAN);
                     pdfPTable16.addCell(pdfPCell);//añade esa columna a la tabla
                 }
@@ -959,7 +848,7 @@ public class TemplatePDF {
                 for(indexC=0;indexC<row.length;indexC++){//introduce pocicion por pocicion en el arreglo
                     pdfPCell= new PdfPCell(new Phrase(row[indexC]));
                     pdfPCell.setHorizontalAlignment(Element.ALIGN_CENTER);
-                    pdfPCell.setFixedHeight(20);
+                    pdfPCell.setFixedHeight(25);
                     //  pdfPCell.setBackgroundColor(BaseColor.CYAN);
                     pdfPTable17.addCell(pdfPCell);//añade esa columna a la tabla
                 }
@@ -974,7 +863,7 @@ public class TemplatePDF {
                 for(indexC=0;indexC<row.length;indexC++){//introduce pocicion por pocicion en el arreglo
                     pdfPCell= new PdfPCell(new Phrase(row[indexC]));
                     pdfPCell.setHorizontalAlignment(Element.ALIGN_CENTER);
-                    pdfPCell.setFixedHeight(20);
+                    pdfPCell.setFixedHeight(25);
                     //  pdfPCell.setBackgroundColor(BaseColor.CYAN);
                     pdfPTable18.addCell(pdfPCell);//añade esa columna a la tabla
                 }
@@ -1032,7 +921,7 @@ public class TemplatePDF {
                 for(indexC=0;indexC<row.length;indexC++){
                     pdfPCell= new PdfPCell(new Phrase(row[indexC]));
                     pdfPCell.setHorizontalAlignment(Element.ALIGN_CENTER);
-                    pdfPCell.setFixedHeight(20);
+                    pdfPCell.setFixedHeight(25);
                     pdfPTable3.addCell(pdfPCell);
                 }
             }
@@ -1052,8 +941,6 @@ public class TemplatePDF {
             }
 
             paragraph.add(pdfPTable4);
-
-
 
 
             document.add(paragraph);

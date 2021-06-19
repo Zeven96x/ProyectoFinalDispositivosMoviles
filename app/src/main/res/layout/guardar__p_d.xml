@@ -54,94 +54,7 @@
                 android:id="@+id/fila2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-
-                <LinearLayout
-                    android:id="@+id/fecha_1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="       Fecha:     "
-                        android:textAlignment="center"
-                        android:textColor="@color/black"
-                        android:textSize="14sp" />
-
-                    <LinearLayout
-                        android:id="@+id/guarda_fecha_1"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:orientation="horizontal">
-
-                        <EditText
-                            android:id="@+id/txtDia"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:hint="dia"
-                            android:inputType="datetime"
-                            android:textAlignment="center" />
-
-                        <EditText
-                            android:id="@+id/txtMes"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:hint="mes"
-                            android:inputType="number"
-                            android:textAlignment="center" />
-
-                        <EditText
-                            android:id="@+id/txtaño"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:hint="año"
-                            android:inputType="number|textPersonName"
-                            android:textAlignment="center" />
-                    </LinearLayout>
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="Fecha de Contratacion:"
-                        android:textAlignment="center"
-                        android:textSize="14sp" />
-
-                    <LinearLayout
-                        android:id="@+id/fecha_aprobada"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:orientation="horizontal">
-
-                        <EditText
-                            android:id="@+id/txtDiac"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:hint="dia"
-                            android:inputType="number"
-                            android:textAlignment="center" />
-
-                        <EditText
-                            android:id="@+id/txtMesc"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:hint="mes"
-                            android:inputType="number" />
-
-                        <EditText
-                            android:id="@+id/txtañoc"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:hint="año"
-                            android:inputType="number"
-                            android:textAlignment="center" />
-                    </LinearLayout>
-                </LinearLayout>
-
+                android:orientation="vertical">
                 <LinearLayout
                     android:id="@+id/Puesto"
                     android:layout_width="match_parent"
@@ -160,13 +73,121 @@
                     <EditText
                         android:id="@+id/txtPuesto_solicitado"
                         android:layout_width="match_parent"
-                        android:layout_height="115dp"
-                        android:gravity="start|top"
-                        android:inputType="textMultiLine" />
+                        android:layout_height="wrap_content"
+                        android:inputType="textPersonName"
+                        android:textAlignment="center" />
 
                 </LinearLayout>
 
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Fecha:"
+                            android:textAlignment="center"
+                            android:textColor="@color/black"
+                            android:textSize="14sp" />
+
+                            <LinearLayout
+                                android:id="@+id/guarda_fecha_1"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:orientation="horizontal">
+
+                                <EditText
+                                    android:id="@+id/txtDia"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:hint="dia"
+                                    android:inputType="datetime"
+                                    android:textAlignment="center" />
+
+                                <EditText
+                                    android:id="@+id/txtMes"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:hint="mes"
+                                    android:inputType="number"
+                                    android:textAlignment="center" />
+
+                                <EditText
+                                    android:id="@+id/txtaño"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:hint="año"
+                                    android:inputType="number|textPersonName"
+                                    android:textAlignment="center" />
+                            </LinearLayout>
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:hint="        Fecha de Contratacion:"
+                                android:textSize="14sp" />
+
+                            <LinearLayout
+                                android:id="@+id/fecha_aprobada"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:orientation="horizontal">
+
+                                <EditText
+                                    android:id="@+id/txtDiac"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:hint="dia"
+                                    android:inputType="number"
+                                    android:textAlignment="center" />
+
+                                <EditText
+                                    android:id="@+id/txtMesc"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:hint="mes"
+                                    android:inputType="number" />
+
+                                <EditText
+                                    android:id="@+id/txtañoc"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:hint="año"
+                                    android:inputType="number"
+                                    android:textAlignment="center" />
+                            </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+
             </LinearLayout>
+
+
+
+
+
+
+
+
+
 
 
             <LinearLayout
