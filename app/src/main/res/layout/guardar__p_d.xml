@@ -62,9 +62,10 @@
                     android:orientation="vertical">
 
                     <TextView
+                        android:id="@+id/hi"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="Puesto que Solicitar:"
+                        android:hint="Puesto que Solicita:"
                         android:textAlignment="center"
                         android:textColor="@color/black"
                         android:textSize="14sp" />
@@ -74,6 +75,7 @@
                         android:id="@+id/txtPuesto_solicitado"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:hint="Nombre del puesto"
                         android:inputType="textPersonName"
                         android:textAlignment="center" />
 
@@ -94,7 +96,7 @@
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:hint="Fecha:"
+                            android:hint="Fecha Actual:"
                             android:textAlignment="center"
                             android:textColor="@color/black"
                             android:textSize="14sp" />
@@ -382,7 +384,7 @@
                     android:id="@+id/txtColonia"
                     android:layout_width="80dp"
                     android:layout_height="wrap_content"
-                    android:hint="colonia"
+                    android:hint="Colonia"
                     android:textAlignment="center"
                     android:textSize="14sp" />
 
@@ -747,7 +749,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint=""
-                        android:textAlignment="center" />
+                        android:textAlignment="center"
+                        android:textSize="14sp"/>
                 </LinearLayout>
 
                 <LinearLayout
@@ -760,7 +763,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="AFORE:"
-                        android:textSize="14sp" />
+                        android:textSize="14dp" />
 
                     <EditText
                         android:id="@+id/txtAfore"
@@ -786,7 +789,7 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="Cuenta con licencia de manejo:     "
+                        android:hint="Cuenta con licencia de manejo:"
                         android:textAlignment="center"
                         android:textColor="@color/black"
                         android:textSize="14sp" />
@@ -798,13 +801,13 @@
 
                         <CheckBox
                             android:id="@+id/si_licencia"
-                            android:layout_width="60dp"
+                            android:layout_width="50dp"
                             android:layout_height="wrap_content"
                             android:text="si"></CheckBox>
 
                         <CheckBox
                             android:id="@+id/no_licencia"
-                            android:layout_width="60dp"
+                            android:layout_width="50dp"
                             android:layout_height="wrap_content"
                             android:text="no"></CheckBox>
 
@@ -1026,7 +1029,7 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="  Nombre del titulo Obtenido:"
+                        android:hint="Titulo Obtenido:"
                         android:textSize="14sp" />
 
                     <EditText
@@ -1835,16 +1838,16 @@
                     android:orientation="horizontal">
 
                     <CheckBox
-                        android:id="@+id/viajar_no"
+                        android:id="@+id/viajar_si"
                         android:layout_width="60dp"
                         android:layout_height="wrap_content"
-                        android:text="no"></CheckBox>
+                        android:text="si"></CheckBox>
 
                     <CheckBox
-                        android:id="@+id/viajar_si"
+                        android:id="@+id/viajar_no"
                         android:layout_width="150dp"
                         android:layout_height="wrap_content"
-                        android:text="si(Razones)"></CheckBox>
+                        android:text="no(Razones)"></CheckBox>
 
                     <EditText
                         android:id="@+id/txtRazones"
