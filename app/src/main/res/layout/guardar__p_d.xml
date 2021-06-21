@@ -290,7 +290,6 @@
                             android:id="@+id/Mujer"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:onClick="check"
                             android:text="Mujer"></CheckBox>
                     </LinearLayout>
                 </LinearLayout>
@@ -1922,27 +1921,7 @@
 
             </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="70dp"
-                android:orientation="vertical">
 
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="Comentarios del entrevistador:"
-                    android:textColor="@color/black"
-                    android:textSize="14sp" />
-
-                <EditText
-                    android:id="@+id/txtcomentarios_entrevistador"
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:gravity="start|top"
-                    android:inputType="textMultiLine" />
-
-            </LinearLayout>
 
             <LinearLayout
                 android:id="@+id/bottonver"

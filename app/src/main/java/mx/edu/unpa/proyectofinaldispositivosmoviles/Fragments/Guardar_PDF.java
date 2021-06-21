@@ -863,11 +863,11 @@ public class Guardar_PDF extends Fragment implements View.OnClickListener{
         rows.add(new String[]{aux3,"¿A cual? "+sindicato.getText().toString()});
         rows.add(new String[]{"¿Tienes seguro de vida?"});
         rows.add(new String[]{aux4,"Nombre de la CIA: "+seguro.getText().toString()});
-        rows.add(new String[]{"Disposición de viajar"});
+        rows.add(new String[]{"¿Disposición de viajar?"});
         rows.add(new String[]{aux5,"Razon: "+razonesV.getText().toString()});
-        rows.add(new String[]{"¿Disponibilidad a cambiar su residencia"});
+        rows.add(new String[]{"¿Disponibilidad a cambiar su residencia?"});
         rows.add(new String[]{aux6,"Razon: "+razonesC.getText().toString()});
-        rows.add(new String[]{"¿Fechha en que podria presentarse a trabajar?"});
+        rows.add(new String[]{"¿Fecha en que podria presentarse a trabajar?"});
         rows.add(new String[]{String.valueOf(fechaPresentarse.getText())});
         rows.add(new String[]{"Firma Solicitante"," "});
 

@@ -34,7 +34,7 @@ public class TemplatePDF {
     private Font fTitle=new Font(Font.FontFamily.TIMES_ROMAN,20,Font.BOLD);
     private Font fSubTitle=new Font(Font.FontFamily.TIMES_ROMAN,18,Font.BOLD);
     private Font fText=new Font(Font.FontFamily.TIMES_ROMAN,12,Font.BOLD);
-    private Font fHighText=new Font(Font.FontFamily.TIMES_ROMAN,15,Font.BOLD,BaseColor.RED);
+    private Font fHighText=new Font(Font.FontFamily.TIMES_ROMAN,12,Font.BOLD);
 
     public void openDocument(String nombreDel_pdf){
         createFile(nombreDel_pdf+".pdf");
@@ -87,8 +87,11 @@ public class TemplatePDF {
                 String[] row=clients.get(indexR);
                 pdfPTable3 = new PdfPTable(1);
                 for(indexC=0;indexC<row.length;indexC++){
-                    pdfPCell= new PdfPCell(new Phrase(row[indexC]));
-                    pdfPCell.setHorizontalAlignment(Element.ALIGN_CENTER);
+                    if ((indexC%2)==0){
+                        pdfPCell= new PdfPCell(new Phrase(row[indexC],fHighText));
+                    }else {
+                        pdfPCell = new PdfPCell(new Phrase(row[indexC]));
+                    }pdfPCell.setHorizontalAlignment(Element.ALIGN_CENTER);
                     pdfPCell.setFixedHeight(25);
                     pdfPTable3.addCell(pdfPCell);
                 }
@@ -130,7 +133,11 @@ public class TemplatePDF {
             for(int indexR=0;indexR<2;indexR++){//toma un arreglo de string
                 String[] row=clients.get(indexR);//añade el arreglo por sepadado
                 for(indexC=0;indexC<row.length;indexC++){//introduce pocicion por pocicion en el arreglo
-                    pdfPCell= new PdfPCell(new Phrase(row[indexC]));
+                    if ((indexR%2)==0||indexC==4){
+                        pdfPCell= new PdfPCell(new Phrase(row[indexC],fHighText));
+                    }else {
+                        pdfPCell = new PdfPCell(new Phrase(row[indexC]));
+                    }
                     pdfPCell.setHorizontalAlignment(Element.ALIGN_CENTER);
                     pdfPCell.setFixedHeight(25);
                     pdfPTable2.addCell(pdfPCell);//añade esa columna a la tabla
@@ -144,7 +151,11 @@ public class TemplatePDF {
             for(int indexR=2;indexR<6;indexR++){
                 String[] row=clients.get(indexR);
                 for(indexC=0;indexC<row.length;indexC++){
-                    pdfPCell= new PdfPCell(new Phrase(row[indexC]));
+                    if ((indexR%2)==0){
+                        pdfPCell= new PdfPCell(new Phrase(row[indexC],fHighText));
+                    }else {
+                        pdfPCell = new PdfPCell(new Phrase(row[indexC]));
+                    }
                     pdfPCell.setHorizontalAlignment(Element.ALIGN_CENTER);
                     pdfPCell.setFixedHeight(25);
                     pdfPTable3.addCell(pdfPCell);
@@ -157,7 +168,11 @@ public class TemplatePDF {
             for(int indexR=6;indexR<8;indexR++){
                 String[] row=clients.get(indexR);
                 for(indexC=0;indexC<row.length;indexC++){
-                    pdfPCell= new PdfPCell(new Phrase(row[indexC]));
+                    if ((indexR%2)==0){
+                        pdfPCell= new PdfPCell(new Phrase(row[indexC],fHighText));
+                    }else {
+                        pdfPCell = new PdfPCell(new Phrase(row[indexC]));
+                    }
                     pdfPCell.setHorizontalAlignment(Element.ALIGN_CENTER);
                     pdfPCell.setFixedHeight(25);
                     pdfPTable5.addCell(pdfPCell);
@@ -171,7 +186,15 @@ public class TemplatePDF {
             for(int indexR=8;indexR<clients.size();indexR++){
                 String[] row=clients.get(indexR);
                 for(indexC=0;indexC<row.length;indexC++){
-                    pdfPCell= new PdfPCell(new Phrase(row[indexC]));
+                    if ((indexR%2)==0){
+                        pdfPCell= new PdfPCell(new Phrase(row[indexC],fHighText));
+                    }else {
+                        if (indexR==9||indexR==11&&indexC==1){
+                            pdfPCell= new PdfPCell(new Phrase(row[indexC],fHighText));
+                        }else{
+                        pdfPCell = new PdfPCell(new Phrase(row[indexC]));
+                        }
+                    }
                     pdfPCell.setHorizontalAlignment(Element.ALIGN_CENTER);
                     pdfPCell.setFixedHeight(25);
                     pdfPTable4.addCell(pdfPCell);
@@ -211,10 +234,14 @@ public class TemplatePDF {
             PdfPTable pdfPTable2 = new PdfPTable(2);//sirve para indicar el numero de columnas que quieres dentro de la tabla
             pdfPTable2.setWidthPercentage(100);//sirve para ver el porcentaje dentro de la tabla que vas a agarrar dejalo siempre en 100
 
-            for(int indexR=0;indexR<2;indexR++){//toma un arreglo de string
+            for(int indexR=0;indexR<4;indexR++){//toma un arreglo de string
                 String[] row=clients.get(indexR);//añade el arreglo por sepadado
                 for(indexC=0;indexC<row.length;indexC++){//introduce pocicion por pocicion en el arreglo
-                    pdfPCell= new PdfPCell(new Phrase(row[indexC]));
+                    if ((indexR%2)==0){
+                        pdfPCell= new PdfPCell(new Phrase(row[indexC],fHighText));
+                    }else {
+                        pdfPCell = new PdfPCell(new Phrase(row[indexC]));
+                    }
                     pdfPCell.setHorizontalAlignment(Element.ALIGN_CENTER);
                     pdfPCell.setFixedHeight(25);
                     pdfPTable2.addCell(pdfPCell);//añade esa columna a la tabla
@@ -222,27 +249,16 @@ public class TemplatePDF {
             }
             paragraph.add(pdfPTable2);//añade la tabla a la tabla
 
-            PdfPTable pdfPTable3 = new PdfPTable(2);
-            pdfPTable3.setWidthPercentage(100);
-
-            for(int indexR=2;indexR<4;indexR++){
-                String[] row=clients.get(indexR);
-                for(indexC=0;indexC<row.length;indexC++){
-                    pdfPCell= new PdfPCell(new Phrase(row[indexC]));
-                    pdfPCell.setHorizontalAlignment(Element.ALIGN_CENTER);
-                    pdfPCell.setFixedHeight(25);
-                    pdfPTable3.addCell(pdfPCell);
-                }
-            }
-
-            paragraph.add(pdfPTable3);
-
             PdfPTable pdfPTable5 = new PdfPTable(3);
             pdfPTable5.setWidthPercentage(100);
             for(int indexR=4;indexR<6;indexR++){
                 String[] row=clients.get(indexR);
                 for(indexC=0;indexC<row.length;indexC++){
-                    pdfPCell= new PdfPCell(new Phrase(row[indexC]));
+                    if ((indexR%2)==0||indexC==0){
+                        pdfPCell= new PdfPCell(new Phrase(row[indexC],fHighText));
+                    }else {
+                        pdfPCell = new PdfPCell(new Phrase(row[indexC]));
+                    }
                     pdfPCell.setHorizontalAlignment(Element.ALIGN_CENTER);
                     pdfPCell.setFixedHeight(25);
                     pdfPTable5.addCell(pdfPCell);
@@ -281,10 +297,14 @@ public class TemplatePDF {
             PdfPTable pdfPTable2 = new PdfPTable(2);//sirve para indicar el numero de columnas que quieres dentro de la tabla
             pdfPTable2.setWidthPercentage(100);//sirve para ver el porcentaje dentro de la tabla que vas a agarrar dejalo siempre en 100
 
-            for(int indexR=0;indexR<2;indexR++){//toma un arreglo de string
+            for(int indexR=0;indexR<clients.size();indexR++){//toma un arreglo de string
                 String[] row=clients.get(indexR);//añade el arreglo por sepadado
                 for(indexC=0;indexC<row.length;indexC++){//introduce pocicion por pocicion en el arreglo
-                    pdfPCell= new PdfPCell(new Phrase(row[indexC]));
+                    if ((indexR%2)==0||indexC==0){
+                        pdfPCell= new PdfPCell(new Phrase(row[indexC],fHighText));
+                    }else {
+                        pdfPCell = new PdfPCell(new Phrase(row[indexC]));
+                    }
                     pdfPCell.setHorizontalAlignment(Element.ALIGN_CENTER);
                     pdfPCell.setFixedHeight(25);
                     pdfPTable2.addCell(pdfPCell);//añade esa columna a la tabla
@@ -292,19 +312,6 @@ public class TemplatePDF {
             }
             paragraph.add(pdfPTable2);//añade la tabla a la tabla
 
-            PdfPTable pdfPTable3 = new PdfPTable(2);
-            pdfPTable3.setWidthPercentage(100);
-
-            for(int indexR=2;indexR<4;indexR++){
-                String[] row=clients.get(indexR);
-                for(indexC=0;indexC<row.length;indexC++){
-                    pdfPCell= new PdfPCell(new Phrase(row[indexC]));
-                    pdfPCell.setHorizontalAlignment(Element.ALIGN_CENTER);
-                    pdfPCell.setFixedHeight(25);
-                    pdfPTable3.addCell(pdfPCell);
-                }
-            }
-            paragraph.add(pdfPTable3);
             document.add(paragraph);
         }catch (DocumentException e) {
             Log.e("createTable",e.toString());
@@ -336,10 +343,14 @@ public class TemplatePDF {
             PdfPTable pdfPTable2 = new PdfPTable(2);//sirve para indicar el numero de columnas que quieres dentro de la tabla
             pdfPTable2.setWidthPercentage(100);//sirve para ver el porcentaje dentro de la tabla que vas a agarrar dejalo siempre en 100
 
-            for(int indexR=0;indexR<2;indexR++){//toma un arreglo de string
+            for(int indexR=0;indexR<clients.size();indexR++){//toma un arreglo de string
                 String[] row=clients.get(indexR);//añade el arreglo por sepadado
                 for(indexC=0;indexC<row.length;indexC++){//introduce pocicion por pocicion en el arreglo
-                    pdfPCell= new PdfPCell(new Phrase(row[indexC]));
+                    if ((indexC%2)==0||indexR==0&&indexC==1){
+                        pdfPCell= new PdfPCell(new Phrase(row[indexC],fHighText));
+                    }else {
+                        pdfPCell = new PdfPCell(new Phrase(row[indexC]));
+                    }
                     pdfPCell.setHorizontalAlignment(Element.ALIGN_CENTER);
                     pdfPCell.setFixedHeight(40);
                     pdfPTable2.addCell(pdfPCell);//añade esa columna a la tabla
@@ -347,36 +358,6 @@ public class TemplatePDF {
             }
             paragraph.add(pdfPTable2);//añade la tabla a la tabla
 
-            PdfPTable pdfPTable3 = new PdfPTable(2);
-            pdfPTable3.setWidthPercentage(100);
-
-            for(int indexR=2;indexR<4;indexR++){
-                String[] row=clients.get(indexR);
-                for(indexC=0;indexC<row.length;indexC++){
-                    pdfPCell= new PdfPCell(new Phrase(row[indexC]));
-                    pdfPCell.setHorizontalAlignment(Element.ALIGN_CENTER);
-                    pdfPCell.setFixedHeight(25);
-                    pdfPTable3.addCell(pdfPCell);
-                }
-            }
-            paragraph.add(pdfPTable3);
-
-
-
-            PdfPTable pdfPTable4 = new PdfPTable(2);
-            pdfPTable4.setWidthPercentage(100);
-
-            for(int indexR=4;indexR<clients.size();indexR++){
-                String[] row=clients.get(indexR);
-                for(indexC=0;indexC<row.length;indexC++){
-                    pdfPCell= new PdfPCell(new Phrase(row[indexC]));
-                    pdfPCell.setHorizontalAlignment(Element.ALIGN_CENTER);
-                    pdfPCell.setFixedHeight(25);
-                    pdfPTable4.addCell(pdfPCell);
-                }
-            }
-
-            paragraph.add(pdfPTable4);
             paragraph.add("\n");
             document.add(paragraph);
         }catch (DocumentException e) {
@@ -407,10 +388,14 @@ public class TemplatePDF {
             PdfPTable pdfPTable2 = new PdfPTable(2);//sirve para indicar el numero de columnas que quieres dentro de la tabla
             pdfPTable2.setWidthPercentage(100);//sirve para ver el porcentaje dentro de la tabla que vas a agarrar dejalo siempre en 100
 
-            for(int indexR=0;indexR<2;indexR++){//toma un arreglo de string
+            for(int indexR=0;indexR<4;indexR++){//toma un arreglo de string
                 String[] row=clients.get(indexR);//añade el arreglo por sepadado
                 for(indexC=0;indexC<row.length;indexC++){//introduce pocicion por pocicion en el arreglo
-                    pdfPCell= new PdfPCell(new Phrase(row[indexC]));
+                    if ((indexR%2)==0){
+                        pdfPCell= new PdfPCell(new Phrase(row[indexC],fHighText));
+                    }else {
+                        pdfPCell = new PdfPCell(new Phrase(row[indexC]));
+                    }
                     pdfPCell.setHorizontalAlignment(Element.ALIGN_CENTER);
                     pdfPCell.setFixedHeight(25);
                     pdfPTable2.addCell(pdfPCell);//añade esa columna a la tabla
@@ -418,29 +403,17 @@ public class TemplatePDF {
             }
             paragraph.add(pdfPTable2);//añade la tabla a la tabla
 
-            PdfPTable pdfPTable3 = new PdfPTable(2);
-            pdfPTable3.setWidthPercentage(100);
-
-            for(int indexR=2;indexR<4;indexR++){
-                String[] row=clients.get(indexR);
-                for(indexC=0;indexC<row.length;indexC++){
-                    pdfPCell= new PdfPCell(new Phrase(row[indexC]));
-                    pdfPCell.setHorizontalAlignment(Element.ALIGN_CENTER);
-                    pdfPCell.setFixedHeight(25);
-                    pdfPTable3.addCell(pdfPCell);
-                }
-            }
-            paragraph.add(pdfPTable3);
-
-
-
             PdfPTable pdfPTable4 = new PdfPTable(1);
             pdfPTable4.setWidthPercentage(100);
 
             for(int indexR=4;indexR<clients.size();indexR++){
                 String[] row=clients.get(indexR);
                 for(indexC=0;indexC<row.length;indexC++){
-                    pdfPCell= new PdfPCell(new Phrase(row[indexC]));
+                    if ((indexR%2)==0){
+                        pdfPCell= new PdfPCell(new Phrase(row[indexC],fHighText));
+                    }else {
+                        pdfPCell = new PdfPCell(new Phrase(row[indexC]));
+                    }
                     pdfPCell.setHorizontalAlignment(Element.ALIGN_CENTER);
                     pdfPCell.setFixedHeight(25);
                     pdfPTable4.addCell(pdfPCell);
@@ -477,10 +450,14 @@ public class TemplatePDF {
             PdfPTable pdfPTable2 = new PdfPTable(4);//sirve para indicar el numero de columnas que quieres dentro de la tabla
             pdfPTable2.setWidthPercentage(100);//sirve para ver el porcentaje dentro de la tabla que vas a agarrar dejalo siempre en 100
 
-            for(int indexR=0;indexR<2;indexR++){//toma un arreglo de string
+            for(int indexR=0;indexR<clients.size();indexR++){//toma un arreglo de string
                 String[] row=clients.get(indexR);//añade el arreglo por sepadado
                 for(indexC=0;indexC<row.length;indexC++){//introduce pocicion por pocicion en el arreglo
-                    pdfPCell= new PdfPCell(new Phrase(row[indexC]));
+                    if (indexR==0||indexC==0){
+                        pdfPCell= new PdfPCell(new Phrase(row[indexC],fHighText));
+                    }else {
+                        pdfPCell = new PdfPCell(new Phrase(row[indexC]));
+                    }
                     pdfPCell.setHorizontalAlignment(Element.ALIGN_CENTER);
                     pdfPCell.setFixedHeight(25);
                     pdfPTable2.addCell(pdfPCell);//añade esa columna a la tabla
@@ -488,35 +465,6 @@ public class TemplatePDF {
             }
             paragraph.add(pdfPTable2);//añade la tabla a la tabla
 
-            PdfPTable pdfPTable3 = new PdfPTable(4);
-            pdfPTable3.setWidthPercentage(100);
-
-            for(int indexR=2;indexR<3;indexR++){
-                String[] row=clients.get(indexR);
-                for(indexC=0;indexC<row.length;indexC++){
-                    pdfPCell= new PdfPCell(new Phrase(row[indexC]));
-                    pdfPCell.setHorizontalAlignment(Element.ALIGN_CENTER);
-                    pdfPCell.setFixedHeight(25);
-                    pdfPTable3.addCell(pdfPCell);
-                }
-            }
-            paragraph.add(pdfPTable3);
-
-
-            PdfPTable pdfPTable4 = new PdfPTable(4);
-            pdfPTable4.setWidthPercentage(100);
-
-            for(int indexR=3;indexR<clients.size();indexR++){
-                String[] row=clients.get(indexR);
-                for(indexC=0;indexC<row.length;indexC++){
-                    pdfPCell= new PdfPCell(new Phrase(row[indexC]));
-                    pdfPCell.setHorizontalAlignment(Element.ALIGN_CENTER);
-                    pdfPCell.setFixedHeight(25);
-                    pdfPTable4.addCell(pdfPCell);
-                }
-            }
-
-            paragraph.add(pdfPTable4);
             paragraph.add("\n");
             paragraph.add("\n");
             paragraph.add("\n");
@@ -554,10 +502,14 @@ public class TemplatePDF {
             PdfPTable pdfPTable2 = new PdfPTable(5);//sirve para indicar el numero de columnas que quieres dentro de la tabla
             pdfPTable2.setWidthPercentage(100);//sirve para ver el porcentaje dentro de la tabla que vas a agarrar dejalo siempre en 100
 
-            for(int indexR=0;indexR<1;indexR++){//toma un arreglo de string
+            for(int indexR=0;indexR<clients.size();indexR++){//toma un arreglo de string
                 String[] row=clients.get(indexR);//añade el arreglo por sepadado
                 for(indexC=0;indexC<row.length;indexC++){//introduce pocicion por pocicion en el arreglo
-                    pdfPCell= new PdfPCell(new Phrase(row[indexC]));
+                    if (indexR==0){
+                        pdfPCell= new PdfPCell(new Phrase(row[indexC],fHighText));
+                    }else {
+                        pdfPCell = new PdfPCell(new Phrase(row[indexC]));
+                    }
                     pdfPCell.setHorizontalAlignment(Element.ALIGN_CENTER);
                     pdfPCell.setFixedHeight(30);;
                     pdfPTable2.addCell(pdfPCell);//añade esa columna a la tabla
@@ -565,21 +517,6 @@ public class TemplatePDF {
             }
             paragraph.add(pdfPTable2);//añade la tabla a la tabla
 
-
-            PdfPTable pdfPTable4 = new PdfPTable(5);
-            pdfPTable4.setWidthPercentage(100);
-
-            for(int indexR=1;indexR<clients.size();indexR++){
-                String[] row=clients.get(indexR);
-                for(indexC=0;indexC<row.length;indexC++){
-                    pdfPCell= new PdfPCell(new Phrase(row[indexC]));
-                    pdfPCell.setHorizontalAlignment(Element.ALIGN_CENTER);
-                    pdfPCell.setFixedHeight(40);
-                    pdfPTable4.addCell(pdfPCell);
-                }
-            }
-
-            paragraph.add(pdfPTable4);
             paragraph.add("\n");
             paragraph.add("\n");
 
@@ -616,7 +553,11 @@ public class TemplatePDF {
             for(int indexR=0;indexR<1;indexR++){//toma un arreglo de string
                 String[] row=clients.get(indexR);//añade el arreglo por sepadado
                 for(indexC=0;indexC<row.length;indexC++){//introduce pocicion por pocicion en el arreglo
-                    pdfPCell= new PdfPCell(new Phrase(row[indexC]));
+                    if ((indexR%2)==0){
+                        pdfPCell= new PdfPCell(new Phrase(row[indexC],fHighText));
+                    }else {
+                        pdfPCell = new PdfPCell(new Phrase(row[indexC]));
+                    }
                     pdfPCell.setHorizontalAlignment(Element.ALIGN_CENTER);
                     pdfPCell.setFixedHeight(20);
                     //  pdfPCell.setBackgroundColor(BaseColor.CYAN);
@@ -632,7 +573,11 @@ public class TemplatePDF {
             for(int indexR=1;indexR<2;indexR++){
                 String[] row=clients.get(indexR);
                 for(indexC=0;indexC<row.length;indexC++){
-                    pdfPCell= new PdfPCell(new Phrase(row[indexC]));
+                    if (indexC==0){
+                        pdfPCell= new PdfPCell(new Phrase(row[indexC],fHighText));
+                    }else {
+                        pdfPCell = new PdfPCell(new Phrase(row[indexC]));
+                    }
                     pdfPCell.setHorizontalAlignment(Element.ALIGN_CENTER);
                     pdfPCell.setFixedHeight(20);
                     pdfPTable3.addCell(pdfPCell);
@@ -648,7 +593,11 @@ public class TemplatePDF {
             for(int indexR=2;indexR<3;indexR++){//toma un arreglo de string
                 String[] row=clients.get(indexR);//añade el arreglo por sepadado
                 for(indexC=0;indexC<row.length;indexC++){//introduce pocicion por pocicion en el arreglo
-                    pdfPCell= new PdfPCell(new Phrase(row[indexC]));
+                    if ((indexR%2)==0){
+                        pdfPCell= new PdfPCell(new Phrase(row[indexC],fHighText));
+                    }else {
+                        pdfPCell = new PdfPCell(new Phrase(row[indexC]));
+                    }
                     pdfPCell.setHorizontalAlignment(Element.ALIGN_CENTER);
                     pdfPCell.setFixedHeight(20);
                     pdfPTable4.addCell(pdfPCell);//añade esa columna a la tabla
@@ -663,7 +612,11 @@ public class TemplatePDF {
             for(int indexR=3;indexR<4;indexR++){
                 String[] row=clients.get(indexR);
                 for(indexC=0;indexC<row.length;indexC++){
-                    pdfPCell= new PdfPCell(new Phrase(row[indexC]));
+                    if ((indexC%2)==0){
+                        pdfPCell= new PdfPCell(new Phrase(row[indexC],fHighText));
+                    }else {
+                        pdfPCell = new PdfPCell(new Phrase(row[indexC]));
+                    }
                     pdfPCell.setHorizontalAlignment(Element.ALIGN_CENTER);
                     pdfPCell.setFixedHeight(20);
                     pdfPTable5.addCell(pdfPCell);
@@ -679,7 +632,11 @@ public class TemplatePDF {
             for(int indexR=4;indexR<5;indexR++){//toma un arreglo de string
                 String[] row=clients.get(indexR);//añade el arreglo por sepadado
                 for(indexC=0;indexC<row.length;indexC++){//introduce pocicion por pocicion en el arreglo
-                    pdfPCell= new PdfPCell(new Phrase(row[indexC]));
+                    if ((indexR%2)==0){
+                        pdfPCell= new PdfPCell(new Phrase(row[indexC],fHighText));
+                    }else {
+                        pdfPCell = new PdfPCell(new Phrase(row[indexC]));
+                    }
                     pdfPCell.setHorizontalAlignment(Element.ALIGN_CENTER);
                     pdfPCell.setFixedHeight(20);
                     //  pdfPCell.setBackgroundColor(BaseColor.CYAN);
@@ -695,7 +652,11 @@ public class TemplatePDF {
             for(int indexR=5;indexR<6;indexR++){
                 String[] row=clients.get(indexR);
                 for(indexC=0;indexC<row.length;indexC++){
-                    pdfPCell= new PdfPCell(new Phrase(row[indexC]));
+                    if ((indexC%2)==0){
+                        pdfPCell= new PdfPCell(new Phrase(row[indexC],fHighText));
+                    }else {
+                        pdfPCell = new PdfPCell(new Phrase(row[indexC]));
+                    }
                     pdfPCell.setHorizontalAlignment(Element.ALIGN_CENTER);
                     pdfPCell.setFixedHeight(20);
                     pdfPTable7.addCell(pdfPCell);
@@ -710,7 +671,11 @@ public class TemplatePDF {
             for(int indexR=6;indexR<7;indexR++){//toma un arreglo de string
                 String[] row=clients.get(indexR);//añade el arreglo por sepadado
                 for(indexC=0;indexC<row.length;indexC++){//introduce pocicion por pocicion en el arreglo
-                    pdfPCell= new PdfPCell(new Phrase(row[indexC]));
+                    if ((indexR%2)==0){
+                        pdfPCell= new PdfPCell(new Phrase(row[indexC],fHighText));
+                    }else {
+                        pdfPCell = new PdfPCell(new Phrase(row[indexC]));
+                    }
                     pdfPCell.setHorizontalAlignment(Element.ALIGN_CENTER);
                     pdfPCell.setFixedHeight(20);
                     //  pdfPCell.setBackgroundColor(BaseColor.CYAN);
@@ -726,7 +691,11 @@ public class TemplatePDF {
             for(int indexR=7;indexR<8;indexR++){
                 String[] row=clients.get(indexR);
                 for(indexC=0;indexC<row.length;indexC++){
-                    pdfPCell= new PdfPCell(new Phrase(row[indexC]));
+                    if ((indexC%2)==0){
+                        pdfPCell= new PdfPCell(new Phrase(row[indexC],fHighText));
+                    }else {
+                        pdfPCell = new PdfPCell(new Phrase(row[indexC]));
+                    }
                     pdfPCell.setHorizontalAlignment(Element.ALIGN_CENTER);
                     pdfPCell.setFixedHeight(20);
                     pdfPTable9.addCell(pdfPCell);
@@ -741,7 +710,11 @@ public class TemplatePDF {
             for(int indexR=8;indexR<9;indexR++){//toma un arreglo de string
                 String[] row=clients.get(indexR);//añade el arreglo por sepadado
                 for(indexC=0;indexC<row.length;indexC++){//introduce pocicion por pocicion en el arreglo
-                    pdfPCell= new PdfPCell(new Phrase(row[indexC]));
+                    if ((indexR%2)==0){
+                        pdfPCell= new PdfPCell(new Phrase(row[indexC],fHighText));
+                    }else {
+                        pdfPCell = new PdfPCell(new Phrase(row[indexC]));
+                    }
                     pdfPCell.setHorizontalAlignment(Element.ALIGN_CENTER);
                     pdfPCell.setFixedHeight(20);
                     //  pdfPCell.setBackgroundColor(BaseColor.CYAN);
@@ -757,7 +730,11 @@ public class TemplatePDF {
             for(int indexR=9;indexR<10;indexR++){
                 String[] row=clients.get(indexR);
                 for(indexC=0;indexC<row.length;indexC++){
-                    pdfPCell= new PdfPCell(new Phrase(row[indexC]));
+                    if ((indexC%2)==0){
+                        pdfPCell= new PdfPCell(new Phrase(row[indexC],fHighText));
+                    }else {
+                        pdfPCell = new PdfPCell(new Phrase(row[indexC]));
+                    }
                     pdfPCell.setHorizontalAlignment(Element.ALIGN_CENTER);
                     pdfPCell.setFixedHeight(20);
                     pdfPTable11.addCell(pdfPCell);
@@ -773,7 +750,11 @@ public class TemplatePDF {
             for(int indexR=10;indexR<11;indexR++){//toma un arreglo de string
                 String[] row=clients.get(indexR);//añade el arreglo por sepadado
                 for(indexC=0;indexC<row.length;indexC++){//introduce pocicion por pocicion en el arreglo
-                    pdfPCell= new PdfPCell(new Phrase(row[indexC]));
+                    if ((indexR%2)==0){
+                        pdfPCell= new PdfPCell(new Phrase(row[indexC],fHighText));
+                    }else {
+                        pdfPCell = new PdfPCell(new Phrase(row[indexC]));
+                    }
                     pdfPCell.setHorizontalAlignment(Element.ALIGN_CENTER);
                     pdfPCell.setFixedHeight(20);
                     //  pdfPCell.setBackgroundColor(BaseColor.CYAN);
@@ -789,7 +770,11 @@ public class TemplatePDF {
             for(int indexR=11;indexR<12;indexR++){
                 String[] row=clients.get(indexR);
                 for(indexC=0;indexC<row.length;indexC++){
-                    pdfPCell= new PdfPCell(new Phrase(row[indexC]));
+                    if ((indexC%2)==0){
+                        pdfPCell= new PdfPCell(new Phrase(row[indexC],fHighText));
+                    }else {
+                        pdfPCell = new PdfPCell(new Phrase(row[indexC]));
+                    }
                     pdfPCell.setHorizontalAlignment(Element.ALIGN_CENTER);
                     pdfPCell.setFixedHeight(20);
                     pdfPTable13.addCell(pdfPCell);
@@ -804,7 +789,11 @@ public class TemplatePDF {
             for(int indexR=12;indexR<13;indexR++){//toma un arreglo de string
                 String[] row=clients.get(indexR);//añade el arreglo por sepadado
                 for(indexC=0;indexC<row.length;indexC++){//introduce pocicion por pocicion en el arreglo
-                    pdfPCell= new PdfPCell(new Phrase(row[indexC]));
+                    if ((indexR%2)==0){
+                        pdfPCell= new PdfPCell(new Phrase(row[indexC],fHighText));
+                    }else {
+                        pdfPCell = new PdfPCell(new Phrase(row[indexC]));
+                    }
                     pdfPCell.setHorizontalAlignment(Element.ALIGN_CENTER);
                     pdfPCell.setFixedHeight(20);
                     //  pdfPCell.setBackgroundColor(BaseColor.CYAN);
@@ -820,7 +809,11 @@ public class TemplatePDF {
             for(int indexR=13;indexR<14;indexR++){
                 String[] row=clients.get(indexR);
                 for(indexC=0;indexC<row.length;indexC++){
-                    pdfPCell= new PdfPCell(new Phrase(row[indexC]));
+                    if ((indexC%2)==0){
+                        pdfPCell= new PdfPCell(new Phrase(row[indexC],fHighText));
+                    }else {
+                        pdfPCell = new PdfPCell(new Phrase(row[indexC]));
+                    }
                     pdfPCell.setHorizontalAlignment(Element.ALIGN_CENTER);
                     pdfPCell.setFixedHeight(20);
                     pdfPTable15.addCell(pdfPCell);
@@ -837,7 +830,11 @@ public class TemplatePDF {
             for(int indexR=14;indexR<15;indexR++){//toma un arreglo de string
                 String[] row=clients.get(indexR);//añade el arreglo por sepadado
                 for(indexC=0;indexC<row.length;indexC++){//introduce pocicion por pocicion en el arreglo
-                    pdfPCell= new PdfPCell(new Phrase(row[indexC]));
+                    if ((indexR%2)==0){
+                        pdfPCell= new PdfPCell(new Phrase(row[indexC],fHighText));
+                    }else {
+                        pdfPCell = new PdfPCell(new Phrase(row[indexC]));
+                    }
                     pdfPCell.setHorizontalAlignment(Element.ALIGN_CENTER);
                     pdfPCell.setFixedHeight(20);
                     //  pdfPCell.setBackgroundColor(BaseColor.CYAN);
@@ -852,7 +849,11 @@ public class TemplatePDF {
             for(int indexR=15;indexR<16;indexR++){//toma un arreglo de string
                 String[] row=clients.get(indexR);//añade el arreglo por sepadado
                 for(indexC=0;indexC<row.length;indexC++){//introduce pocicion por pocicion en el arreglo
-                    pdfPCell= new PdfPCell(new Phrase(row[indexC]));
+                    if ((indexC%2)==0){
+                        pdfPCell= new PdfPCell(new Phrase(row[indexC],fHighText));
+                    }else {
+                        pdfPCell = new PdfPCell(new Phrase(row[indexC]));
+                    }
                     pdfPCell.setHorizontalAlignment(Element.ALIGN_CENTER);
                     pdfPCell.setFixedHeight(20);
                     //  pdfPCell.setBackgroundColor(BaseColor.CYAN);
@@ -867,7 +868,11 @@ public class TemplatePDF {
             for(int indexR=16;indexR<17;indexR++){//toma un arreglo de string
                 String[] row=clients.get(indexR);//añade el arreglo por sepadado
                 for(indexC=0;indexC<row.length;indexC++){//introduce pocicion por pocicion en el arreglo
-                    pdfPCell= new PdfPCell(new Phrase(row[indexC]));
+                    if ((indexR%2)==0){
+                        pdfPCell= new PdfPCell(new Phrase(row[indexC],fHighText));
+                    }else {
+                        pdfPCell = new PdfPCell(new Phrase(row[indexC]));
+                    }
                     pdfPCell.setHorizontalAlignment(Element.ALIGN_CENTER);
                     pdfPCell.setFixedHeight(20);
                     //  pdfPCell.setBackgroundColor(BaseColor.CYAN);
@@ -909,7 +914,7 @@ public class TemplatePDF {
             for(int indexR=0;indexR<1;indexR++){//toma un arreglo de string
                 String[] row=clients.get(indexR);//añade el arreglo por sepadado
                 for(indexC=0;indexC<row.length;indexC++){//introduce pocicion por pocicion en el arreglo
-                    pdfPCell= new PdfPCell(new Phrase(row[indexC]));
+                    pdfPCell = new PdfPCell(new Phrase(row[indexC]));
                     pdfPCell.setHorizontalAlignment(Element.ALIGN_CENTER);
                     pdfPCell.setFixedHeight(50);
                     //  pdfPCell.setBackgroundColor(BaseColor.CYAN);
@@ -925,7 +930,11 @@ public class TemplatePDF {
             for(int indexR=1;indexR<2;indexR++){
                 String[] row=clients.get(indexR);
                 for(indexC=0;indexC<row.length;indexC++){
-                    pdfPCell= new PdfPCell(new Phrase(row[indexC]));
+                    if (indexR==1){
+                        pdfPCell= new PdfPCell(new Phrase(row[indexC],fHighText));
+                    }else {
+                        pdfPCell = new PdfPCell(new Phrase(row[indexC]));
+                    }
                     pdfPCell.setHorizontalAlignment(Element.ALIGN_CENTER);
                     pdfPCell.setFixedHeight(25);
                     pdfPTable3.addCell(pdfPCell);
