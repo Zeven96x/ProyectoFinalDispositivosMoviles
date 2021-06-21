@@ -54,7 +54,7 @@ import static android.widget.Toast.LENGTH_SHORT;
  * Use the {@link Guardar_PDF#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class Guardar_PDF extends Fragment {
+public class Guardar_PDF extends Fragment implements View.OnClickListener{
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -144,18 +144,31 @@ public class Guardar_PDF extends Fragment {
         sueldoA=(EditText) v.findViewById(R.id.txtSueldoAprobado);
         //datos personales
         hombre= v.findViewById(R.id.Hombre);
+        hombre.setOnClickListener(this);
         mujer= v.findViewById(R.id.Mujer);
+        mujer.setOnClickListener(this);
         suspadres= v.findViewById(R.id.vivipadres);
+        suspadres.setOnClickListener(this);
         sufamilia= v.findViewById(R.id.vivifamilia);
+        sufamilia.setOnClickListener(this);
         susparientes= v.findViewById(R.id.viviparientes);
+        susparientes.setOnClickListener(this);
         suotros= v.findViewById(R.id.vivisolo);
+        suotros.setOnClickListener(this);
         dephijos= v.findViewById(R.id.depnedeHijos);
+        dephijos.setOnClickListener(this);
         depconyuge= v.findViewById(R.id.depnedecontuge);
+        depconyuge.setOnClickListener(this);
         deppadres= v.findViewById(R.id.depnedepadres);
+        deppadres.setOnClickListener(this);
         depotros= v.findViewById(R.id.depnedeotros);
+        depotros.setOnClickListener(this);
         casado= v.findViewById(R.id.estado_civilcasado);
+        casado.setOnClickListener(this);
         solero= v.findViewById(R.id.estado_civilSoltero);
+        solero.setOnClickListener(this);
         esaotro= v.findViewById(R.id.estado_civilotro);
+        esaotro.setOnClickListener(this);
         numero_telefono=(EditText) v.findViewById(R.id.txtNumeroTELEFENO);
         nombreP=(EditText) v.findViewById(R.id.txtNombrePersona);
         apelllidop=(EditText) v.findViewById(R.id.txtapellidoP);
@@ -179,20 +192,31 @@ public class Guardar_PDF extends Fragment {
         tipoilicencia=(EditText) v.findViewById(R.id.txtTipoLicencia);
         rcf=(EditText) v.findViewById(R.id.txtRFC);
         si_licencia=(CheckBox) v.findViewById(R.id.si_licencia);
+        si_licencia.setOnClickListener(this);
         no_licencia=(CheckBox) v.findViewById(R.id.no_licencia);
+        no_licencia.setOnClickListener(this);
         //ESTADO DE SALUD Y HÁBITOS PERSONALES
         enfermedadesPA=(EditText) v.findViewById(R.id.txtTipo_enfermedad);
         metasp=(EditText) v.findViewById(R.id.txtmeta);
         salud_buena=(CheckBox) v.findViewById(R.id.saludbuena);
+        salud_buena.setOnClickListener(this);
         salud_mala=(CheckBox) v.findViewById(R.id.saludmala);
+        salud_mala.setOnClickListener(this);
         salud_reglar=(CheckBox) v.findViewById(R.id.saludregular);
+        salud_reglar.setOnClickListener(this);
         si_enfermo=(CheckBox) v.findViewById(R.id.sienfe);
+        si_enfermo.setOnClickListener(this);
         no_enfermo=(CheckBox) v.findViewById(R.id.noenfermo);
+        no_enfermo.setOnClickListener(this);
         //ESCOLARIDAD
         primaria=(CheckBox) v.findViewById(R.id.primaria);
+        primaria.setOnClickListener(this);
         secundaria=(CheckBox) v.findViewById(R.id.secundaria);
+        secundaria.setOnClickListener(this);
         preparatoria=(CheckBox) v.findViewById(R.id.preparatoria);
+        preparatoria.setOnClickListener(this);
         superior=(CheckBox) v.findViewById(R.id.superior);
+        superior.setOnClickListener(this);
         institucion=(EditText) v.findViewById((R.id.txtNombre_Institucion));
         titulo=(EditText) v.findViewById((R.id.txtNombre_TituloEducativo));
         estudioActual=(EditText) v.findViewById((R.id.txtEstudio_Actual));
@@ -241,26 +265,33 @@ public class Guardar_PDF extends Fragment {
         fechaPresentarse=v.findViewById(R.id.txtFecha_presentar_trabajo);
         //    private CheckBox no1,no2,no3,no4,no5,no6,otrosMedios,anuncio,si1,si2,si3,si4,si5,si6;
         no1=(CheckBox) v.findViewById(R.id.parientes_no);
+        no1.setOnClickListener(this);
         no2=(CheckBox) v.findViewById(R.id.afianza_no);
+        no2.setOnClickListener(this);
         no3=(CheckBox) v.findViewById(R.id.sindicatoNo);
+        no3.setOnClickListener(this);
         no4=(CheckBox) v.findViewById(R.id.seguroV_no);
+        no4.setOnClickListener(this);
         no5=(CheckBox) v.findViewById(R.id.viajar_no);
+        no5.setOnClickListener(this);
         no6=(CheckBox) v.findViewById(R.id.cambiarResi_no);
+        no6.setOnClickListener(this);
         si1=(CheckBox) v.findViewById(R.id.Parientes_si);
+        si1.setOnClickListener(this);
         si2=(CheckBox) v.findViewById(R.id.afianza_si);
+        si2.setOnClickListener(this);
         si3=(CheckBox) v.findViewById(R.id.sindicatoSi);
+        si3.setOnClickListener(this);
         si4=(CheckBox) v.findViewById(R.id.seguroV_si);
+        si4.setOnClickListener(this);
         si5=(CheckBox) v.findViewById(R.id.viajar_si);
+        si5.setOnClickListener(this);
         si6=(CheckBox) v.findViewById(R.id.cambiarResi_si);
+        si6.setOnClickListener(this);
         otrosMedios=v.findViewById(R.id.oMedio);
+        otrosMedios.setOnClickListener(this);
         anuncio=v.findViewById(R.id.anuncio);
-
-
-
-
-
-
-
+        anuncio.setOnClickListener(this);
 
         //button
         guarda= v.findViewById(R.id.guardar);
@@ -312,6 +343,94 @@ public class Guardar_PDF extends Fragment {
         });
         return v;
     }
+
+    @Override
+    public void onClick(View v) {
+        if (hombre.isChecked()&&mujer.isChecked()){
+            hombre.setChecked(false);
+            mujer.setChecked(false);
+            Toast.makeText(getActivity(),"Solo seleciona uno",Toast.LENGTH_LONG).show();
+        }
+        if (suspadres.isChecked()&&sufamilia.isChecked()||suspadres.isChecked()&&susparientes.isChecked()||suspadres.isChecked()&&suotros.isChecked()||susparientes.isChecked()&&suotros.isChecked()||susparientes.isChecked()&&sufamilia.isChecked()||suotros.isChecked()&&sufamilia.isChecked()){
+            suspadres.setChecked(false);
+            sufamilia.setChecked(false);
+            susparientes.setChecked(false);
+            suotros.setChecked(false);
+            Toast.makeText(getActivity(),"Solo seleciona uno",Toast.LENGTH_LONG).show();
+        }
+        if (dephijos.isChecked()&&depconyuge.isChecked()||dephijos.isChecked()&&deppadres.isChecked()||dephijos.isChecked()&&depotros.isChecked()||deppadres.isChecked()&&depotros.isChecked()||deppadres.isChecked()&&depconyuge.isChecked()||depotros.isChecked()&&depconyuge.isChecked()){
+            dephijos.setChecked(false);
+            depconyuge.setChecked(false);
+            deppadres.setChecked(false);
+            depotros.setChecked(false);
+            Toast.makeText(getActivity(),"Solo seleciona uno",Toast.LENGTH_LONG).show();
+        }
+        if (casado.isChecked()&&solero.isChecked()||casado.isChecked()&&esaotro.isChecked()||solero.isChecked()&&esaotro.isChecked()){
+            casado.setChecked(false);
+            solero.setChecked(false);
+            esaotro.setChecked(false);
+            Toast.makeText(getActivity(),"Solo seleciona uno",Toast.LENGTH_LONG).show();
+        }
+        if (si_licencia.isChecked()&&no_licencia.isChecked()){
+            si_licencia.setChecked(false);
+            no_licencia.setChecked(false);
+            Toast.makeText(getActivity(),"Solo seleciona uno",Toast.LENGTH_LONG).show();
+        }
+        if (salud_buena.isChecked()&&salud_mala.isChecked()||salud_buena.isChecked()&&salud_reglar.isChecked()||salud_mala.isChecked()&&salud_reglar.isChecked()){
+            salud_buena.setChecked(false);
+            salud_mala.setChecked(false);
+            salud_reglar.setChecked(false);
+            Toast.makeText(getActivity(),"Solo seleciona uno",Toast.LENGTH_LONG).show();
+        }
+        if (si_enfermo.isChecked()&&no_enfermo.isChecked()){
+            si_enfermo.setChecked(false);
+            no_enfermo.setChecked(false);
+            Toast.makeText(getActivity(),"Solo seleciona uno",Toast.LENGTH_LONG).show();
+        }
+        if (primaria.isChecked()&&secundaria.isChecked()||primaria.isChecked()&&preparatoria.isChecked()||primaria.isChecked()&&superior.isChecked()||preparatoria.isChecked()&&superior.isChecked()||preparatoria.isChecked()&&secundaria.isChecked()||superior.isChecked()&&secundaria.isChecked()){
+            primaria.setChecked(false);
+            secundaria.setChecked(false);
+            preparatoria.setChecked(false);
+            superior.setChecked(false);
+            Toast.makeText(getActivity(),"Solo seleciona uno",Toast.LENGTH_LONG).show();
+        }
+        if (no1.isChecked()&&si1.isChecked()){
+            no1.setChecked(false);
+            si1.setChecked(false);
+            Toast.makeText(getActivity(),"Solo seleciona uno",Toast.LENGTH_LONG).show();
+        }
+        if (no2.isChecked()&&si2.isChecked()){
+            no2.setChecked(false);
+            si2.setChecked(false);
+            Toast.makeText(getActivity(),"Solo seleciona uno",Toast.LENGTH_LONG).show();
+        }
+        if (no3.isChecked()&&si3.isChecked()){
+            no3.setChecked(false);
+            si3.setChecked(false);
+            Toast.makeText(getActivity(),"Solo seleciona uno",Toast.LENGTH_LONG).show();
+        }
+        if (no4.isChecked()&&si4.isChecked()){
+            no4.setChecked(false);
+            si4.setChecked(false);
+            Toast.makeText(getActivity(),"Solo seleciona uno",Toast.LENGTH_LONG).show();
+        }
+        if (no5.isChecked()&&si5.isChecked()){
+            no5.setChecked(false);
+            si5.setChecked(false);
+            Toast.makeText(getActivity(),"Solo seleciona uno",Toast.LENGTH_LONG).show();
+        }
+        if (no6.isChecked()&&si6.isChecked()){
+            no6.setChecked(false);
+            si6.setChecked(false);
+            Toast.makeText(getActivity(),"Solo seleciona uno",Toast.LENGTH_LONG).show();
+        }
+        if (otrosMedios.isChecked()&&anuncio.isChecked()){
+            otrosMedios.setChecked(false);
+            anuncio.setChecked(false);
+            Toast.makeText(getActivity(),"Solo seleciona uno",Toast.LENGTH_LONG).show();
+        }
+    }
+
 
     public  void  limpiarVariables(){
         txtNombre3.setText("");
@@ -411,7 +530,6 @@ public class Guardar_PDF extends Fragment {
         ocupa2.setText("");
         ocupa3.setText("");
         //DATOS GENERALES
-        // private EditText otroMedio,pariente,afianza,sindicato,seguro,razonesV,razonesC,fechaPresentarse;
         otroMedio.setText("");
         pariente.setText("");
         afianza.setText("");
@@ -846,4 +964,6 @@ public class Guardar_PDF extends Fragment {
         }
         return path;
     }
+
+
 }
