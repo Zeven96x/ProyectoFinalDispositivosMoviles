@@ -585,6 +585,8 @@ public class Guardar_PDF extends Fragment implements View.OnClickListener{
         }else{
             if(mujer.isChecked()){
                 sexo="F(X)   M()";
+            }else{
+                sexo="F( )   M()";
             }
         }
 
