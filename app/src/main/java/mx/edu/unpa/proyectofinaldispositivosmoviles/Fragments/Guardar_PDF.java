@@ -437,7 +437,7 @@ public class Guardar_PDF extends Fragment implements View.OnClickListener{
     }
     public String obtenerFecha(){
        Calendar calendar = Calendar.getInstance();
-        String fecha="";
+        String fecha;
         int mes=calendar.get(Calendar.MONTH)+1;
         fecha=""+calendar.get(Calendar.YEAR)+"-"+mes+"-"+calendar.get(Calendar.DAY_OF_MONTH);
 
@@ -602,7 +602,7 @@ public class Guardar_PDF extends Fragment implements View.OnClickListener{
     }
 
     private ArrayList<String[]>datos_PERSONALES( ){
-        String sexo="0";
+        String sexo;
         if(hombre.isChecked()){
             sexo="F( )   M(X)";
         }else{
@@ -652,7 +652,7 @@ public class Guardar_PDF extends Fragment implements View.OnClickListener{
             }
         }
 
-        String estado_Civil="0";
+        String estado_Civil;
         if (solero.isChecked()){
             estado_Civil="Soltero(X)  Casado( )  Otro( )";
         }else{
