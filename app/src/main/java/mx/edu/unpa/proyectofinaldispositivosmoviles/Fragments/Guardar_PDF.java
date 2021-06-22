@@ -297,13 +297,17 @@ public class Guardar_PDF extends Fragment implements View.OnClickListener{
         anuncio.setOnClickListener(this);
 
         //button
+        txtNombre3.setText(obtenerFecha());
+        txtNombre3.setEnabled(false);
+        txtNombre3.setFocusable(false);
+
         guarda= v.findViewById(R.id.guardar);
 
         guarda.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                String nombre = obtenerFecha();//txtNombre3.getText().toString();//guarda el nombr del archivo en la variable
+                String nombre = String.valueOf(txtNombre3.getText());//txtNombre3.getText().toString();//guarda el nombr del archivo en la variable
                 etfile = txtNombre3;
                 File file = new File(getPath() + "/" + txtNombre3.getText().toString() + ".pdf");
                 if(file.exists()) {
@@ -454,7 +458,7 @@ public class Guardar_PDF extends Fragment implements View.OnClickListener{
 
 
     public  void  limpiarVariables(){
-    //    txtNombre3.setText("");
+        txtNombre3.setText(obtenerFecha());
         puestoSolicitado.setText("");
         diaf.setText("");
         mesf.setText("");
