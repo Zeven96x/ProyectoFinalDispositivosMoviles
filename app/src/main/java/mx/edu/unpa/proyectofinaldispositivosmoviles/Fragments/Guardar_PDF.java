@@ -38,7 +38,10 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.nio.charset.MalformedInputException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 import java.util.Random;
 
@@ -88,7 +91,7 @@ public class Guardar_PDF extends Fragment implements View.OnClickListener{
     }
     private static  final int WRITE_STORAGE_CODE=100;
     String DIRECTORY_NAME = "MyPDFs";
-    private EditText txtNombre3, puestoSolicitado,diaf,mesf,anof,diafc,mesfc,anofc,sueldoD,sueldoA;
+    private EditText  puestoSolicitado,diaf,mesf,anof,diafc,mesfc,anofc,sueldoD,sueldoA,txtNombre3;
 
     private EditText numero_telefono,nombreP,apelllidop,aellidom,domicilio,colonia,codigo_p,ciudad,estado,lugarde_n;
     private EditText fechade_n,nacionalidad,peso,edad,estatura,institucion,titulo,estudioActual;
@@ -295,10 +298,12 @@ public class Guardar_PDF extends Fragment implements View.OnClickListener{
 
         //button
         guarda= v.findViewById(R.id.guardar);
+
         guarda.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String nombre = txtNombre3.getText().toString();//guarda el nombr del archivo en la variable
+
+                String nombre = obtenerFecha();//txtNombre3.getText().toString();//guarda el nombr del archivo en la variable
                 etfile = txtNombre3;
                 File file = new File(getPath() + "/" + txtNombre3.getText().toString() + ".pdf");
                 if(file.exists()) {
@@ -430,10 +435,26 @@ public class Guardar_PDF extends Fragment implements View.OnClickListener{
             Toast.makeText(getActivity(),"Solo seleciona uno",Toast.LENGTH_LONG).show();
         }
     }
+    public String obtenerFecha(){
+       Calendar calendar = Calendar.getInstance();
+        String fecha="";
+        int mes=calendar.get(Calendar.MONTH)+1;
+        fecha=""+calendar.get(Calendar.YEAR)+"-"+mes+"-"+calendar.get(Calendar.DAY_OF_MONTH);
+
+        Date date = new Date();
+        SimpleDateFormat a=new SimpleDateFormat("h:mm:ss");
+        String hora = a.format(date);
+        //hora = hora.substring(0, hora.length()-1);
+        fecha=fecha+"-"+hora;
+
+        return fecha;
+
+    }
+
 
 
     public  void  limpiarVariables(){
-        txtNombre3.setText("");
+    //    txtNombre3.setText("");
         puestoSolicitado.setText("");
         diaf.setText("");
         mesf.setText("");
@@ -554,6 +575,8 @@ public class Guardar_PDF extends Fragment implements View.OnClickListener{
         otrosMedios.setChecked(false);
         anuncio.setChecked(false);
     }
+
+
     public  void  crearPdf(String nombre){
         templatePDF.openDocument(nombre);
         templatePDF.createP("SOLICITUD DE EMPLEO", solicitud(puestoSolicitado.getText().toString(),diaf.getText().toString(),mesf.getText().toString(),anof.getText().toString(),diafc.getText().toString(),mesfc.getText().toString(),anofc.getText().toString(),sueldoD.getText().toString(),sueldoA.getText().toString()));
