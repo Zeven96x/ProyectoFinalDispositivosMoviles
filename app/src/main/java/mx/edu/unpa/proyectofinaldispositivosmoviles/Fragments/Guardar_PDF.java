@@ -297,7 +297,7 @@ public class Guardar_PDF extends Fragment implements View.OnClickListener{
         anuncio.setOnClickListener(this);
 
         //button
-        txtNombre3.setText(obtenerFecha());
+        txtNombre3.setText(obtenerFecha()+"");
         txtNombre3.setEnabled(false);
         txtNombre3.setFocusable(false);
 
