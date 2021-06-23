@@ -458,7 +458,7 @@ public class Guardar_PDF extends Fragment implements View.OnClickListener{
 
 
     public  void  limpiarVariables(){
-        txtNombre3.setText(obtenerFecha());
+        txtNombre3.setText(obtenerFecha()+"");
         puestoSolicitado.setText("");
         diaf.setText("");
         mesf.setText("");
